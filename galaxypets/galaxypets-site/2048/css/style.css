@@ -53,62 +53,61 @@ body {
 }
 .x2{
 	background-color: black;
+    background-image: url(planets/blueplanet.png);
 }
 .x4{
-	background-color: darkblue;
+	background-color: rgb(0, 0, 46);
+    background-image: url(planets/greenandpinkplanet.png);
 }
 .x8{
-	background-color: darkcyan;
+    background-image: url(planets/lavenderplanet.png);
 }
 
 .x16{
-    background-color: #f59575;
-    color: white;
+    background-color: rgb(0, 0, 61);
+    background-image: url(planets/pinkplanet.png);
 }
 
 .x32{
-    background-color: #f57c5f;
-    color: white;
+    background-color: rgb(0, 0, 84);
+    background-image: url(planets/purpleplanet.png);
 }
 
 .x64{
-    background-color: #f65d3b;
-    color: white;
+    background-color: rgb(0, 0, 91);
 }
 
 .x128{
-    background-color: #edce71;
-    color: white;
+    background-color: rgb(0, 0, 111);
 }
 
 .x256{
-    background-color: #edcc63;
-    color: white;
+    background-color: rgb(0, 0, 130);
 }
 
 .x512{
-    background-color: #edc651;
-    color: white;
+    background-color: rgb(0, 0, 150);
+
 }
 
 .x1024{
-    background-color: #eec744;
-    color: white;
+    background-color: rgb(0, 0, 180);
+
 }
 
 .x2048{
-    background-color: #ecc230;
-    color: white;
+    background-color: rgb(0, 0, 200);
+
 }
 
 .x4096 {
-    background-color: #fe3d3d;
-    color: white;
+    background-color: rgb(0, 0, 228);
+
 }
 
 .x8192 {
-    background-color: #ff2020;
-    color: white;
+    background-color: rgb(0, 0, 255);
+
 }
 
 
