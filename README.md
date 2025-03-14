@@ -23,3 +23,17 @@ Join us on this cosmic adventure and discover the wonders of Galaxy Pets!
 
 ## Creators
 The two Logans (Logan Silvers and Logan Parkhurst), Marina Atkin, and Sam Marinez
+
+
+# Pages
+### Home
+- Here you can find the most recent updates to the game
+
+### Clubs
+- Join one of the many clubs and chat with other players
+
+### Games 
+- Select one of the many fun games to earn points
+
+### Pet Profile
+- View a pet's profile
