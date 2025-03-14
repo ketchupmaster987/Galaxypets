@@ -56,10 +56,11 @@ body {
     background-image: url(planets/blueplanet.png);
 }
 .x4{
-	background-color: rgb(0, 0, 46);
+	background-color: rgb(0, 0, 33);
     background-image: url(planets/greenandpinkplanet.png);
 }
 .x8{
+    background-color: rgb(0, 0, 46);
     background-image: url(planets/lavenderplanet.png);
 }
 
