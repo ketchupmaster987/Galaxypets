@@ -53,25 +53,25 @@ body {
 }
 .x2{
 	background-color: black;
-    background-image: url(planets/blueplanet.png);
+    background-image: url(/Assets/img/planets/blueplanet.png);
 }
 .x4{
 	background-color: rgb(0, 0, 33);
-    background-image: url(planets/greenandpinkplanet.png);
+    background-image: url(/Assets/img/planets/greenandpinkplanet.png);
 }
 .x8{
     background-color: rgb(0, 0, 46);
-    background-image: url(planets/lavenderplanet.png);
+    background-image: url(/Assets/img/planets/lavenderplanet.png);
 }
 
 .x16{
     background-color: rgb(0, 0, 61);
-    background-image: url(planets/pinkplanet.png);
+    background-image: url(/Assets/img/planets/pinkplanet.png);
 }
 
 .x32{
     background-color: rgb(0, 0, 84);
-    background-image: url(planets/purpleplanet.png);
+    background-image: url(/Assets/img/planets/purpleplanet.png);
 }
 
 .x64{
