@@ -40,7 +40,7 @@ function updateTile(tile, num) {
             tile.classList.add("x"+num.toString());
         } else {
             tile.classList.add("x8192");
-        }                
+        }
     }
 }
 
@@ -78,12 +78,12 @@ function slide(row) {
             row[i+1] = 0;
             score += row[i];
         }
-    } 
-    row = filterZero(row); 
+    }
+    row = filterZero(row);
 
     while (row.length < columns) {
         row.push(0);
-    } 
+    }
     return row;
 }
 
@@ -102,10 +102,10 @@ function slideLeft() {
 
 function slideRight() {
     for (let r = 0; r < rows; r++) {
-        let row = board[r];        
-        row.reverse();             
-        row = slide(row)            
-        board[r] = row.reverse();   
+        let row = board[r];
+        row.reverse();
+        row = slide(row)
+        board[r] = row.reverse();
         for (let c = 0; c < columns; c++){
             let tile = document.getElementById(r.toString() + "-" + c.toString());
             let num = board[r][c];
