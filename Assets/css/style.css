@@ -36,12 +36,13 @@ html {
     /* Standard text-settings below */
     font-size: var(--base-font-size);
     line-height: var(--base-line-height);
+    font-family: var(--main-font), sans-serif;
 }
 
 /* Mobile First CSS: we'll design for phone sizes first, then add media queries for larger screens later */
 
 body {
-    font-family: var(--main-font);
+    font-family: var(--main-font), sans-serif;
     margin: 0;
     padding: 0;
     background-image: url(/Assets/img/aquagalaxy_small.gif);
@@ -57,12 +58,13 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: var(--main-font), sans-serif;
 }
 
 .logo {
     font-size: 1.5rem;
     letter-spacing: 1px;
-    font-family: var(--header-font);
+    font-family: var(--header-font), sans-serif;
     font-weight: bold;
     color: var(--blue);
 }
@@ -71,6 +73,7 @@ nav ul {
     list-style-type: none;
     display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 
 nav ul li a {
@@ -78,11 +81,10 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li a:hover {
+nav a:hover {
     color: var(--pink);
     text-decoration: none;
 }
-
 
 .dropdown {
     position: relative;
@@ -93,7 +95,7 @@ nav ul li a:hover {
     position: absolute;
     background-color: black;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -109,38 +111,68 @@ nav ul li a:hover {
 }
 
 main {
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.newspaper {
-    background-color: #16213e;
+/* Clubs Page */
+.planet-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    min-height: 350px;
+}
+
+.planet-card {
+    padding: 15px;
     border-radius: 10px;
-    padding: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
+    text-align: center;
+    min-width: 230px;
 }
 
-.newspaper h2 {
+.planet-card img {
+    width: 100px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.planet-card img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+    cursor: pointer;
+}
+
+.planet-card p {
+    margin: 5px 0;
+}
+
+.planet-card h2 {
+    font-family: var(--main-font), sans-serif;
     color: var(--blue);
     text-align: center;
+    position: relative;
+    display: inline-block;
+}
+
+.info {
+    display: none; /* Hide by default */
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--blue);
+    font-family: var(--main-font), sans-serif;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid var(--light-purple);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.planet-img:hover + .info {
+    display: block;
 }
 
 figure {
     text-align: center;
-}
-
-button#joinchat {
-    width: 100%;
-    background-color: #ff1791;
-    border: solid #16213e;
-    border-radius: 10px;
-    font-family: var(--main-font);
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-button#joinchat:hover {
-    background-color: #fff017;
 }
 
 figure img {
@@ -179,6 +211,10 @@ footer ul li a {
     text-decoration: none;
 }
 
+footer a:hover {
+    color: var(--pink);
+    text-decoration: none;
+}
 
 /* ========================================
 MEDIA QUERIES!
