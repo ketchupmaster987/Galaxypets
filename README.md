@@ -37,3 +37,63 @@ The two Logans (Logan Silvers and Logan Parkhurst), Marina Atkin, and Sam Marine
 
 ### Pet Profile
 - View a pet's profile
+
+# Pets
+Pets have 4 states currently "asleep", "ouch", "sleepy", and natural
+## Creature 1 Glorbus.
+### Natural
+<img src="/Assets/img/glorbus/blue.PNG" alt="a blue Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/green.PNG" alt="a green Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/lilac.PNG" alt="a lilac Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/pink.PNG" alt="a pink Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/purple.PNG" alt="a purple Glorbus" style="width:50px">
+
+### Ouch
+<img src="/Assets/img/glorbus/ouch/blue.PNG" alt="a blue Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/ouch/green.PNG" alt="a green Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/ouch/lilac.PNG" alt="a lilac Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/ouch/pink.PNG" alt="a pink Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/ouch/purple.PNG" alt="a purple Glorbus" style="width:50px">
+
+### Sleepy
+<img src="/Assets/img/glorbus/sleepy/blue.PNG" alt="a blue Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/sleepy/green.PNG" alt="a green Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/sleepy/lilac.PNG" alt="a lilac Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/sleepy/pink.PNG" alt="a pink Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/sleepy/purple.PNG" alt="a purple Glorbus" style="width:50px">
+
+### Sleeping
+<img src="/Assets/img/glorbus/asleep/blue.PNG" alt="a blue Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/asleep/green.PNG" alt="a green Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/asleep/lilac.PNG" alt="a lilac Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/asleep/pink.PNG" alt="a pink Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/asleep/purple.PNG" alt="a purple Glorbus" style="width:50px">
+
+## Creature 2 Jelly
+### Natural
+<img src="/Assets/img/jelly/blue.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/darkpurple.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/green.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/lightpurple.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/pink.png" alt="a purple Glorbus" style="width:50px">
+
+### Ouch
+<img src="/Assets/img/jelly/ouch/blue.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/ouch/darkpurple.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/ouch/green.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/ouch/lightpurple.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/ouch/pink.png" alt="a purple Glorbus" style="width:50px">
+
+### Sleepy
+<img src="/Assets/img/jelly/sleepy/blue.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/darkpurple.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/green.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/lightpurple.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/pink.png" alt="a purple Glorbus" style="width:50px">
+
+### Sleeping
+<img src="/Assets/img/jelly/asleep/blue.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/asleep/darkpurple.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/asleep/green.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/asleep/lightpurple.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/asleep/pink.png" alt="a purple Glorbus" style="width:50px">
