@@ -71,29 +71,36 @@ Pets have 4 states currently "asleep", "ouch", "sleepy", and natural
 
 ## Creature 2 Jelly
 ### Natural
-<img src="/Assets/img/jelly/blue.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/darkpurple.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/green.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/lightpurple.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/pink.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/blue.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/darkpurple.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/green.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/lightpurple.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/pink.png" alt="a purple jelly" style="width:50px">
 
 ### Ouch
-<img src="/Assets/img/jelly/ouch/blue.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/ouch/darkpurple.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/ouch/green.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/ouch/lightpurple.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/ouch/pink.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/ouch/blue.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/ouch/darkpurple.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/ouch/green.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/ouch/lightpurple.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/ouch/pink.png" alt="a purple jelly" style="width:50px">
 
 ### Sleepy
-<img src="/Assets/img/jelly/sleepy/blue.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/sleepy/darkpurple.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/sleepy/green.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/sleepy/lightpurple.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/sleepy/pink.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/blue.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/darkpurple.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/green.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/lightpurple.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/sleepy/pink.png" alt="a purple jelly" style="width:50px">
 
 ### Sleeping
-<img src="/Assets/img/jelly/asleep/blue.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/asleep/darkpurple.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/asleep/green.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/asleep/lightpurple.png" alt="a purple Glorbus" style="width:50px">
-<img src="/Assets/img/jelly/asleep/pink.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/jelly/asleep/blue.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/asleep/darkpurple.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/asleep/green.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/asleep/lightpurple.png" alt="a purple jelly" style="width:50px">
+<img src="/Assets/img/jelly/asleep/pink.png" alt="a purple jelly" style="width:50px">
+
+# Planets
+<img src="/Assets/img/planets/blueplanet.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/planets/greenandpinkplanet.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/planets/lavenderplanet.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/planets/pinkplanet.png" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/planets/purpleplanet.png" alt="a purple Glorbus" style="width:50px">

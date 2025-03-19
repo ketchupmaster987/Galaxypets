@@ -11,7 +11,9 @@
 
     background-color: rgba(105, 105, 105, 0.45);
     border: 1px solid darkslategray;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: 20px;
 }
 
 .left-column h2 {
@@ -20,7 +22,7 @@
 }
 
 .left-column img {
-    height: 120px;
+    height: 100px;
 }
 
 .club-chatroom-info {
@@ -38,11 +40,12 @@
 
     display: grid;
     grid-template-rows: 1fr auto;
-    background-color: rgba(105, 105, 105, 0.45);
+    background-color: rgba(105, 105, 105, 0.3);
     padding: 5px;
-    margin: 10px;
-    border-radius: 5px;
-    min-height: 400px;
+    margin-right: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-height: 350px;
 }
 
 .message-area {
@@ -57,14 +60,17 @@
     margin: 2px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    display: flex;
 }
 
 .chat-left {
     background-color: var(--message-bg-l);
+    justify-content: flex-start;
 }
 
 .chat-right {
     background-color: var(--message-bg-r);
+    justify-content: flex-end;
 }
 
 .chat-username {
