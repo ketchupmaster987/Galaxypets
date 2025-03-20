@@ -27,7 +27,7 @@ session_start();
     if (isset($_SESSION['username'])){
         if(substr($_SESSION['username'], 0, 5) != "guest")
         {
-            header("location: editProfile.php");
+            header("location: petProfile.php");
         } else {
             header("location: guestProfile.php");
         }

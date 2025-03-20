@@ -10,7 +10,7 @@
 	
 	<title>galaxy pets</title>
 	
-	<link rel="stylesheet" href="css/style.css">	
+	<link rel="stylesheet" href="../Assets/css/style.css">	
 	
 </head>
 
@@ -27,9 +27,7 @@ session_start();
     if (isset($_SESSION['username'])){
         if(substr($_SESSION['username'], 0, 5) != "guest")
         {
-            header("location: editProfile.php");
-        } else {
-            header("location: guestProfile.php");
+            header("location: Pages/petProfile.php");
         }
     }
                 
@@ -90,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION['id'] = $id;
                         } else{
                             // Display an error message if password is not valid
-                            $password_err = 'The password you entered was not valid.';
+                            $password_err = 'The password you entered was not valid.'.$hashed_password;
                         }
                     }
                 } else{

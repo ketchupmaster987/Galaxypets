@@ -13,9 +13,9 @@
         <div class="logo">GalaxyPets</div>
         <ul>
             <li class="dropdown">
-                <a href="Pages/petprofile.html">Your Pet/Profile</a>
+                <a href="Pages/petprofile.php">Your Pet/Profile</a>
                 <div class="./dropdown-content">
-                    <a href="Pages/petprofile.html">My GalaxyPet</a>
+                    <a href="Pages/petprofile.php">My GalaxyPet</a>
                     <a href="#">Closet</a>
                     <a href="#">Settings</a>
                 </div>

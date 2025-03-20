@@ -9,10 +9,10 @@
 <body>
 
 <?php
-$servername = "sql210.epizy.com";
-$username = "epiz_23154020";
+$servername = "127.0.0.1";
+$username = "localhost";
 $password = "";
-$dbName = "epiz_23154020_galaxyPets";
+$dbName = "galaxyPets";
 
 // Create connection
 $link = new mysqli($servername, $username, $password, $dbName);

@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="../Assets/css/profilestyle.css">
 </head>
 <body>
+    <?php 
+session_start();
+?>
 <header>
     <?php
 
     
     if (!isset($_SESSION['username'])){
-        header("location: login.php");
+        //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+        header("location: /../login.php");
     }
     ?>
     <nav>
@@ -28,6 +32,7 @@
             </li>
             <li><a href="games.html">Games</a></li>
             <li><a href="#">Shop</a></li>
+            <li><a href="/../logout.php">Log Out</a></li>
         </ul>
     </nav>
 </header>
@@ -60,23 +65,44 @@
                     });
                 </script>
             </div>
-            <div class="pet-details">
-                <h2>Your Pet Name Here</h2>
-                <ul>
-                    <li><strong>Species:</strong> Cat, Dog, Goo, Plasma</li>
-                    <li><strong>Color:</strong> Pink, Purple, Blue, Green</li>
-                    <li><strong>Home Planet:</strong> Planet</li>
-                    <li><strong>Birthday:</strong> 2025.03.05</li>
-                </ul>
-                <blockquote>
-                    "i ammm starvinggg for planet pointsss"
-                </blockquote>
-            </div>
+            <?php
+
+                require_once '../config.php';
+
+                $sql = "SELECT petname, species, color, planet, birthday FROM pets WHERE username='".$_SESSION['username']."'";
+            
+                $result = mysqli_query($link, $sql);
+
+                if ($result->num_rows > 0) {
+                  // output data of each row
+                    $row = $result->fetch_assoc();
+                    echo '<div class="pet-details">';
+
+
+                        echo "<h2>".$row['petname']."</h2>";
+                        echo'<ul>
+                            <li><strong>Species:</strong>'.$row["species"].'</li>
+                            <li><strong>Color:</strong>'.$row["color"].'</li>
+                            <li><strong>Home Planet:</strong>'.$row["planet"].'</li>
+                            <li><strong>Birthday:</strong>'.$row["birthday"].'</li>
+                        </ul>';
+                        echo '<blockquote>
+                            "i ammm starvinggg for planet pointsss"
+                        </blockquote>';
+                    echo '</div>';
+                } else {
+                  echo "You have no pets";
+                }
+
+            
+            ?>
         </div>
 
 
     </section>
 </main>
+
+<a href="/../logout.php">Logout</a>
 
 </body>
 </html>
