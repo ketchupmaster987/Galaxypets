@@ -44,6 +44,7 @@ body {
     font-family: var(--main-font);
     margin: 0;
     padding: 0;
+    background-color: black;
     background-image: url(/Assets/img/aquagalaxy_small.gif);
     color: #ffffff;
 }
