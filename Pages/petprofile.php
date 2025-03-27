@@ -31,7 +31,7 @@ session_start();
                 </div>
             </li>
             <li><a href="games.html">Games</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="shop.html">Shop</a></li>
             <li><a href="/../logout.php">Log Out</a></li>
         </ul>
     </nav>

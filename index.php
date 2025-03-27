@@ -28,7 +28,7 @@
                 </div>
             </li>
             <li><a href="Pages/games.html">Games</a></li>
-            <li><a href="#">Shop</a></li>
+            <li><a href="Pages/shop.html">Shop</a></li>
         </ul>
     </nav>
 </header>
