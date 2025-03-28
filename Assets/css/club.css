@@ -1,0 +1,92 @@
+.club-chatroom-grid {
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+/* INFO Section */
+.left-column {
+    display: grid;
+    justify-items: center;
+    grid-template-rows: 60% 40%;
+
+    background-color: rgba(105, 105, 105, 0.45);
+    border: 1px solid darkslategray;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: 20px;
+}
+
+.left-column h2 {
+    font-family: var(--main-font), sans-serif;
+    color: var(--blue);
+}
+
+.left-column img {
+    height: 100px;
+}
+
+.club-chatroom-info {
+    background-color: rgba(105, 105, 105, 0.9);
+    border: 1px solid darkslategray;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 2px;
+}
+
+/* CHAT Section */
+.chat-area {
+    --message-bg-r: rgba(204, 23, 255, 0.25);
+    --message-bg-l: rgba(23, 255, 196, 0.25);
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+    background-color: rgba(105, 105, 105, 0.3);
+    padding: 5px;
+    margin-right: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-height: 350px;
+}
+
+.message-area {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.message {
+    font-family: var(--main-font), sans-serif;
+    border: 1px solid darkslategray;
+    padding: 5px;
+    margin: 2px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: flex;
+}
+
+.chat-left {
+    background-color: var(--message-bg-l);
+    justify-content: flex-start;
+}
+
+.chat-right {
+    background-color: var(--message-bg-r);
+    justify-content: flex-end;
+}
+
+.chat-username {
+    display: inline-block;
+    color: var(--blue);
+}
+
+.chat-right  .chat-username {
+    margin-left: auto;
+}
+
+.chat-left  .chat-username {
+    margin-right: auto;
+}
+
+.chat-message {
+    display: inline-block;
+    color: var(--dark-purple);
+}
