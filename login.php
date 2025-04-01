@@ -10,7 +10,7 @@
 	
 	<title>galaxy pets</title>
 	
-	<link rel="stylesheet" href="css/style.css">	
+	<link rel="stylesheet" href="../Assets/css/style.css">	
 	
 </head>
 
