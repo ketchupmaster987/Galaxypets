@@ -11,7 +11,7 @@
 <?php
 $servername = "127.0.0.1";
 $username = "ketchupmaster987";
-$password = "catluver987";
+$password = "";
 $dbName = "galaxyPets";
 // Create connection
 $link = new mysqli($servername, $username, $password, $dbName);

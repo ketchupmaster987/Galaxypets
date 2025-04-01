@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	  <div id="nav2">
 		<ul>
 		  <li><a href="index.php">Home</a></li>
-		  <li><a href="signin.html">Sign In</a></li>
+		  <li><a href="login.php">Sign In</a></li>
 		  <li><a href="about.html">About us</a></li>
 		</ul>
 	</div>
