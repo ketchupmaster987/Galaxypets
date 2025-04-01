@@ -41,6 +41,26 @@ html {
 
 /* Mobile First CSS: we'll design for phone sizes first, then add media queries for larger screens later */
 
+.blue {
+    color: var(--blue);
+}
+
+.light-purple {
+    color: var(--light-purple);
+}
+
+.green {
+    color: var(--green);
+}
+
+.dark-purple {
+    color: var(--dark-purple);
+}
+
+.pink {
+    color: var(--pink);
+}
+
 body {
     font-family: var(--main-font), sans-serif;
     margin: 0;
@@ -112,7 +132,7 @@ nav a:hover {
 }
 
 main {
-    padding-top: 2rem;
+    padding-top: 0.5rem;
     padding-bottom: 2rem;
 }
 
