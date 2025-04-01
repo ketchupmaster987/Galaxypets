@@ -5,31 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyGalaxyPet Profile - GalaxyPets</title>
     <link rel="stylesheet" href="../Assets/css/profilestyle.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <header>
-    <?php
-
-    
-    if (!isset($_SESSION['username'])){
-        header("location: login.php");
-    }
-    ?>
-    <nav>
-        <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
-        <ul>
-            <li><a href="../index.php">Back to Home</a></li>
-            <li class="dropdown">
-                Community
-                <div class="dropdown-content">
-                    <a href="clubs.html">Clubs</a>
-                    <a href="#">Users</a>
-                </div>
-            </li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="#">Shop</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-container"></div>
 </header>
 
 <main>
@@ -40,25 +23,27 @@
                 <div class="alien-container">
                     <img id="alienImage" class="alien-image" src="/Assets/img/jelly/pink.png" alt="Image of your Pet">
                 </div>
-                <div class="color-options">
-                    <div class="color-circle" data-color="lightpurple"></div>
-                    <div class="color-circle" data-color="blue"></div>
-                    <div class="color-circle" data-color="green"></div>
-                    <div class="color-circle" data-color="darkpurple"></div>
-                    <div class="color-circle" data-color="pink"></div>
+                <div class="expand-dev">&plus;</div>
+                <div class="dev-info">
+                    <div class="down-arrow">&dash;</div>
+                    <div class="color-options">
+                        <div class="color-circle" data-color="lightpurple"></div>
+                        <div class="color-circle" data-color="blue"></div>
+                        <div class="color-circle" data-color="green"></div>
+                        <div class="color-circle" data-color="darkpurple"></div>
+                        <div class="color-circle" data-color="pink"></div>
+                    </div>
+                    <div class="alien-options">
+                        <div class="alien-circle" data-color="glorbus">glorbus</div>
+                        <div class="alien-circle" data-color="jelly">jelly</div>
+                    </div>
+                    <div class="status-options">
+                        <div class="state-circle" data-color="normal">normal</div>
+                        <div class="state-circle" data-color="asleep">asleep</div>
+                        <div class="state-circle" data-color="ouch">ouch</div>
+                        <div class="state-circle" data-color="sleepy">sleepy</div>
+                    </div>
                 </div>
-
-                <script>
-                    const alienImage = document.getElementById('alienImage');
-                    const colorCircles = document.querySelectorAll('.color-circle');
-
-                    colorCircles.forEach(circle => {
-                        circle.addEventListener('click', () => {
-                            const selectedColor = circle.getAttribute('data-color');
-                            alienImage.src = `/Assets/img/jelly/${selectedColor}.png`;
-                        });
-                    });
-                </script>
             </div>
             <div class="pet-details">
                 <h2>Your Pet Name Here</h2>
@@ -78,5 +63,19 @@
     </section>
 </main>
 
+<footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer fixed-bottom">
+    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2025 GalaxyPets</p>
+    <ul class="d-flex align-items-center list-unstyled m-0 ml-auto">
+        <li>
+            <a class="text-body-secondary"
+               href="../README.md">About Us</a></li>
+        <li>
+            <a class="text-body-secondary"
+               href="#">Official Site</a></li>
+    </ul>
+</footer>
+
+<script src="../Assets/js/navbar.js"></script>
+<script src="../Assets/js/petprofile.js"></script>
 </body>
 </html>

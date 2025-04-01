@@ -44,30 +44,30 @@ Pets have 4 states currently "asleep", "ouch", "sleepy", and natural
 ### Natural
 <img src="/Assets/img/glorbus/blue.PNG" alt="a blue Glorbus" style="width:50px">
 <img src="/Assets/img/glorbus/green.PNG" alt="a green Glorbus" style="width:50px">
-<img src="/Assets/img/glorbus/lilac.PNG" alt="a lilac Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/lightpurple.PNG" alt="a lilac Glorbus" style="width:50px">
 <img src="/Assets/img/glorbus/pink.PNG" alt="a pink Glorbus" style="width:50px">
-<img src="/Assets/img/glorbus/purple.PNG" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/darkpurple.PNG" alt="a purple Glorbus" style="width:50px">
 
 ### Ouch
 <img src="/Assets/img/glorbus/ouch/blue.PNG" alt="a blue Glorbus" style="width:50px">
 <img src="/Assets/img/glorbus/ouch/green.PNG" alt="a green Glorbus" style="width:50px">
-<img src="/Assets/img/glorbus/ouch/lilac.PNG" alt="a lilac Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/ouch/lightpurple.PNG" alt="a lilac Glorbus" style="width:50px">
 <img src="/Assets/img/glorbus/ouch/pink.PNG" alt="a pink Glorbus" style="width:50px">
-<img src="/Assets/img/glorbus/ouch/purple.PNG" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/ouch/darkpurple.PNG" alt="a purple Glorbus" style="width:50px">
 
 ### Sleepy
 <img src="/Assets/img/glorbus/sleepy/blue.PNG" alt="a blue Glorbus" style="width:50px">
 <img src="/Assets/img/glorbus/sleepy/green.PNG" alt="a green Glorbus" style="width:50px">
-<img src="/Assets/img/glorbus/sleepy/lilac.PNG" alt="a lilac Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/sleepy/lightpurple.PNG" alt="a lilac Glorbus" style="width:50px">
 <img src="/Assets/img/glorbus/sleepy/pink.PNG" alt="a pink Glorbus" style="width:50px">
-<img src="/Assets/img/glorbus/sleepy/purple.PNG" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/sleepy/darkpurple.PNG" alt="a purple Glorbus" style="width:50px">
 
 ### Sleeping
 <img src="/Assets/img/glorbus/asleep/blue.PNG" alt="a blue Glorbus" style="width:50px">
 <img src="/Assets/img/glorbus/asleep/green.PNG" alt="a green Glorbus" style="width:50px">
-<img src="/Assets/img/glorbus/asleep/lilac.PNG" alt="a lilac Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/asleep/lightpurple.PNG" alt="a lilac Glorbus" style="width:50px">
 <img src="/Assets/img/glorbus/asleep/pink.PNG" alt="a pink Glorbus" style="width:50px">
-<img src="/Assets/img/glorbus/asleep/purple.PNG" alt="a purple Glorbus" style="width:50px">
+<img src="/Assets/img/glorbus/asleep/darkpurple.PNG" alt="a purple Glorbus" style="width:50px">
 
 ## Creature 2 Jelly
 ### Natural
