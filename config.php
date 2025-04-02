@@ -9,10 +9,10 @@
 <body>
 
 <?php
-$servername = "127.0.0.1";
-$username = "ketchupmaster987";
-$password = "";
-$dbName = "galaxyPets";
+$servername = "jsk3f4rbvp8ayd7w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+$username = "umkb1af2onvvapku";
+$password = "hzmx4zf1gcdokm27";
+$dbName = "adlh9xv255m2sxnj";
 // Create connection
 $link = new mysqli($servername, $username, $password, $dbName);
 
