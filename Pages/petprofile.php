@@ -39,32 +39,6 @@ session_start();
 
 <main>
     <section class="pet-profile">
-        <h1>MyGalaxyPet Profile</h1>
-        <div class="pet-info">
-            <div class="pet-image">
-                <div class="alien-container">
-                    <img id="alienImage" class="alien-image" src="/Assets/img/jelly/pink.png" alt="Image of your Pet">
-                </div>
-                <div class="color-options">
-                    <div class="color-circle" data-color="lightpurple"></div>
-                    <div class="color-circle" data-color="blue"></div>
-                    <div class="color-circle" data-color="green"></div>
-                    <div class="color-circle" data-color="darkpurple"></div>
-                    <div class="color-circle" data-color="pink"></div>
-                </div>
-
-                <script>
-                    const alienImage = document.getElementById('alienImage');
-                    const colorCircles = document.querySelectorAll('.color-circle');
-
-                    colorCircles.forEach(circle => {
-                        circle.addEventListener('click', () => {
-                            const selectedColor = circle.getAttribute('data-color');
-                            alienImage.src = `/Assets/img/jelly/${selectedColor}.png`;
-                        });
-                    });
-                </script>
-            </div>
             <?php
 
                 require_once '../config.php';
@@ -98,7 +72,7 @@ session_start();
                                         colorCircles.forEach(circle => {
                                             circle.addEventListener('click', () => {
                                                 const selectedColor = circle.getAttribute('data-color');
-                                                alienImage.src = `/Assets/img/jelly/${selectedColor}.png`;
+                                                alienImage.src = `/Assets/img/jelly/".$row["expression"]."/".$row["color"].".png`;
                                             });
                                         });
                                     </script>
