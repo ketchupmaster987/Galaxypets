@@ -57,13 +57,13 @@ session_start();
                                     <div class="alien-container">
                                         <img id="alienImage" class="alien-image" src="/Assets/img/jelly/'.$row["expression"].'/'.$row["color"].'.png" alt="Image of your Pet">
                                     </div>
-                                    <div class="color-options">
-                                        <div class="color-circle" data-color="lightpurple"></div>
-                                        <div class="color-circle" data-color="blue"></div>
-                                        <div class="color-circle" data-color="green"></div>
-                                        <div class="color-circle" data-color="darkpurple"></div>
-                                        <div class="color-circle" data-color="pink"></div>
-                                    </div>';
+                                    // <div class="color-options">
+                                    //     <div class="color-circle" data-color="lightpurple"></div>
+                                    //     <div class="color-circle" data-color="blue"></div>
+                                    //     <div class="color-circle" data-color="green"></div>
+                                    //     <div class="color-circle" data-color="darkpurple"></div>
+                                    //     <div class="color-circle" data-color="pink"></div>
+                                    // </div>';
 
                             echo "<script>
                                         const alienImage = document.getElementById('alienImage');
