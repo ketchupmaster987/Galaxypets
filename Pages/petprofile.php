@@ -39,43 +39,38 @@ session_start();
 
 <main>
     <section class="pet-profile">
-        <h1>MyGalaxyPet Profile</h1>
-        <div class="pet-info">
-            <div class="pet-image">
-                <div class="alien-container">
-                    <img id="alienImage" class="alien-image" src="/Assets/img/jelly/pink.png" alt="Image of your Pet">
-                </div>
-                <div class="color-options">
-                    <div class="color-circle" data-color="lightpurple"></div>
-                    <div class="color-circle" data-color="blue"></div>
-                    <div class="color-circle" data-color="green"></div>
-                    <div class="color-circle" data-color="darkpurple"></div>
-                    <div class="color-circle" data-color="pink"></div>
-                </div>
-
-                <script>
-                    const alienImage = document.getElementById('alienImage');
-                    const colorCircles = document.querySelectorAll('.color-circle');
-
-                    colorCircles.forEach(circle => {
-                        circle.addEventListener('click', () => {
-                            const selectedColor = circle.getAttribute('data-color');
-                            alienImage.src = `/Assets/img/jelly/${selectedColor}.png`;
-                        });
-                    });
-                </script>
-            </div>
             <?php
 
                 require_once '../config.php';
 
-                $sql = "SELECT petname, species, color, planet, birthday FROM pets WHERE username='".$_SESSION['username']."'";
+                $sql = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='".$_SESSION['username']."'";
             
                 $result = mysqli_query($link, $sql);
 
                 if ($result->num_rows > 0) {
                   // output data of each row
                     $row = $result->fetch_assoc();
+
+                    echo "<h1>".$_SESSION['username']."'s MyGalaxyPet Profile</h1>";
+                        echo '<div class="pet-info">
+                                <div class="pet-image">
+                                    <div class="alien-container">
+                                        <img id="alienImage" class="alien-image" src="/Assets/img/jelly/'.$row["expression"].'/'.$row["color"].'.png" alt="Image of your Pet">
+                                    </div>';
+                                    
+
+                            echo "<script>
+                                        const alienImage = document.getElementById('alienImage');
+                                        const colorCircles = document.querySelectorAll('.color-circle');
+
+                                        colorCircles.forEach(circle => {
+                                            circle.addEventListener('click', () => {
+                                                const selectedColor = circle.getAttribute('data-color');
+                                                alienImage.src = `/Assets/img/jelly/".$row["expression"]."/".$row["color"].".png`;
+                                            });
+                                        });
+                                    </script>
+                                </div>";
                     echo '<div class="pet-details">';
 
 
