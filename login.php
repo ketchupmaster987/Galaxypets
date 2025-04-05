@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             session_start();
 
                             $_SESSION['username'] = $username;      
-                            header("location: index.php");
+                            header("location: Pages/petprofile.php");
 
                             $_SESSION['id'] = $id;
                         } else{
