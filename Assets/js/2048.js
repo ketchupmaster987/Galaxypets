@@ -32,16 +32,45 @@ function setGame() {
 
 function updateTile(tile, num) {
     tile.innerText = "";
-    tile.classList.value = ""; //clear the classList
+    tile.classList.value = ""; 
     tile.classList.add("tile");
     if (num > 0) {
         tile.innerText = num.toString();
+        // Remove any existing background image
+       // tile.style.backgroundImage = "none";
+        // tile.style.backgroundColor = "black"; 
+        
+        // Add specific background image based on number
         if (num <= 4096) {
             tile.classList.add("x"+num.toString());
+            // Set background image based on class
+            tile.style.backgroundImage = `url(../img/planets/${getPlanetImage(num)})`;
+            tile.style.backgroundSize = "cover";
         } else {
             tile.classList.add("x8192");
+            tile.style.backgroundImage = "url(../img/planets/blueplanet.png)";
+            tile.style.backgroundSize = "cover";
         }
     }
+}
+
+// Helper function to map numbers to planet images
+function getPlanetImage(num) {
+    const planetMap = {
+        2: "blueplanet.png",
+        4: "greenandpinkplanet.png",
+        8: "lavenderplanet.png",
+        16: "pinkplanet.png",
+        32: "purpleplanet.png",
+        64: "blueplanet.png", // update
+        128: "greenandpinkplanet.png", // update
+        256: "lavenderplanet.png", // update
+        512: "pinkplanet.png", // update
+        1024: "purpleplanet.png", // update
+        2048: "blueplanet.png", // update
+        4096: "greenandpinkplanet.png" // update
+    };
+    return planetMap[num] || "blueplanet.png"; 
 }
 
 document.addEventListener('keyup', (e) => {
@@ -66,7 +95,7 @@ document.addEventListener('keyup', (e) => {
 })
 
 function filterZero(row){
-    return row.filter(num => num != 0); //create new array of all nums != 0
+    return row.filter(num => num != 0); 
 }
 
 function slide(row) {

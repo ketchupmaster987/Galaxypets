@@ -54,6 +54,7 @@ body {
 .x2{
 	background-color: black;
     background-image: url(/Assets/img/planets/blueplanet.png);
+    background-size: cover;
 }
 .x4{
 	background-color: rgb(0, 0, 33);
