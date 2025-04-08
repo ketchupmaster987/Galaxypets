@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             $sql2 = "IF EXISTS (SELECT * FROM latestLogin WHERE username = '".$username."') 
 										BEGIN
-										   UPDATE latestLogin WHERE username = '".$username"' 
+										   UPDATE latestLogin WHERE username = '".$username."' 
 										END
 										ELSE
 										BEGIN
