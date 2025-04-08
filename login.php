@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             $_SESSION['username'] = $username;
 
-                            $sql2 = "INSERT INTO latestLogin (username) VALUES ('".$username."'') ON DUPLICATE KEY UPDATE date = CURRENT_TIMESTAMP";
+                            $sql2 = "INSERT INTO latestLogin (username) VALUES ('".$username."') ON DUPLICATE KEY UPDATE date = CURRENT_TIMESTAMP";
 
 							if ($link->query($sql2) === TRUE) {
 								header("location: Pages/petprofile.php");
