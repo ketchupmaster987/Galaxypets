@@ -26,7 +26,7 @@
         <section class="article">
             <h2>GalaxyPets Daily News // Stardate 2025.03.10</h2>
             <figure>
-                <img src="Assets/img/glorbus/green.PNG" alt="New Pets Added">
+                <img src="Assets/img/glorbus/green.png" alt="New Pets Added">
                 <figcaption>featured: green glorbus</figcaption>
             </figure>
             <h2>New Cosmic Creature: Glorbus is Here!</h2>
