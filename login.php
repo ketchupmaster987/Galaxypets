@@ -84,8 +84,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             save the username to the session */
                             session_start();
 
-                            $_SESSION['username'] = $username;      
-                            header("location: Pages/petprofile.php");
+                            $_SESSION['username'] = $username;
+
+                            $sql2 = "IF EXISTS (SELECT * FROM latestLogin WHERE username = '".$username."') 
+										BEGIN
+										   UPDATE latestLogin WHERE username = '".$username"' 
+										END
+										ELSE
+										BEGIN
+										    INSERT INTO latestLogin (username) VALUES ('".$username"')
+										END";
+
+							if ($link->query($sql2) === TRUE) {
+								header("location: Pages/petprofile.php");
+							} else {
+							  echo "Error: " . $sql . "<br>" . $link->error;
+							}
 
                             $_SESSION['id'] = $id;
                         } else{
