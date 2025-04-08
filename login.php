@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 										END
 										ELSE
 										BEGIN
-										    INSERT INTO latestLogin (username) VALUES ('".$username"')
+										    INSERT INTO latestLogin (username) VALUES ('".$username."')
 										END";
 
 							if ($link->query($sql2) === TRUE) {
