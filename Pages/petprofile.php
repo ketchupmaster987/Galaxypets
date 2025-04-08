@@ -55,7 +55,7 @@ session_start();
                         echo '<div class="pet-info">
                                 <div class="pet-image">
                                     <div class="alien-container">
-                                        <img id="alienImage" class="alien-image" src="./Assets/img/'.$row["species"].'/'.$row["expression"].'/'.$row["color"].'.png" alt="Image of your Pet">
+                                        <img id="alienImage" class="alien-image" src="../Assets/img/'.$row["species"].'/'.$row["expression"].'/'.$row["color"].'.png" alt="Image of your Pet">
                                     </div>';
                                     
 
