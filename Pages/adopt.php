@@ -57,7 +57,7 @@ session_start();
                     
                     var color = document.getElementById('color').value;
                     
-                    document.getElementById('pet').innerHTML = '<img src="../Assets/img/' + species + '/regular/' + color + '.png">'
+                    document.getElementById('pet').innerHTML = '<img src="../Assets/img/' + species + '/regular/' + color + '.png">';
                     
                     
                 }, 0.01 * 1000 );
