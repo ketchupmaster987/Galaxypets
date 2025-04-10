@@ -3,9 +3,9 @@
     require_once '../config.php';
 
     $username = $_SESSION['username'];
-    $species = $_POST['species'];
-    $color = $_POST['color'];
-    $planet = $_POST['planet']
+    $species = $_GET['species'];
+    $color = $_GET['color'];
+    $planet = $_GET['planet'];
 
     echo $username;
     echo "<br>";
