@@ -49,7 +49,19 @@ session_start();
             <div id="PreviewHeader">
             Pet Preview:
             </div>
-            
+            <script type="text/javascript">
+
+                setInterval (function showPreview() {
+
+                    var species = document.getElementById('species').value;
+                    
+                    var color = document.getElementById('color').value;
+                    
+                    document.getElementById('pet').innerHTML = '<img src="../Assets/img/' + species + '/regular/' + color + '.png">';
+                    
+                    
+                }, 0.01 * 1000 );
+            </script>
             <div id="pet">
             </div>
             <form action="adoption.php" method="GET">
