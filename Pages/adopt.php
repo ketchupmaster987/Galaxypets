@@ -56,6 +56,10 @@ session_start();
                 <fieldset>
                     <legend>Create Your Pet</legend>
                     <br>
+                    Name:<br>
+                        <input type='text' value="name" id="name" name="name">
+                        <br>
+                        <br>
                     Species:<br>
                         <select name="species" id="species">
                             <option value="glorbus">Glorbus</option>

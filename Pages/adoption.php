@@ -7,11 +7,16 @@
     $color = $_POST['color'];
     $planet = $_POST['planet']
 
+    echo $username;
+    echo "<br>";
+    echo $species;
+    echo "<br>";
+    echo $color;
+    echo "<br>";
+    echo $planet;
 
-    $sql = "INSERT INTO pets (username, species, color, planet) VALUES ('$username', '$species', '$color', '$planet')";
 
-    mysqli_query($link,$sql);
-
-    header("location: petprofile.php");
+    
     
 ?>
+
