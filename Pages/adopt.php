@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-<title>Adopt A Pet</title>
-<link rel="icon" href="icon.jpg" alt="website icon.jpg">
-<link rel="stylesheet" type= "text/css" href="../Assets/css/style.css">
-
-<meta http-equiv="Pragma" content="no-cache" />
-<?php
-    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
-?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyGalaxyPet Profile - GalaxyPets</title>
+    <link rel="stylesheet" href="../Assets/css/profilestyle.css">
 </head>
+
 <?php 
 session_start();
 ?>
@@ -48,7 +43,7 @@ session_start();
 </header>
 <main>
 	<br>
-	<div id="form">
+	<div>
 		<h2> Adopt a Pet </h2>
         <div id="petPreview">
             <div id="PreviewHeader">
@@ -95,7 +90,7 @@ session_start();
 						<br>
                         <br>
 					Planet:<br>
-                        <input type='text' value="planet">
+                        <input type='text' value="planet" id="planet" name="planet">
                         <br>
                         <br>
 				</fieldset>
