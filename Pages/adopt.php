@@ -52,7 +52,7 @@ session_start();
             
             <div id="pet">
             </div>
-            <form action="adoption.php" method="post">
+            <form action="adoption.php" method="GET">
                 <fieldset>
                     <legend>Create Your Pet</legend>
                     <br>
