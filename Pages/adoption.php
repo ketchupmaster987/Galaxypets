@@ -3,20 +3,16 @@
     require_once '../config.php';
 
     $username = $_SESSION['username'];
+    $petname = $_GET['name'];
     $species = $_GET['species'];
     $color = $_GET['color'];
     $planet = $_GET['planet'];
 
-    echo $username;
-    echo "<br>";
-    echo $species;
-    echo "<br>";
-    echo $color;
-    echo "<br>";
-    echo $planet;
+    $sql = "INSERT INTO pets (username, petname, species, color, planet) VALUES ('$username', '$petname', '$species', '$color', '$planet')";
 
+    mysqli_query($link, $sql);
 
-    
+    header("location: petprofile.php");
     
 ?>
 
