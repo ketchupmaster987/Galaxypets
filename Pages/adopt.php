@@ -66,49 +66,7 @@ session_start();
             </div>
             
         </div>
-			<form action="response.php" method="post">
-				<fieldset>
-					<legend>Create Your Pet</legend>
-                    <br>
-					Species:<br>
-                        <select name="species" id="species">
-						    <option value="glorbus">Glorbus</option>
-						    <option value="jelly">Jelly</option>
-                        </select>
-						<br>
-                        <br>
-					Color:<br>
-						<select name="color" id="color">
-                            
-                            <option value="green">Green</option>
-                            <option value="blue">Blue</option>
-                            <option value="lightpurple">Light Purple</option>
-                            <option value="darkpurple">Dark Purple</option>
-                            <option value="pink">Pink</option>
-                            
-                        </select>
-						<br>
-                        <br>
-					Planet:<br>
-                        <input type='text' value="planet" id="planet" name="planet">
-                        <br>
-                        <br>
-				</fieldset>
-				<br>
-				<?php 
-                if (isset($_SESSION['username'])){
-				    echo '<input type="submit" value="Adopt!">';
-                    echo ' ';
-				    echo '<input type="reset" value="Reset Form">';
-                } else {
-                    echo '<a href="../login.php">';
-                        echo '<div id="login-message">';
-                            echo "Log in to adopt a pet";
-                        echo '</div>';
-                    echo '</a>';
-                }
-                ?>
-			</form><br>
+			<br>
             <!--Or, if you want to order for someone else <br> but don't know how they want their dragon, <br>why not get a <a href="orderGiftCard.php">gift card</a>?-->
 	</div>
 </main>
@@ -118,7 +76,7 @@ session_start();
 	
 	require_once '../config.php';
 
-	$username = 'username';
+	$username = $_SESSION['username'];
 	$species = $_POST['species'];
 	$color = $_POST['color'];
 	$planet = $_POST['planet']
