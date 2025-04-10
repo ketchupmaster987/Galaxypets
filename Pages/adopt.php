@@ -121,7 +121,7 @@ session_start();
 
 <?php
 	
-	require_once 'config.php';
+	require_once '../config.php';
 
 	$username = 'username';
 	$species = $_POST['species'];
