@@ -86,7 +86,7 @@ session_start();
                         </blockquote>';
                     echo '</div>';
                 } else {
-                  echo "You have no pets";
+                  echo "You have no pets. Adopt one <a href = 'adopt.php'>HERE</a>";
                 }
 
             
