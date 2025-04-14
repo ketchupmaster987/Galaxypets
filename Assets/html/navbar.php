@@ -10,13 +10,13 @@
             </div>
         </li>
         <li class="dropdown nav-item">
-            <a href="Pages/clubs.html" class="nav-link">Community</a>
+            <a href="Pages/clubs.php" class="nav-link">Community</a>
             <div class="dropdown-content">
-                <a href="Pages/clubs.html" class="nav-link">Clubs</a>
+                <a href="Pages/clubs.php" class="nav-link">Clubs</a>
                 <a href="#" class="nav-link">Users</a>
             </div>
         </li>
-        <li class="nav-item"><a href="Pages/games.html" class="nav-link">Games</a></li>
-        <li class="nav-item"><a href="Pages/shop.html" class="nav-link">Shop</a></li>
+        <li class="nav-item"><a href="Pages/games.php" class="nav-link">Games</a></li>
+        <li class="nav-item"><a href="Pages/shop.php" class="nav-link">Shop</a></li>
     </ul>
 </nav>
