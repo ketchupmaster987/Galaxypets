@@ -31,12 +31,12 @@ session_start();
             <li class="dropdown">
                 Community
                 <div class="dropdown-content">
-                    <a href="clubs.html">Clubs</a>
+                    <a href="clubs.php">Clubs</a>
                     <a href="#">Users</a>
                 </div>
             </li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="games.php">Games</a></li>
+            <li><a href="shop.php">Shop</a></li>
             <li><a href="/../logout.php">Log Out</a></li>
         </ul>
     </nav>

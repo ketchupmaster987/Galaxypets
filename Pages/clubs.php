@@ -18,21 +18,21 @@
         <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
         <ul class="d-flex align-items-center list-unstyled m-0 ml-auto" style="margin-left: auto;">
             <li class="dropdown nav-item">
-                <a href="petprofile.html">Your Pet/Profile</a>
+                <a href="petprofile.php">Your Pet/Profile</a>
                 <div class="dropdown-content">
-                    <a href="petprofile.html">My GalaxyPet</a>
+                    <a href="petprofile.php">My GalaxyPet</a>
                     <a href="#">Closet</a>
                     <a href="#">Settings</a>
                 </div>
             </li>
             <li class="dropdown nav-item">
-                <a href="clubs.html">Community</a>
+                <a href="clubs.php">Community</a>
                 <div class="dropdown-content">
-                    <a href="clubs.html">Clubs</a>
+                    <a href="clubs.php">Clubs</a>
                     <a href="#">Users</a>
                 </div>
             </li>
-            <li class="nav-item"><a href="games.html">Games</a></li>
+            <li class="nav-item"><a href="games.php">Games</a></li>
             <li class="nav-item"><a href="#">Shop</a></li>
         </ul>
     </nav>

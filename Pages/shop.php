@@ -137,7 +137,7 @@
                 <li class="dropdown">
                     Community
                     <div class="dropdown-content">
-                        <a href="clubs.html">Clubs</a>
+                        <a href="clubs.php">Clubs</a>
                         <a href="#">Users</a>
                     </div>
                 </li>

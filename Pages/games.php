@@ -25,7 +25,7 @@
         <section class="newspaper">
             <h2>2048</h2>
             <figure>
-                <a href="Games/2048/2048Game.html"><img src="../Assets/img/glorbus/lightpurple.png" alt="lilac glorbus"></a>
+                <a href="Games/2048/2048Game.php"><img src="../Assets/img/glorbus/lightpurple.png" alt="lilac glorbus"></a>
                 <figcaption>featured: lilac glorbus</figcaption>
             </figure>
         </section>
@@ -33,7 +33,7 @@
         <section class="newspaper">
             <h2>Matching</h2>
             <figure>
-                <a href="Games/matching.html"><img src="../Assets/img/jelly/sleepy/blue.png" alt="blue jelly"></a>
+                <a href="Games/matching.php"><img src="../Assets/img/jelly/sleepy/blue.png" alt="blue jelly"></a>
                 <figcaption>featured: blue stardust jelly</figcaption>
             </figure>
         </section>
