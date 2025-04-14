@@ -39,9 +39,9 @@
         </section>
 
         <section class="newspaper">
-            <h2>Space Zapper</h2>
+            <h2>flappyalien</h2>
             <figure>
-                <a href="#"><img src="../Assets/img/jelly/ouch/pink.png" alt="pink jelly"></a>
+                <a href="Games/flappyalien.php"><img src="../Assets/img/jelly/ouch/pink.png" alt="pink jelly"></a>
                 <figcaption>featured: pink stardust jelly</figcaption>
             </figure>
         </section>
