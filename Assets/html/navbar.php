@@ -13,7 +13,7 @@
             <a href="Pages/clubs.php" class="nav-link">Community</a>
             <div class="dropdown-content">
                 <a href="Pages/clubs.php" class="nav-link">Clubs</a>
-                <a href="#" class="nav-link">Users</a>
+                <a href="Pages/activeusers.php" class="nav-link">Users</a>
             </div>
         </li>
         <li class="nav-item"><a href="Pages/games.php" class="nav-link">Games</a></li>

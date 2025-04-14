@@ -138,7 +138,7 @@
                     Community
                     <div class="dropdown-content">
                         <a href="clubs.php">Clubs</a>
-                        <a href="#">Users</a>
+                        <a href="activeusers.php">Users</a>
                     </div>
                 </li>
                 <li><a href="../index.php">Home</a></li>
