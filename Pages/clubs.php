@@ -57,7 +57,7 @@
     <ul class="d-flex align-items-center list-unstyled m-0 ml-auto">
         <li>
             <a class="text-body-secondary"
-               href="../about.html">About Us</a></li>
+               href="../about.php">About Us</a></li>
         <li>
             <a class="text-body-secondary"
                href="../index.php">Official Site</a></li>
