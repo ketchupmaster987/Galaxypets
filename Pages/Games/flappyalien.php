@@ -41,7 +41,7 @@ button {
 <body>
     <header>
         <?php
-    
+        session_start();
         
         if (!isset($_SESSION['username'])){
             //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";

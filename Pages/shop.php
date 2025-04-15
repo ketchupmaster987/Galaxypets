@@ -122,6 +122,9 @@
     </style>
 </head>
 <body>
+    <?php
+        session_start();
+    ?>
     <header>
         <nav>
             <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>

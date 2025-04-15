@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <?php
+        session_start();
+    ?>
 <header class="border-bottom sticky-top">
     <nav class="navbar navbar-expand-lg d-flex align-items-center">
         <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
