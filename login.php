@@ -26,7 +26,7 @@ session_start();
     
     if (isset($_SESSION['username'])){
         
-        header("location: petprofile.php");
+        header("location: Pages/petprofile.php");
     }
                 
 // Include config file
