@@ -7,6 +7,8 @@ window.onload = function() {
     setGame();
 }
 
+// TODO: when the user can't make a valid move end the game
+
 function setGame() {
     board = [
         [0, 0, 0, 0],
