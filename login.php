@@ -24,13 +24,9 @@ session_start();
 		<?php
 
     
-    if (isset($_SESSION['username'])){
-        if(substr($_SESSION['username'], 0, 5) != "guest")
-        {
-            header("location: editProfile.php");
-        } else {
-            header("location: guestProfile.php");
-        }
+    if (!isset($_SESSION['username'])){
+        
+        header("location: login.php");
     }
                 
 // Include config file
