@@ -28,7 +28,7 @@ session_start();
         <section class="newspaper">
             <h2>2048</h2>
             <figure>
-                <a href="Games/2048/2048Game.php"><img src="../Assets/img/glorbus/lightpurple.png" alt="lilac glorbus"></a>
+                <a href="Games/2048Game.php"><img src="../Assets/img/glorbus/lightpurple.png" alt="lilac glorbus"></a>
                 <figcaption>featured: lilac glorbus</figcaption>
             </figure>
         </section>
