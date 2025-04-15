@@ -64,6 +64,32 @@
     </style>
 </Head>
 <body>
+<header>
+    <?php
+
+    
+    if (!isset($_SESSION['username'])){
+        //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+        header("location: /../login.php");
+    }
+    ?>
+    <nav>
+        <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
+        <ul>
+            <li><a href="../index.php">Back to Home</a></li>
+            <li class="dropdown">
+                Community
+                <div class="dropdown-content">
+                    <a href="clubs.php">Clubs</a>
+                    <a href="#">Users</a>
+                </div>
+            </li>
+            <li><a href="games.php">Games</a></li>
+            <li><a href="shop.php">Shop</a></li>
+            <li><a href="/../logout.php">Log Out</a></li>
+        </ul>
+    </nav>
+</header>
     <h2>Score: <span id='score'>0</span></h2>
     <div id='grid'></div>
     <script>
@@ -72,12 +98,12 @@
         const scoreSpan = document.getElementById('score')
         const MAX_SCORE = 6
         const cardsArr = [
-            '../../Assets/img/glorbus/blue.PNG',
-            '../../Assets/img/glorbus/darkpurple.PNG',
-            '../../Assets/img/glorbus/lightpurple.PNG',
-            '../../Assets/img/glorbus/pink.PNG',
-            '../../Assets/img/glorbus/green.PNG',
-            '../../Assets/img/planets/blueplanet.PNG',
+            '../../../Assets/img/glorbus/blue.PNG',
+            '../../../Assets/img/glorbus/darkpurple.PNG',
+            '../../../Assets/img/glorbus/lightpurple.PNG',
+            '../../../Assets/img/glorbus/pink.PNG',
+            '../../../Assets/img/glorbus/green.PNG',
+            '../../../Assets/img/planets/blueplanet.PNG',
         ]
 
         let indices = [0, 1, 2, 3, 4, 5]

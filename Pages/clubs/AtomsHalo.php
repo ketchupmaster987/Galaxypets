@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GalaxyPets - Your Space Adventure Begins!</title>
-    <link rel="stylesheet" href="../Assets/css/style.css">
+    <link rel="stylesheet" href="../../Assets/css/style.css">
+    <link rel="stylesheet" href="../../Assets/css/club.css">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
 <body>
 <header class="border-bottom sticky-top">
     <nav class="navbar navbar-expand-lg d-flex align-items-center">
-        <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
+        <div class="logo"><a href="../../index.php" style="text-decoration: none;">GalaxyPets</a></div>
         <ul class="d-flex align-items-center list-unstyled m-0 ml-auto" style="margin-left: auto;">
             <li class="dropdown nav-item">
-                <a href="petprofile.html">Your Pet/Profile</a>
+                <a href="../petprofile.php">Your Pet/Profile</a>
                 <div class="dropdown-content">
-                    <a href="petprofile.html">My GalaxyPet</a>
+                    <a href="../petprofile.php">My GalaxyPet</a>
                     <a href="#">Closet</a>
                     <a href="#">Settings</a>
                 </div>
             </li>
             <li class="dropdown nav-item">
-                <a href="clubs.html">Community</a>
+                <a href="../clubs.php">Community</a>
                 <div class="dropdown-content">
-                    <a href="clubs.html">Clubs</a>
+                    <a href="../clubs.php">Clubs</a>
                     <a href="#">Users</a>
                 </div>
             </li>
-            <li class="nav-item"><a href="games.html">Games</a></li>
+            <li class="nav-item"><a href="../games.php">Games</a></li>
             <li class="nav-item"><a href="#">Shop</a></li>
         </ul>
     </nav>
@@ -42,13 +41,41 @@
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 
-<main>
-    <section class="planet-grid" aria-label="Club Planets">
-        <!-- The js fills this in with the links to the planets,  the json is editable there -->
+<main role="main" class="container-md">
+    <section class="club-chatroom-grid">
+        <section class="left-column">
+            <figure>
+                <figcaption>
+                    <h2>Atoms Halo</h2>
+                </figcaption>
+                <img src="../../Assets/img/planets/lavenderplanet.png" alt="Atoms Halo">
+            </figure>
+            <section class="club-chatroom-info">
+                <div> <p> Message about Atoms Halo :) </p> </div>
+                <div> <p> population: 5 </p> </div>
+                <div> <p> online: 4 </p> </div>
+            </section>
+        </section>
+        <section class="chat-area">
+            <section class="message-area container">
+                <div class="message chat-left">
+                    <div class="chat-username"><p>***User Name***</p></div>
+                    <div class="chat-message"><p>***Chat***</p></div>
+                </div>
+                <div class="message chat-right">
+                    <div class="chat-message"><p>***Chat***</p></div>
+                    <div class="chat-username"><p>***User Name***</p></div>
+                </div>
+            </section>
+            <section class="input-area input-group container">
+                <input class="form-control" type="text" placeholder="Type your message here...">
+                <button class="btn btn-dark">Send</button>
+            </section>
+        </section>
     </section>
 </main>
 
-<marquee  behavior=scroll direction="right" scrollamount="5" style="color: #17ffee;">
+<marquee behavior=scroll direction="right" scrollamount="5" style="color: #17ffee;">
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 
@@ -57,15 +84,13 @@
     <ul class="d-flex align-items-center list-unstyled m-0 ml-auto">
         <li>
             <a class="text-body-secondary"
-               href="../about.html">About Us</a></li>
+               href="../../about.html">About Us</a></li>
         <li>
             <a class="text-body-secondary"
-               href="../index.php">Official Site</a></li>
+               href="../../index.php">Official Site</a></li>
     </ul>
 </footer>
 </body>
-
-<script src="../Assets/js/clubpage.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

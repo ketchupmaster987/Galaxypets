@@ -23,6 +23,13 @@
 
 <main>
     <section class="container article-container">
+    <section class="article">
+            <h2>GalaxyPets Daily News // Stardate 2025.04.14</h2>
+            <h2>New Game Alert: Cosmic Matching Pairs Has Landed!</h2>
+            <p>We are thrilled to announce the arrival of Cosmic Matching Pairs, the galaxy's most addictive memory challenge now available in your Games Window! Put your memory skills to the test as you match pairs of your favorite cosmic creatures and collect stellar rewards.</p>
+            <p>Cosmic Matching Pairs is perfect for GalaxyPet enthusiasts looking to sharpen their minds while earning exclusive in-game items and pet accessories. Each successful match brings you closer to unlocking special limited-edition rewards!</p>
+            <p>Access the game directly through your Games Window now and start your matching adventure today. Who knows - you might even discover some cosmic secrets hidden within the cards!</p>
+        </section>
         <section class="article">
             <h2>GalaxyPets Daily News // Stardate 2025.03.10</h2>
             <figure>
