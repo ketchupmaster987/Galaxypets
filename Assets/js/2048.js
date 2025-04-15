@@ -7,6 +7,8 @@ window.onload = function() {
     setGame();
 }
 
+// TODO: when the user can't make a valid move end the game
+
 function setGame() {
     board = [
         [0, 0, 0, 0],
@@ -44,7 +46,7 @@ function updateTile(tile, num) {
         if (num <= 4096) {
             tile.classList.add("x"+num.toString());
             // Set background image based on class
-            tile.style.backgroundImage = `url(../img/planets/${getPlanetImage(num)})`;
+            tile.style.backgroundImage = 'url(../img/planets/${getPlanetImage(num)})';
             tile.style.backgroundSize = "cover";
         } else {
             tile.classList.add("x8192");
@@ -57,7 +59,7 @@ function updateTile(tile, num) {
 // Helper function to map numbers to planet images
 function getPlanetImage(num) {
     const planetMap = {
-        2: "blueplanet.png",
+        2: 'blueplanet.png',
         4: "greenandpinkplanet.png",
         8: "lavenderplanet.png",
         16: "pinkplanet.png",
