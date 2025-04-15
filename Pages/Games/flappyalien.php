@@ -49,18 +49,18 @@ button {
         }
         ?>
         <nav>
-            <div class="logo"><a href=".../index.php" style="text-decoration: none;">GalaxyPets</a></div>
+            <div class="logo"><a href="/../index.php" style="text-decoration: none;">GalaxyPets</a></div>
             <ul>
-                <li><a href="../index.php">Back to Home</a></li>
+                <li><a href="/../index.php">Back to Home</a></li>
                 <li class="dropdown">
                     Community
                     <div class="dropdown-content">
-                        <a href="../clubs.php">Clubs</a>
-                        <a href="../activeusers.php">Users</a>
+                        <a href="./clubs.php">Clubs</a>
+                        <a href="./activeusers.php">Users</a>
                     </div>
                 </li>
-                <li><a href="../games.php">Games</a></li>
-                <li><a href="../shop.php">Shop</a></li>
+                <li><a href="/../games.php">Games</a></li>
+                <li><a href="/../shop.php">Shop</a></li>
                 <li><a href="/../logout.php">Log Out</a></li>
             </ul>
         </nav>
