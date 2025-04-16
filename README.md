@@ -1,6 +1,8 @@
 ## Welcome to Galaxy Pets!!
 Welcome to Galaxy Pets, a space-themed virtual pet universe inspired by classic online experiences like Neopets. 
 
+# HERES THE LINK: https://galaxypets-d0cb3cf799c8.herokuapp.com/
+
 - Our project is a collaborative effort by a group of students who are passionate about web development and gaming. 
 - We are building a dynamic PHP and SQL website where users can engage in exciting games, earn points, and unlock a variety of accessories for their digital pets.
 
