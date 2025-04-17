@@ -38,10 +38,9 @@ session_start();
 
             echo $row_date['prevDate'];
 
-            $time_away = date_diff($row_date['prevDate'], $row_date['date']);
+            $time_away = strtotime($row_date['prevDate']) - strtotime($row_date['date']);
 
             echo $time_away;
-
         }
 
         $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
