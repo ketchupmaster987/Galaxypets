@@ -32,13 +32,13 @@ session_start();
 
         $result_date = mysqli_query($link, $sql1);
 
-        // if ($result_date->num_rows > 0) {
+        if ($result_date->num_rows > 0) {
 
-        //     $row_date = $result_date->fetch_assoc();
+        $row_date = $result_date->fetch_assoc();
 
         //     $date_diff = $row_date['prevDate']->diff($row_date['date']);
 
-        // }
+        }
 
         $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
 
