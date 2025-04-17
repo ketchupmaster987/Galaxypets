@@ -38,7 +38,7 @@ session_start();
 
             //echo $row_date['prevDate'];
 
-            $time_away = (date_diff(strtotime($row_date['prevDate']), strtotime($row_date['date'])))/86400;
+            $time_away = (date_diff(strtotime($row_date['prevDate']), strtotime($row_date['latestDate'])))/86400;
             
             echo $time_away;
 
