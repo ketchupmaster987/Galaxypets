@@ -38,9 +38,27 @@ session_start();
 
             echo $row_date['prevDate'];
 
-            $time_away = strtotime($row_date['prevDate']) - strtotime($row_date['date']);
+            $time_away = (strtotime($row_date['prevDate']) - strtotime($row_date['date']))/86400;
 
-            echo $time_away;
+            $sql2 = "UPDATE pets SET expression='regular' WHERE username='" . $_SESSION['username'] . "'";
+
+            if($time_away >= 3)
+            {
+                $sql2 = "UPDATE pets SET expression='sleepy' WHERE username='" . $_SESSION['username'] . "'";
+
+            }
+            if($time_away >= 7)
+            {
+                $sql2 = "UPDATE pets SET expression='asleep' WHERE username='" . $_SESSION['username'] . "'";
+
+            }
+            if(time_away >= 14)
+            {
+                $sql2 = "UPDATE pets SET expression='ouch' WHERE username='" . $_SESSION['username'] . "'";
+            }
+
+            $result2 = mysqli_query($link, $sql2);
+
         }
 
         $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
