@@ -30,12 +30,12 @@
             <li class="dropdown">
                 Community
                 <div class="dropdown-content">
-                    <a href="./clubs.php">Clubs</a>
-                    <a href="#">Users</a>
+                    <a href="/../Pages/clubs.php">Clubs</a>
+                    <a href="/../Pages/activeusers.php">Users</a>
                 </div>
             </li>
-            <li><a href="./games.php">Games</a></li>
-            <li><a href="./shop.php">Shop</a></li>
+            <li><a href="/../Pages/games.php">Games</a></li>
+            <li><a href="/../Pages/shop.php">Shop</a></li>
             <li><a href="/../logout.php">Log Out</a></li>
         </ul>
     </nav>
