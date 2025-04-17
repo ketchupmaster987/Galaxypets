@@ -38,7 +38,9 @@ session_start();
 
             echo $row_date['prevDate'];
 
-        //     $date_diff = $row_date['prevDate']->diff($row_date['date']);
+            $time_away = date_diff($row_date['prevDate'], $row_date['date']);
+
+            echo $time_away;
 
         }
 
