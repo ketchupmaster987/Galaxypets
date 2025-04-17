@@ -36,7 +36,7 @@ session_start();
 
             $row_date = $result_date->fetch_assoc();
 
-            echo $row_date['prevDate'];
+            //echo $row_date['prevDate'];
 
             $time_away = (strtotime($row_date['prevDate']) - strtotime($row_date['date']))/86400;
 
