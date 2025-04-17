@@ -39,6 +39,8 @@ session_start();
             //echo $row_date['prevDate'];
 
             $time_away = (strtotime($row_date['prevDate']) - strtotime($row_date['date']))/86400;
+            
+            echo $time_away;
 
             $sql2 = "UPDATE pets SET expression='regular' WHERE username='" . $_SESSION['username'] . "'";
 
