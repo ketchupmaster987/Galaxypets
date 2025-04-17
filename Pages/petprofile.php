@@ -28,9 +28,25 @@ session_start();
 
         require_once '../config.php';
 
-        $sql = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
+        $sql1 = "SELECT date, prevDate FROM latestLogin WHERE username='" . $_SESSION['username'] . "'";
 
-        $result = mysqli_query($link, $sql);
+        $result_date = mysqli_query($link, $sql1);
+
+        $row_date = $result_date->fetch_assoc();
+
+        $date_diff = $row_date['prevDate']->diff($row_date['date']);
+
+        echo $date_diff->format('%Y years %m months %d days %H hours %i minutes %s seconds');
+
+        $result_expression;
+
+
+        $sql2 = 
+
+
+        $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
+
+        $result = mysqli_query($link, $sql3);
 
         if ($result->num_rows > 0) {
             // output data of each row
@@ -70,6 +86,8 @@ session_start();
                             "i ammm starvinggg for planet pointsss"
                         </blockquote>';
             echo '</div>';
+
+            $result = mysqli_next_result($link);
         } else {
             echo "You have no pets. Adopt one <a href = 'adopt.php'>HERE</a>";
         }
