@@ -28,17 +28,17 @@ session_start();
 
         require_once '../config.php';
 
-        $sql1 = "SELECT latestDate, prevDate FROM latestLogin WHERE username='" . $_SESSION['username'] . "'";
+        // $sql1 = "SELECT latestDate, prevDate FROM latestLogin WHERE username='" . $_SESSION['username'] . "'";
 
-        $result_date = mysqli_query($link, $sql1);
+        // $result_date = mysqli_query($link, $sql1);
 
-        if ($result_date->num_rows > 0) {
+        // if ($result_date->num_rows > 0) {
 
-            $row_date = $result_date->fetch_assoc();
+        //     $row_date = $result_date->fetch_assoc();
 
-            $date_diff = $row_date['prevDate']->diff($row_date['date']);
+        //     $date_diff = $row_date['prevDate']->diff($row_date['date']);
 
-        }
+        // }
 
         $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
 
