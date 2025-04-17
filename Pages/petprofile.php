@@ -28,9 +28,9 @@ session_start();
 
         require_once '../config.php';
 
-        // $sql1 = "SELECT latestDate, prevDate FROM latestLogin WHERE username='" . $_SESSION['username'] . "'";
+        $sql1 = "SELECT latestDate, prevDate FROM latestLogin WHERE username='" . $_SESSION['username'] . "'";
 
-        // $result_date = mysqli_query($link, $sql1);
+        $result_date = mysqli_query($link, $sql1);
 
         // if ($result_date->num_rows > 0) {
 
