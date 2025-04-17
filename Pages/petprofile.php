@@ -34,7 +34,9 @@ session_start();
 
         if ($result_date->num_rows > 0) {
 
-        $row_date = $result_date->fetch_assoc();
+            $row_date = $result_date->fetch_assoc();
+
+            echo $row_date['prevDate'];
 
         //     $date_diff = $row_date['prevDate']->diff($row_date['date']);
 
