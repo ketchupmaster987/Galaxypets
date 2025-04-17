@@ -52,7 +52,7 @@ session_start();
                 $sql2 = "UPDATE pets SET expression='asleep' WHERE username='" . $_SESSION['username'] . "'";
 
             }
-            if(time_away >= 14)
+            if($time_away >= 14)
             {
                 $sql2 = "UPDATE pets SET expression='ouch' WHERE username='" . $_SESSION['username'] . "'";
             }
