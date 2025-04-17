@@ -41,7 +41,7 @@ session_start();
         $result_expression;
 
 
-        $sql2 = 
+        
 
 
         $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
