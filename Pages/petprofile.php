@@ -37,8 +37,7 @@ session_start();
             $row_date = $result_date->fetch_assoc();
 
             $date_diff = $row_date['prevDate']->diff($row_date['date']);
-            echo $date_diff;
-            
+
         }
 
         $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
