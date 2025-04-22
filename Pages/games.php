@@ -48,6 +48,13 @@ session_start();
                 <figcaption>featured: pink stardust jelly</figcaption>
             </figure>
         </section>
+        <section class="newspaper">
+            <h2>snake</h2>
+            <figure>
+                <a href="Games/snake.php"><img src="../Assets/img/glorbus/sleepy/green.png" alt="green glorbus"></a>
+                <figcaption>featured: green sleepy glorbus</figcaption>
+            </figure>
+        </section>
     </div>
 </main>
 
