@@ -73,22 +73,9 @@
         header("location: /../login.php");
     }
     ?>
-    <nav>
-        <div class="logo"><a href="/../index.php" style="text-decoration: none;">GalaxyPets</a></div>
-        <ul>
-            <li><a href="/../index.php">Back to Home</a></li>
-            <li class="dropdown">
-                Community
-                <div class="dropdown-content">
-                    <a href="/../Pages/clubs.php">Clubs</a>
-                    <a href="/../Pages/activeusers.php">Users</a>
-                </div>
-            </li>
-            <li><a href="/../Pages/games.php">Games</a></li>
-            <li><a href="/../Pages/shop.php">Shop</a></li>
-            <li><a href="/../logout.php">Log Out</a></li>
-        </ul>
-    </nav>
+     <script src="../Assets/js/navbar.js"></script>
+
+<div id="navbar-container"></div>
 </header>
     <h2>Score: <span id='score'>0</span></h2>
     <div id='grid'></div>

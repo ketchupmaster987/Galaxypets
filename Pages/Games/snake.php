@@ -29,7 +29,9 @@
 </head>
 <body>
 
+<script src="../Assets/js/navbar.js"></script>
 
+<div id="navbar-container"></div>
 
 <canvas width="400" height="400" id="game"></canvas>
 
