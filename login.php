@@ -25,12 +25,8 @@ session_start();
 
     
     if (isset($_SESSION['username'])){
-        if(substr($_SESSION['username'], 0, 5) != "guest")
-        {
-            header("location: editProfile.php");
-        } else {
-            header("location: guestProfile.php");
-        }
+        
+        header("location: Pages/petprofile.php");
     }
                 
 // Include config file
@@ -86,7 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             $_SESSION['username'] = $username;
 
-                            $sql2 = "INSERT INTO latestLogin (username) VALUES ('".$username."') ON DUPLICATE KEY UPDATE date = CURRENT_TIMESTAMP";
+                            $sql2 = "INSERT INTO latestLogin (username) VALUES ('".$username."') ON DUPLICATE KEY UPDATE prevDate = latestDate, latestDate = CURRENT_TIMESTAMP";
 
 							if ($link->query($sql2) === TRUE) {
 								header("location: Pages/petprofile.php");

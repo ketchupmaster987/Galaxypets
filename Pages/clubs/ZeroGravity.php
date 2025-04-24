@@ -12,9 +12,9 @@
             <div class="logo"><a href="../../index.php" style="text-decoration: none;">GalaxyPets</a></div>
             <ul>
                 <li class="dropdown">
-                    <a href="../petprofile.html">Your Pet/Profile</a>
+                    <a href="../petprofile.php">Your Pet/Profile</a>
                     <div class="dropdown-content">
-                        <a href="../petprofile.html">My GalaxyPet</a>
+                        <a href="../petprofile.php">My GalaxyPet</a>
                         <a href="#">Closet</a>
                         <a href="#">Settings</a>
                     </div>
@@ -22,11 +22,11 @@
                 <li class="dropdown">
                     Community
                     <div class="dropdown-content">
-                        <a href="../clubs.html">Clubs</a>
+                        <a href="../clubs.php">Clubs</a>
                         <a href="#">Users</a>
                     </div>
                 </li>
-                <li><a href="../games.html">Games</a></li>
+                <li><a href="../games.php">Games</a></li>
 				<li><a href="#">Shop</a></li>
             </ul>
         </nav>
@@ -36,9 +36,9 @@
 
     <main>
         <section class="newspaper">
-            <h2>Orbitors</h2>
+            <h2>Zero Gravity</h2>
             <figure>
-                <a href="#"><img src="../../Assets/img/planets/blueplanet.png" style="width: 100px;" alt="halo planet"></a>
+                <a href="#"><img src="../../Assets/img/planets/purpleplanet.png" style="width: 100px;" alt="halo planet"></a>
                 <figcaption>Population: 5</figcaption>
                 <figcaption>Online: 4</figcaption>
             </figure>

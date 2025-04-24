@@ -28,9 +28,44 @@ session_start();
 
         require_once '../config.php';
 
-        $sql = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
+        $sql1 = "SELECT latestDate, prevDate FROM latestLogin WHERE username='" . $_SESSION['username'] . "'";
 
-        $result = mysqli_query($link, $sql);
+        $result_date = mysqli_query($link, $sql1);
+
+        if ($result_date->num_rows > 0) {
+
+            $row_date = $result_date->fetch_assoc();
+
+            //echo $row_date['prevDate'];
+
+            $time_away = (strtotime($row_date['latestDate']) - strtotime($row_date['prevDate']))/86400;
+
+            //echo $time_away;
+
+            $sql2 = "UPDATE pets SET expression='regular' WHERE username='" . $_SESSION['username'] . "'";
+
+            if($time_away >= 3)
+            {
+                $sql2 = "UPDATE pets SET expression='sleepy' WHERE username='" . $_SESSION['username'] . "'";
+
+            }
+            if($time_away >= 7)
+            {
+                $sql2 = "UPDATE pets SET expression='asleep' WHERE username='" . $_SESSION['username'] . "'";
+
+            }
+            if($time_away >= 14)
+            {
+                $sql2 = "UPDATE pets SET expression='ouch' WHERE username='" . $_SESSION['username'] . "'";
+            }
+
+            $result2 = mysqli_query($link, $sql2);
+
+        }
+
+        $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
+
+        $result = mysqli_query($link, $sql3);
 
         if ($result->num_rows > 0) {
             // output data of each row
@@ -70,6 +105,8 @@ session_start();
                             "i ammm starvinggg for planet pointsss"
                         </blockquote>';
             echo '</div>';
+
+            $result = mysqli_next_result($link);
         } else {
             echo "You have no pets. Adopt one <a href = 'adopt.php'>HERE</a>";
         }

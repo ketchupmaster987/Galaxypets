@@ -12,6 +12,9 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+<?php
+session_start();
+?>
 <header>
     <div id="navbar-container"></div>
 </header>
@@ -25,24 +28,31 @@
         <section class="newspaper">
             <h2>2048</h2>
             <figure>
-                <a href="Games/2048/2048Game.html"><img src="../Assets/img/glorbus/lightpurple.png" alt="lilac glorbus"></a>
+                <a href="Games/2048Game.php"><img src="../Assets/img/glorbus/lightpurple.png" alt="lilac glorbus"></a>
                 <figcaption>featured: lilac glorbus</figcaption>
             </figure>
         </section>
 
         <section class="newspaper">
-            <h2>Goodnight Moon</h2>
+            <h2>Matching</h2>
             <figure>
-                <a href="#"><img src="../Assets/img/jelly/sleepy/blue.png" alt="blue jelly"></a>
+                <a href="Games/matching.php"><img src="../Assets/img/jelly/sleepy/blue.png" alt="blue jelly"></a>
                 <figcaption>featured: blue stardust jelly</figcaption>
             </figure>
         </section>
 
         <section class="newspaper">
-            <h2>Space Zapper</h2>
+            <h2>flappyalien</h2>
             <figure>
-                <a href="#"><img src="../Assets/img/jelly/ouch/pink.png" alt="pink jelly"></a>
+                <a href="Games/flappyalien.php"><img src="../Assets/img/jelly/ouch/pink.png" alt="pink jelly"></a>
                 <figcaption>featured: pink stardust jelly</figcaption>
+            </figure>
+        </section>
+        <section class="newspaper">
+            <h2>snake</h2>
+            <figure>
+                <a href="Games/snake.php"><img src="../Assets/img/glorbus/sleepy/green.png" alt="green glorbus"></a>
+                <figcaption>featured: green sleepy glorbus</figcaption>
             </figure>
         </section>
     </div>

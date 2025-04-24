@@ -10,10 +10,24 @@
     <title>2048</title>
 
     <link rel="stylesheet" href="../../../Assets/css/2048Style.css">
+    <script src="../Assets/js/navbar.js"></script>
 </head>
 
 
 <body>
+<header>
+    <?php
+    session_start();
+    
+    if (!isset($_SESSION['username'])){
+        //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+        header("location: /../login.php");
+    }
+    ?>
+    
+        <div id="navbar-container"></div>
+
+</header>
 <div id="container">
 
     <h1>2048</h1>

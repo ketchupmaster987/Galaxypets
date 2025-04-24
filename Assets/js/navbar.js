@@ -1,5 +1,5 @@
 // Determine the correct path to fetch navbar.html
-let baseFetchPath = window.location.pathname.includes("/Pages/") ? "../Assets/html/navbar.html" : "Assets/html/navbar.html";
+let baseFetchPath = window.location.pathname.includes("/Pages/") ? "../Assets/html/navbar.php" : "Assets/html/navbar.php";
 
 fetch(baseFetchPath)
     .then(response => response.text())
