@@ -1,0 +1,42 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+main {
+    padding-bottom: 0 !important;
+}
+
+body {
+    background: black;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    border: 1px solid white;
+}
+
+.game-info {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border: var(--light-purple) 1px solid;
+    border-radius: 10px;
+    text-align: center;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px;
+}
+
+#game-area {
+    display: grid;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+}
+
+#game {
+    margin: 0 auto;
+}

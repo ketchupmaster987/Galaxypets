@@ -1,5 +1,14 @@
 // Determine the correct path to fetch navbar.html
-let baseFetchPath = window.location.pathname.includes("/Pages/") ? "../Assets/html/navbar.php" : "Assets/html/navbar.php";
+let baseFetchPath;
+let depth = window.location.pathname.split('/').filter(Boolean).length;
+
+if (depth === 1) {
+    baseFetchPath = 'Assets/html/navbar.php';        // Root level
+} else if (depth === 2) {
+    baseFetchPath = '../Assets/html/navbar.php';     // One level deep
+} else {
+    baseFetchPath = '../../Assets/html/navbar.php';  // Two levels deep
+}
 
 fetch(baseFetchPath)
     .then(response => response.text())
@@ -7,7 +16,14 @@ fetch(baseFetchPath)
         document.getElementById("navbar-container").innerHTML = data;
 
         // Adjust links based on current path
-        let basePath = window.location.pathname.includes("/Pages/") ? "../" : "";
+        let basePath;
+        if (depth === 1) {
+            basePath = '';        // Root level
+        } else if (depth === 2) {
+            basePath = '../';     // One level deep
+        } else {
+            basePath = '../../';  // Two levels deep
+        }
         document.querySelectorAll("#navbar-container .nav-link").forEach(link => {
             let href = link.getAttribute("href");
             if (href !== "#" && !href.startsWith("http")) {
