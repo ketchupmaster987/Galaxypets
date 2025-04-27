@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Atom's Halo",
             imgSrc: "../Assets/img/planets/lavenderplanet.png",
             altText: "green planet",
-            link: "./clubs/AtomsHalo.html",
+            link: "./clubs/AtomsHalo.php",
             population: 5,
             online: 4
         },
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Galaxy Glitter",
             imgSrc: "../Assets/img/planets/greenandpinkplanet.png",
             altText: "blue jelly",
-            link: "./clubs/GalaxyGlitter.html",
+            link: "./clubs/GalaxyGlitter.php",
             population: 3,
             online: 1
         },
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Zero Gravity",
             imgSrc: "../Assets/img/planets/purpleplanet.png",
             altText: "pink jelly",
-            link: "./clubs/ZeroGravity.html",
+            link: "./clubs/ZeroGravity.php",
             population: 6,
             online: 5
         },
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Orbitors",
             imgSrc: "../Assets/img/planets/blueplanet.png",
             altText: "pink jelly",
-            link: "./clubs/Orbitors.html",
+            link: "./clubs/Orbitors.php",
             population: 4,
             online: 0
         }
