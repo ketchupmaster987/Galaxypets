@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+    header("location: /../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +22,6 @@
 </head>
 
 <body>
-    <?php
-        session_start();
-    ?>
 <header class="border-bottom sticky-top">
     <div id="navbar-container"></div>
 </header>
@@ -30,7 +36,7 @@
     </section>
 </main>
 
-<marquee  behavior=scroll direction="right" scrollamount="5" style="color: #17ffee;">
+<marquee behavior=scroll direction="right" scrollamount="5" style="color: #17ffee;">
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 

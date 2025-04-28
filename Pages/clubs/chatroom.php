@@ -1,18 +1,16 @@
 <?php
-// Load the JSON file
-$jsonData = file_get_contents('../../Assets/json/planets.json');
-
-// Decode the JSON data into an associative array
+// Load JSON
+$jsonData = file_get_contents('../../../Assets/json/planets.json');
 $chatrooms = json_decode($jsonData, true);
 
-if ($jsonData === false) {
-    echo "Error loading JSON file";
-} else {
-    $chatrooms = json_decode($jsonData, true);
-    if ($chatrooms === null) {
-        echo "Error decoding JSON data";
-    }
-}
+// Get the room ID from URL
+$roomId = isset($_GET['room']) ? (int)$_GET['room'] : 0;
+
+// Select the specific chatroom (remember arrays are 0-indexed)
+$selectedChatroom = $chatrooms[$roomId - 1] ?? null;
+
+// Optionally: debug
+// echo '<pre>'; print_r($selectedChatroom); echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -53,28 +51,27 @@ if ($jsonData === false) {
                     <div><p><?= htmlspecialchars($chatroom['name']) ?> Description</p></div>
                     <div><p>Population: <?= htmlspecialchars($chatroom['population']) ?></p></div>
                     <div><p>Online: <?= htmlspecialchars($chatroom['online']) ?></p></div>
-                    <div><a href="<?= htmlspecialchars($chatroom['link']) ?>" class="btn btn-primary">Enter Chatroom</a></div>
                 </section>
             <?php endforeach; ?>
         </section>
 
         <section class="chat-area">
             <section class="message-area container">
-                <?php foreach ($messages as $message): ?>
-                    <?php
-                    $isCurrentUser = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $message['user_id'];
-                    $chatClass = $isCurrentUser ? 'chat-right' : 'chat-left';
-                    ?>
-                    <div class="message <?= $chatClass ?>">
-                        <?php if ($isCurrentUser): ?>
-                            <div class="chat-message"><p><?= htmlspecialchars($message['content']) ?></p></div>
-                            <div class="chat-username"><p><?= htmlspecialchars($message['username']) ?></p></div>
-                        <?php else: ?>
-                            <div class="chat-username"><p><?= htmlspecialchars($message['username']) ?></p></div>
-                            <div class="chat-message"><p><?= htmlspecialchars($message['content']) ?></p></div>
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
+                <?php if ($selectedChatroom): ?>
+                    <figure>
+                        <figcaption>
+                            <h2><?= htmlspecialchars($selectedChatroom['name']) ?></h2>
+                        </figcaption>
+                        <img src="<?= htmlspecialchars($selectedChatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($selectedChatroom['altText']) ?>">
+                    </figure>
+                    <section class="club-chatroom-info">
+                        <div><p><?= htmlspecialchars($selectedChatroom['name']) ?> Description</p></div>
+                        <div><p>Population: <?= htmlspecialchars($selectedChatroom['population']) ?></p></div>
+                        <div><p>Online: <?= htmlspecialchars($selectedChatroom['online']) ?></p></div>
+                    </section>
+                <?php else: ?>
+                    <p>Chatroom not found.</p>
+                <?php endif; ?>
             </section>
 
             <section class="input-area input-group container">
