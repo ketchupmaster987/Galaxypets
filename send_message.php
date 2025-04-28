@@ -3,9 +3,9 @@ session_start();
 require './config.php';
 require './functions.php';
 
-// Protect if user not logged in
-if (!isset($_SESSION['user_id'])) {
-    die('You must be logged in to send messages.');
+if (!isset($_SESSION['username'])) {
+    //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+    header("location: /../login.php");
 }
 
 $userId = $_SESSION['user_id'];
