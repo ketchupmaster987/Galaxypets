@@ -1,13 +1,12 @@
 <?php
 // Load the JSON file
-$jsonData = file_get_contents('../../../Assets/json/planets.json');
+$jsonData = file_get_contents('../../Assets/json/planets.json');
 
 // Decode the JSON data into an associative array
 $chatrooms = json_decode($jsonData, true);
 
 if ($jsonData === false) {
     echo "Error loading JSON file";
-    echo '../../../Assets/json/planets.json';
 } else {
     $chatrooms = json_decode($jsonData, true);
     if ($chatrooms === null) {
