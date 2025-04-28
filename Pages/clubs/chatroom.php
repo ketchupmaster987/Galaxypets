@@ -26,7 +26,7 @@
         header("location: /../login.php");
     }
 
-    $chatroomId = 1; // Hardcoding for now, or could be from GET param
+    $chatroomId = isset($_GET['room']) ? intval($_GET['room']) : 1;
     $messages = getMessages($link, $chatroomId);
     ?>
 
