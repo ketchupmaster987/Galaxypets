@@ -38,7 +38,7 @@ echo 'Chatrooms: ' . $chatrooms . '<br>';
 <main role="main" class="container-md">
     <section class="club-chatroom-grid">
         <section class="left-column">
-            <?php if ($selectedChatroom): ?>
+            <?php if (true): ?>
                 <figure>
                     <figcaption>
                         <h2><?= htmlspecialchars($selectedChatroom['name']) ?></h2>
