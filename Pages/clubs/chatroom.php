@@ -1,3 +1,11 @@
+<?php
+// Load the JSON file
+$jsonData = file_get_contents('../../Assets/json/planets.json');
+
+// Decode the JSON data into an associative array
+$chatrooms = json_decode($jsonData, true);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +22,6 @@
 <body>
 
 <header class="border-bottom sticky-top">
-    <?php
-    session_start();
-
-    // Include your database connection and your chatroom functions
-    require '../../config.php';         // Update the path to your db connection
-    require '../../functions.php';  // Update the path to your functions
-
-    if (!isset($_SESSION['username'])) {
-        //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
-        header("location: /../login.php");
-    }
-
-    $chatroomId = isset($_GET['room']) ? intval($_GET['room']) : 1;
-    $messages = getMessages($link, $chatroomId);
-    ?>
-
     <div id="navbar-container"></div>
 </header>
 
@@ -40,17 +32,21 @@
 <main role="main" class="container-md">
     <section class="club-chatroom-grid">
         <section class="left-column">
-            <figure>
-                <figcaption>
-                    <h2>Atoms Halo</h2>
-                </figcaption>
-                <img src="../../Assets/img/planets/lavenderplanet.png" alt="Atoms Halo">
-            </figure>
-            <section class="club-chatroom-info">
-                <div><p>Message about Atoms Halo :)</p></div>
-                <div><p>Population: 5</p></div>
-                <div><p>Online: 4</p></div>
-            </section>
+            <!-- Loop through each chatroom and display its information -->
+            <?php foreach ($chatrooms as $chatroom): ?>
+                <figure>
+                    <figcaption>
+                        <h2><?= htmlspecialchars($chatroom['name']) ?></h2>
+                    </figcaption>
+                    <img src="<?= htmlspecialchars($chatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($chatroom['altText']) ?>">
+                </figure>
+                <section class="club-chatroom-info">
+                    <div><p><?= htmlspecialchars($chatroom['name']) ?> Description</p></div>
+                    <div><p>Population: <?= htmlspecialchars($chatroom['population']) ?></p></div>
+                    <div><p>Online: <?= htmlspecialchars($chatroom['online']) ?></p></div>
+                    <div><a href="<?= htmlspecialchars($chatroom['link']) ?>" class="btn btn-primary">Enter Chatroom</a></div>
+                </section>
+            <?php endforeach; ?>
         </section>
 
         <section class="chat-area">
