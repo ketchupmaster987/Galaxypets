@@ -47,7 +47,7 @@ if ($jsonData === false) {
                     <figcaption>
                         <h2><?= htmlspecialchars($chatroom['name']) ?></h2>
                     </figcaption>
-                    <img src="<?= htmlspecialchars($chatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($chatroom['altText']) ?>">
+                    <img src="../<?= htmlspecialchars($chatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($chatroom['altText']) ?>">
                 </figure>
                 <section class="club-chatroom-info">
                     <div><p><?= htmlspecialchars($chatroom['name']) ?> Description</p></div>
