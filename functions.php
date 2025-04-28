@@ -10,27 +10,25 @@ function joinChatroom($link, $userId, $chatroomId)
     $stmt->execute(); // Run the query
 }
 
-// Gets a user's ID based on their username, or creates a new user if not found
-function getOrCreateUser($link, $username, $email)
+// Gets a user's ID based on their username
+function getUserByUsername($link, $username)
 {
-    // Try to find the user by username
-    $stmt = $link->prepare("SELECT id FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username); // 's' means string
-    $stmt->execute();
-    $stmt->bind_result($userId); // Bind the result to $userId
-
-    if ($stmt->fetch()) {
-        // If a user is found, return their ID
-        return $userId;
+    $stmt = $link->prepare("SELECT id, email FROM users WHERE username = ?");
+    if (!$stmt) {
+        die('Prepare failed: ' . $link->error);
     }
-    $stmt->close(); // Close the previous statement
 
-    // If user wasn't found, create a new one
-    $stmt = $link->prepare("INSERT INTO users (username, email) VALUES (?, ?)");
-    $stmt->bind_param("ss", $username, $email); // Both are strings
+    $stmt->bind_param("s", $username);
     $stmt->execute();
-    return $stmt->insert_id; // Return the newly created user's ID
+    $result = $stmt->get_result();
+
+    $user = $result->fetch_assoc();
+
+    $stmt->close();
+
+    return $user; // returns associative array like ['id' => 1, 'email' => 'test@example.com']
 }
+
 
 // Retrieves all messages from a specific chatroom, ordered by the time they were sent
 function getMessages($link, $chatroomId)

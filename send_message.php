@@ -13,12 +13,14 @@ if (!isset($_SESSION['username'])) {
     header("location: /../login.php");
 }
 
-$userId = $_SESSION['id'];
+// Look up user info from username
+$user = getUserByUsername($link, $_SESSION['username']);
+
 $chatroomId = intval($_POST['chatroom_id']);
 $content = trim($_POST['message']);
 
 if (!empty($content)) {
-    sendMessage($link, $userId, $chatroomId, $content);
+    sendMessage($link, $user, $chatroomId, $content);
 }
 
 header("Location: chatroom.php?room=$chatroomId");
