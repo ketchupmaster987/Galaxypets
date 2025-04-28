@@ -1,15 +1,15 @@
 <?php
 
-function joinChatroom($conn, $userId, $chatroomId)
+function joinChatroom($link, $userId, $chatroomId)
 {
-    $stmt = $conn->prepare("INSERT IGNORE INTO chatroom_members (user_id, chatroom_id) VALUES (?, ?)");
+    $stmt = $link->prepare("INSERT IGNORE INTO chatroom_members (user_id, chatroom_id) VALUES (?, ?)");
     $stmt->bind_param("ii", $userId, $chatroomId);
     $stmt->execute();
 }
 
-function getOrCreateUser($conn, $username, $email)
+function getOrCreateUser($link, $username, $email)
 {
-    $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+    $stmt = $link->prepare("SELECT id FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->bind_result($userId);
@@ -18,16 +18,16 @@ function getOrCreateUser($conn, $username, $email)
     }
     $stmt->close();
 
-    $stmt = $conn->prepare("INSERT INTO users (username, email) VALUES (?, ?)");
+    $stmt = $link->prepare("INSERT INTO users (username, email) VALUES (?, ?)");
     $stmt->bind_param("ss", $username, $email);
     $stmt->execute();
     return $stmt->insert_id;
 }
 
 
-function getMessages($conn, $chatroomId)
+function getMessages($link, $chatroomId)
 {
-    $stmt = $conn->prepare("
+    $stmt = $link->prepare("
         SELECT m.id, u.username, m.content, m.sent_at
         FROM messages m
         JOIN users u ON m.user_id = u.id
@@ -46,9 +46,9 @@ function getMessages($conn, $chatroomId)
     return $messages;
 }
 
-function sendMessage($conn, $userId, $chatroomId, $content)
+function sendMessage($link, $userId, $chatroomId, $content)
 {
-    $stmt = $conn->prepare("INSERT INTO messages (chatroom_id, user_id, content) VALUES (?, ?, ?)");
+    $stmt = $link->prepare("INSERT INTO messages (chatroom_id, user_id, content) VALUES (?, ?, ?)");
     $stmt->bind_param("iis", $chatroomId, $userId, $content);
     $stmt->execute();
 }
