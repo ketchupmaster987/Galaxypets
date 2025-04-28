@@ -1,6 +1,6 @@
 <?php
 // Load JSON
-$jsonData = file_get_contents('../../../Assets/json/planets.json');
+$jsonData = file_get_contents('../../Assets/json/planets.json');
 $chatrooms = json_decode($jsonData, true);
 
 // Get the room ID from URL
@@ -49,7 +49,6 @@ echo 'Chatrooms: ' . $chatrooms . '<br>';
                     <div><p><?= htmlspecialchars($selectedChatroom['name']) ?> Description</p></div>
                     <div><p>Population: <?= htmlspecialchars($selectedChatroom['population']) ?></p></div>
                     <div><p>Online: <?= htmlspecialchars($selectedChatroom['online']) ?></p></div>
-                    <div><a href="<?= htmlspecialchars($selectedChatroom['link']) ?>" class="btn btn-primary">Enter Chatroom</a></div>
                 </section>
             <?php else: ?>
                 <p>Chatroom not found.</p>
