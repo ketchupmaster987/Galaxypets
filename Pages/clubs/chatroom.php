@@ -1,4 +1,15 @@
 <?php
+session_start();
+
+// Include your database connection and your chatroom functions
+require '../../config.php';         // Update the path to your db connection
+require '../../functions.php';  // Update the path to your functions
+
+if (!isset($_SESSION['username'])) {
+    //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+    header("location: /../login.php");
+}
+
 // Load JSON
 $jsonData = file_get_contents('../../Assets/json/planets.json');
 $chatrooms = json_decode($jsonData, true);
