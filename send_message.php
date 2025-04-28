@@ -23,5 +23,5 @@ if (!empty($content)) {
     sendMessage($link, $user, $chatroomId, $content);
 }
 
-header("Location: Pages/Clubs/chatroom.php?room=$chatroomId");
+header("Location: Pages/clubs/chatroom.php?room=$chatroomId");
 exit;
