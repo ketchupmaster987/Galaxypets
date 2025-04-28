@@ -4,6 +4,11 @@ $jsonData = file_get_contents('../../../Assets/json/planets.json');
 
 // Decode the JSON data into an associative array
 $chatrooms = json_decode($jsonData, true);
+
+// Debugging output
+echo '<pre>';
+print_r($chatrooms);
+echo '</pre>';
 ?>
 
 <!DOCTYPE html>
