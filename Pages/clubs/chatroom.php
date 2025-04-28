@@ -19,9 +19,6 @@ $roomId = isset($_GET['room']) ? (int)$_GET['room'] : 0;
 $messages = getMessages($link, $roomId);
 
 $selectedChatroom = $chatrooms[$roomId - 1];
-
-echo 'Room ID: ' . $roomId . '<br>';
-echo 'Chatrooms: ' . $chatrooms . '<br>';
 ?>
 
 <!DOCTYPE html>
