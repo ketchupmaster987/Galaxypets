@@ -9,7 +9,7 @@ $roomId = isset($_GET['room']) ? (int)$_GET['room'] : 0;
 $selectedChatroom = $chatrooms[$roomId];
 
 echo 'Room ID: ' . $roomId . '<br>';
-echo 'Chatroom: ' . $selectedChatroom . '<br>';
+echo 'Chatrooms: ' . $chatrooms . '<br>';
 ?>
 
 <!DOCTYPE html>
