@@ -13,22 +13,15 @@ function joinChatroom($link, $userId, $chatroomId)
 // Gets a user's ID based on their username
 function getUserByUsername($link, $username)
 {
-    $stmt = $link->prepare("SELECT id, email FROM users WHERE username = ?");
-    if (!$stmt) {
-        die('Prepare failed: ' . $link->error);
-    }
-
+    $stmt = $link->prepare("SELECT id FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
-    $result = $stmt->get_result();
-
-    $user = $result->fetch_assoc();
-
-    $stmt->close();
-
-    return $user; // returns associative array like ['id' => 1, 'email' => 'test@example.com']
+    $stmt->bind_result($userId);
+    if ($stmt->fetch()) {
+        return $userId;
+    }
+    return null;
 }
-
 
 // Retrieves all messages from a specific chatroom, ordered by the time they were sent
 function getMessages($link, $chatroomId)
