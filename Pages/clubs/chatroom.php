@@ -77,7 +77,7 @@ echo 'Chatrooms: ' . $chatrooms . '<br>';
             <section class="input-area input-group container">
                 <form method="post" action="../../send_message.php" class="input-group w-100">
                     <input class="form-control" name="message" type="text" placeholder="Type your message here..." required>
-                    <input type="hidden" name="chatroom_id" value="<?= $chatroomId ?>">
+                    <input type="hidden" name="chatroom_id" value="<?= $chatroomId + 1?>">
                     <button class="btn btn-dark" type="submit">Send</button>
                 </form>
             </section>
