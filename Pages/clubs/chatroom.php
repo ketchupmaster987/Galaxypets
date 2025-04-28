@@ -6,7 +6,7 @@ $chatrooms = json_decode($jsonData, true);
 // Get the room ID from URL
 $roomId = isset($_GET['room']) ? (int)$_GET['room'] : 0;
 
-$selectedChatroom = $chatrooms[$roomId];
+$selectedChatroom = $chatrooms[$roomId - 1];
 
 echo 'Room ID: ' . $roomId . '<br>';
 echo 'Chatrooms: ' . $chatrooms . '<br>';
@@ -43,7 +43,7 @@ echo 'Chatrooms: ' . $chatrooms . '<br>';
                     <figcaption>
                         <h2><?= htmlspecialchars($selectedChatroom['name']) ?></h2>
                     </figcaption>
-                    <img src="<?= htmlspecialchars($selectedChatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($selectedChatroom['altText']) ?>">
+                    <img src="../<?= htmlspecialchars($selectedChatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($selectedChatroom['altText']) ?>">
                 </figure>
                 <section class="club-chatroom-info">
                     <div><p><?= htmlspecialchars($selectedChatroom['name']) ?> Description</p></div>
