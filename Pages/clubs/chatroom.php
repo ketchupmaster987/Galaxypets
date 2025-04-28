@@ -10,7 +10,7 @@ $roomId = isset($_GET['room']) ? (int)$_GET['room'] : 0;
 $selectedChatroom = $chatrooms[$roomId - 1] ?? null;
 
 // Optionally: debug
-// echo '<pre>'; print_r($selectedChatroom); echo '</pre>';
+ echo '<pre>'; print_r($selectedChatroom); echo '</pre>';
 ?>
 
 <!DOCTYPE html>
