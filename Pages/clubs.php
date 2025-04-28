@@ -14,7 +14,7 @@
 
 <body>
     <?php
-        // session_start();
+        session_start();
     ?>
 <header class="border-bottom sticky-top">
     <div id="navbar-container"></div>

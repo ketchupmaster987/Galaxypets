@@ -21,10 +21,13 @@
     require '../../config.php';         // Update the path to your db connection
     require '../../functions.php';  // Update the path to your functions
 
-    // Assume user is already logged in and has $_SESSION['user_id'], otherwise you'd need login checking here.
+    if (!isset($_SESSION['username'])) {
+        //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+        header("location: /../login.php");
+    }
 
     $chatroomId = 1; // Hardcoding for now, or could be from GET param
-    $messages = getMessages($conn, $chatroomId);
+    $messages = getMessages($link, $chatroomId);
     ?>
 
     <div id="navbar-container"></div>
