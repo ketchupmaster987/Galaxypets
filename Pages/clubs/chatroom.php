@@ -59,7 +59,7 @@ echo 'Chatrooms: ' . $chatrooms . '<br>';
             <section class="message-area container">
                 <?php foreach ($messages as $message): ?>
                     <?php
-                    $isCurrentUser = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $message['user_id'];
+                    $isCurrentUser = isset($_SESSION['id']) && $_SESSION['id'] == $message['user_id'];
                     $chatClass = $isCurrentUser ? 'chat-right' : 'chat-left';
                     ?>
                     <div class="message <?= $chatClass ?>">
@@ -77,7 +77,7 @@ echo 'Chatrooms: ' . $chatrooms . '<br>';
             <section class="input-area input-group container">
                 <form method="post" action="../../send_message.php" class="input-group w-100">
                     <input class="form-control" name="message" type="text" placeholder="Type your message here..." required>
-                    <input type="hidden" name="chatroom_id" value="<?= $chatroomId + 1 ?>">
+                    <input type="hidden" name="chatroom_id" value="<?= $chatroomId ?>">
                     <button class="btn btn-dark" type="submit">Send</button>
                 </form>
             </section>
