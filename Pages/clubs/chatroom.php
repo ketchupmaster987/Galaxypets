@@ -5,10 +5,14 @@ $jsonData = file_get_contents('../../../Assets/json/planets.json');
 // Decode the JSON data into an associative array
 $chatrooms = json_decode($jsonData, true);
 
-// Debugging output
-echo '<pre>';
-print_r($chatrooms);
-echo '</pre>';
+if ($jsonData === false) {
+    echo "Error loading JSON file";
+} else {
+    $chatrooms = json_decode($jsonData, true);
+    if ($chatrooms === null) {
+        echo "Error decoding JSON data";
+    }
+}
 ?>
 
 <!DOCTYPE html>
