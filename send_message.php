@@ -19,6 +19,12 @@ $user = getUserByUsername($link, $_SESSION['username']);
 $chatroomId = intval($_POST['chatroom_id']);
 $content = trim($_POST['message']);
 
+echo '<pre>';
+print_r($user);
+print_r($chatroomId);
+print_r($content);
+echo '</pre>';
+
 if (!empty($content)) {
     sendMessage($link, $user, $chatroomId, $content);
 }
