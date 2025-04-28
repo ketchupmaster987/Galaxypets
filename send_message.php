@@ -15,9 +15,6 @@ if (!isset($_SESSION['username'])) {
 
 // Look up user info from username
 $user = getUserByUsername($link, $_SESSION['username']);
-echo '<pre>';
-print_r($user);
-echo '</pre>';
 
 $chatroomId = intval($_POST['chatroom_id']);
 $content = trim($_POST['message']);

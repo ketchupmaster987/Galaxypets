@@ -7,6 +7,7 @@ $chatrooms = json_decode($jsonData, true);
 
 if ($jsonData === false) {
     echo "Error loading JSON file";
+    echo '../../../Assets/json/planets.json';
 } else {
     $chatrooms = json_decode($jsonData, true);
     if ($chatrooms === null) {
