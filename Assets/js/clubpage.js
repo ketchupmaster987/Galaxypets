@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Fetch the JSON data from a file or API endpoint
-    fetch('../json/planets.json')
+    fetch('./json/planets.json')
         .then(response => response.json())
         .then(planets => {
             const planetGrid = document.querySelector(".planet-grid");
