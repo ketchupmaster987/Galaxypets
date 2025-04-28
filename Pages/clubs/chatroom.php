@@ -5,6 +5,7 @@ $chatrooms = json_decode($jsonData, true);
 
 // Get the room ID from URL
 $roomId = isset($_GET['room']) ? (int)$_GET['room'] : 0;
+$messages = getMessages($link, $roomId);
 
 $selectedChatroom = $chatrooms[$roomId - 1];
 
