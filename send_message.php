@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
     header("location: /../login.php");
 }
 
-$userId = $_SESSION['user_id'];
+$userId = $_SESSION['id'];
 $chatroomId = intval($_POST['chatroom_id']);
 $content = trim($_POST['message']);
 
