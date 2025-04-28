@@ -7,10 +7,7 @@ $chatrooms = json_decode($jsonData, true);
 $roomId = isset($_GET['room']) ? (int)$_GET['room'] : 0;
 
 // Select the specific chatroom (remember arrays are 0-indexed)
-$selectedChatroom = $chatrooms[$roomId - 1] ?? null;
-
-// Optionally: debug
- echo '<pre>'; print_r($selectedChatroom); echo '</pre>';
+$selectedChatroom = $chatrooms[$roomId] ?? null;
 ?>
 
 <!DOCTYPE html>
