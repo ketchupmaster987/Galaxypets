@@ -12,29 +12,22 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+
 <header class="border-bottom sticky-top">
-    <nav class="navbar navbar-expand-lg d-flex align-items-center">
-        <div class="logo"><a href="../../index.php" style="text-decoration: none;">GalaxyPets</a></div>
-        <ul class="d-flex align-items-center list-unstyled m-0 ml-auto" style="margin-left: auto;">
-            <li class="dropdown nav-item">
-                <a href="../petprofile.php">Your Pet/Profile</a>
-                <div class="dropdown-content">
-                    <a href="../petprofile.php">My GalaxyPet</a>
-                    <a href="#">Closet</a>
-                    <a href="#">Settings</a>
-                </div>
-            </li>
-            <li class="dropdown nav-item">
-                <a href="../clubs.php">Community</a>
-                <div class="dropdown-content">
-                    <a href="../clubs.php">Clubs</a>
-                    <a href="#">Users</a>
-                </div>
-            </li>
-            <li class="nav-item"><a href="../games.php">Games</a></li>
-            <li class="nav-item"><a href="#">Shop</a></li>
-        </ul>
-    </nav>
+    <?php
+    session_start();
+
+    // Include your database connection and your chatroom functions
+    require '../../config.php';         // Update the path to your db connection
+    require '../../functions.php';  // Update the path to your functions
+
+    // Assume user is already logged in and has $_SESSION['user_id'], otherwise you'd need login checking here.
+
+    $chatroomId = 1; // Hardcoding for now, or could be from GET param
+    $messages = getMessages($conn, $chatroomId);
+    ?>
+
+    <div id="navbar-container"></div>
 </header>
 
 <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">
@@ -51,25 +44,37 @@
                 <img src="../../Assets/img/planets/lavenderplanet.png" alt="Atoms Halo">
             </figure>
             <section class="club-chatroom-info">
-                <div> <p> Message about Atoms Halo :) </p> </div>
-                <div> <p> population: 5 </p> </div>
-                <div> <p> online: 4 </p> </div>
+                <div><p>Message about Atoms Halo :)</p></div>
+                <div><p>Population: 5</p></div>
+                <div><p>Online: 4</p></div>
             </section>
         </section>
+
         <section class="chat-area">
             <section class="message-area container">
-                <div class="message chat-left">
-                    <div class="chat-username"><p>***User Name***</p></div>
-                    <div class="chat-message"><p>***Chat***</p></div>
-                </div>
-                <div class="message chat-right">
-                    <div class="chat-message"><p>***Chat***</p></div>
-                    <div class="chat-username"><p>***User Name***</p></div>
-                </div>
+                <?php foreach ($messages as $message): ?>
+                    <?php
+                    $isCurrentUser = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $message['user_id'];
+                    $chatClass = $isCurrentUser ? 'chat-right' : 'chat-left';
+                    ?>
+                    <div class="message <?= $chatClass ?>">
+                        <?php if ($isCurrentUser): ?>
+                            <div class="chat-message"><p><?= htmlspecialchars($message['content']) ?></p></div>
+                            <div class="chat-username"><p><?= htmlspecialchars($message['username']) ?></p></div>
+                        <?php else: ?>
+                            <div class="chat-username"><p><?= htmlspecialchars($message['username']) ?></p></div>
+                            <div class="chat-message"><p><?= htmlspecialchars($message['content']) ?></p></div>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
             </section>
+
             <section class="input-area input-group container">
-                <input class="form-control" type="text" placeholder="Type your message here...">
-                <button class="btn btn-dark">Send</button>
+                <form method="post" action="../../send_message.php" class="input-group w-100">
+                    <input class="form-control" name="message" type="text" placeholder="Type your message here..." required>
+                    <input type="hidden" name="chatroom_id" value="<?= $chatroomId ?>">
+                    <button class="btn btn-dark" type="submit">Send</button>
+                </form>
             </section>
         </section>
     </section>
@@ -79,26 +84,7 @@
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 
-<footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer fixed-bottom">
-    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2025 GalaxyPets</p>
-    <ul class="d-flex align-items-center list-unstyled m-0 ml-auto">
-        <li>
-            <a class="text-body-secondary"
-               href="../../about.html">About Us</a></li>
-        <li>
-            <a class="text-body-secondary"
-               href="../../index.php">Official Site</a></li>
-    </ul>
-</footer>
-</body>
+<script src="../../Assets/js/navbar.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+</body>
 </html>
