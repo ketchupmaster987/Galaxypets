@@ -39,39 +39,41 @@ $selectedChatroom = $chatrooms[$roomId - 1] ?? null;
 <main role="main" class="container-md">
     <section class="club-chatroom-grid">
         <section class="left-column">
-            <!-- Loop through each chatroom and display its information -->
-            <?php foreach ($chatrooms as $chatroom): ?>
+            <?php if ($selectedChatroom): ?>
                 <figure>
                     <figcaption>
-                        <h2><?= htmlspecialchars($chatroom['name']) ?></h2>
+                        <h2><?= htmlspecialchars($selectedChatroom['name']) ?></h2>
                     </figcaption>
-                    <img src="../<?= htmlspecialchars($chatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($chatroom['altText']) ?>">
+                    <img src="<?= htmlspecialchars($selectedChatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($selectedChatroom['altText']) ?>">
                 </figure>
                 <section class="club-chatroom-info">
-                    <div><p><?= htmlspecialchars($chatroom['name']) ?> Description</p></div>
-                    <div><p>Population: <?= htmlspecialchars($chatroom['population']) ?></p></div>
-                    <div><p>Online: <?= htmlspecialchars($chatroom['online']) ?></p></div>
+                    <div><p><?= htmlspecialchars($selectedChatroom['name']) ?> Description</p></div>
+                    <div><p>Population: <?= htmlspecialchars($selectedChatroom['population']) ?></p></div>
+                    <div><p>Online: <?= htmlspecialchars($selectedChatroom['online']) ?></p></div>
+                    <div><a href="<?= htmlspecialchars($selectedChatroom['link']) ?>" class="btn btn-primary">Enter Chatroom</a></div>
                 </section>
-            <?php endforeach; ?>
+            <?php else: ?>
+                <p>Chatroom not found.</p>
+            <?php endif; ?>
         </section>
 
         <section class="chat-area">
             <section class="message-area container">
-                <?php if ($selectedChatroom): ?>
-                    <figure>
-                        <figcaption>
-                            <h2><?= htmlspecialchars($selectedChatroom['name']) ?></h2>
-                        </figcaption>
-                        <img src="<?= htmlspecialchars($selectedChatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($selectedChatroom['altText']) ?>">
-                    </figure>
-                    <section class="club-chatroom-info">
-                        <div><p><?= htmlspecialchars($selectedChatroom['name']) ?> Description</p></div>
-                        <div><p>Population: <?= htmlspecialchars($selectedChatroom['population']) ?></p></div>
-                        <div><p>Online: <?= htmlspecialchars($selectedChatroom['online']) ?></p></div>
-                    </section>
-                <?php else: ?>
-                    <p>Chatroom not found.</p>
-                <?php endif; ?>
+                <?php foreach ($messages as $message): ?>
+                    <?php
+                    $isCurrentUser = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $message['user_id'];
+                    $chatClass = $isCurrentUser ? 'chat-right' : 'chat-left';
+                    ?>
+                    <div class="message <?= $chatClass ?>">
+                        <?php if ($isCurrentUser): ?>
+                            <div class="chat-message"><p><?= htmlspecialchars($message['content']) ?></p></div>
+                            <div class="chat-username"><p><?= htmlspecialchars($message['username']) ?></p></div>
+                        <?php else: ?>
+                            <div class="chat-username"><p><?= htmlspecialchars($message['username']) ?></p></div>
+                            <div class="chat-message"><p><?= htmlspecialchars($message['content']) ?></p></div>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
             </section>
 
             <section class="input-area input-group container">
