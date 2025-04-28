@@ -50,7 +50,7 @@ function getMessages($link, $chatroomId)
 function sendMessage($link, $userId, $chatroomId, $content)
 {
     echo '<pre>';
-    print_r("$link, $userId, $chatroomId, $content");
+    print_r("$userId, $chatroomId, $content");
     echo '</pre>';
     // Prepare an SQL query to insert a new message
     $stmt = $link->prepare("INSERT INTO messages (chatroom_id, user_id, content) VALUES (?, ?, ?)");
