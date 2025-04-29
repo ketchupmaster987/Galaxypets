@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyGalaxyPet Profile - GalaxyPets</title>
+
     <link rel="stylesheet" href="../Assets/css/profilestyle.css">
 </head>
 <body>
@@ -114,7 +115,7 @@ session_start();
     </section>
 </main>
 
-<a href="/../logout.php">Logout</a>
+<a href="./../logout.php">Logout</a>
 <script src="../Assets/js/navbar.js"></script>
 </body>
 </html>
