@@ -24,43 +24,6 @@ session_start();
         <?php
         require_once '../config.php';
 
-        $sql1 = "SELECT latestDate FROM latestLogin";
-
-        $result_date = mysqli_query($link, $sql1);
-
-        if ($result_date->num_rows > 0) {
-
-            
-            $now = new DateTime();
-            $now->getTimestamp();
-
-            $time_away = (strtotime($now) - strtotime($row_date['latestDate']))/86400;
-
-            //echo $time_away;
-
-            $sql2 = "UPDATE pets SET expression='regular' WHERE username='" . $row_date['username'] . "'";
-
-            if($time_away >= 3)
-            {
-                $sql2 = "UPDATE pets SET expression='sleepy' WHERE username='" . $row_date['username'] . "'";
-
-            }
-            if($time_away >= 7)
-            {
-                $sql2 = "UPDATE pets SET expression='asleep' WHERE username='" . $row_date['username'] . "'";
-
-            }
-            if($time_away >= 14)
-            {
-                $sql2 = "UPDATE pets SET expression='ouch' WHERE username='" . $row_date['username'] . "'";
-            }
-
-            $result2 = mysqli_query($link, $sql2);
-            
-
-            
-        }
-
         $sql = "SELECT username, petname, species, color, expression, planet, birthday FROM pets";
 
         $result = mysqli_query($link, $sql);
