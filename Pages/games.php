@@ -55,6 +55,13 @@ session_start();
                 <figcaption>featured: green sleepy glorbus</figcaption>
             </figure>
         </section>
+        <section class="newspaper">
+            <h2>Connect 4</h2>
+            <figure>
+                <a href="Games/C4/index.html"><img src="../Assets/img/glorbus/sleepy/green.png" alt="green glorbus"></a>
+                <figcaption>featured: green sleepy glorbus</figcaption>
+            </figure>
+        </section>
     </div>
 </main>
 
