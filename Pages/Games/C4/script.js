@@ -201,6 +201,8 @@ new Vue({
                 Swal.fire('Cannot put here, it is full');
                 return;
             }
+           /////////////////
+           
             Vue.set(this.board[firstEmptyRow], columnIndex, this.currentPlayer);
             const status = await this.checkGameStatus();
             if (!status) {
@@ -211,7 +213,7 @@ new Vue({
             }
         },
         // Returns true if there's a winner or a tie. False otherwise
-        async checkGameStatus() {
+        async checkGameStatus() {S
             if (this.isWinner(this.currentPlayer, this.board)) {
                 await this.showWinner();
                 return true;
@@ -241,6 +243,8 @@ new Vue({
             if (!this.isCpuPlaying || this.currentPlayer !== PLAYER_CPU) {
                 return;
             }
+
+            /////
             const bestColumn = this.getBestColumnForCpu();
             const firstEmptyRow = this.getFirstEmptyRow(bestColumn, this.board);
             console.log({ firstEmptyRow });
@@ -252,6 +256,7 @@ new Vue({
                 this.askUserForAnotherMatch();
             }
         },
+        ///////////////////////2 of getbestcolumn
         getBestColumnForCpu() {
             const winnerColumn = this.getWinnerColumn(this.board, this.currentPlayer);
             if (winnerColumn !== -1) {
@@ -260,6 +265,8 @@ new Vue({
             }
             // Check if adversary wins in the next move, if so, we take it
             const adversary = this.getAdversary(this.currentPlayer);
+
+
 
             const winnerColumnForAdversary = this.getWinnerColumn(this.board, adversary);
             if (winnerColumnForAdversary !== -1) {
@@ -389,136 +396,6 @@ new Vue({
         }
     }
 });
-
-function getBestColumnForCpu() {
-    const winnerColumn = this.getWinnerColumn(this.board, this.currentPlayer);
-    if (winnerColumn !== -1) {
-        console.log("Cpu chooses winner column");
-        return winnerColumn;
-    }
-    // Check if adversary wins in the next move, if so, we take it
-    const adversary = this.getAdversary(this.currentPlayer);
-
-    const winnerColumnForAdversary = this.getWinnerColumn(this.board, adversary);
-    if (winnerColumnForAdversary !== -1) {
-        console.log("Cpu chooses take adversary's victory");
-        return winnerColumnForAdversary;
-    }
-    const cpuStats = this.getColumnWithHighestScore(this.currentPlayer, this.board);
-    const adversaryStats = this.getColumnWithHighestScore(adversary, this.board);
-    console.log({ adversaryStats });
-    console.log({ cpuStats });
-    if (adversaryStats.highestCount > cpuStats.highestCount) {
-        console.log("CPU chooses take adversary highest score");
-        // We take the adversary's best move if it is higher than CPU's
-        return adversaryStats.columnIndex;
-    } else if (cpuStats.highestCount > 1) {
-        console.log("CPU chooses highest count");
-        return cpuStats.columnIndex;
-    }
-    const centralColumn = this.getCentralColumn(this.board);
-    if (centralColumn !== -1) {
-        console.log("CPU Chooses central column");
-        return centralColumn;
-    }
-    // Finally we return a random column
-    console.log("CPU chooses random column");
-    return this.getRandomColumn(this.board);
-
-}
-
-function getWinnerColumn(board, player) {
-    for (let i = 0; i < COLUMNS; i++) {
-        const boardClone = JSON.parse(JSON.stringify(board));
-        const firstEmptyRow = this.getFirstEmptyRow(i, boardClone);
-        //Proceed only if row is ok
-        if (firstEmptyRow !== -1) {
-            boardClone[firstEmptyRow][i] = player;
-
-            // If this is winner, return the column
-            if (this.isWinner(player, boardClone)) {
-                return i;
-            }
-        }
-    }
-    return -1;
-}
-
-function getColumnWithHighestScore(player, board) {
-    const returnObject = {
-        highestCount: -1,
-        columnIndex: -1,
-    };
-    for (let i = 0; i < COLUMNS; i++) {
-        const boardClone = JSON.parse(JSON.stringify(board));
-        const firstEmptyRow = this.getFirstEmptyRow(i, boardClone);
-        if (firstEmptyRow !== -1) {
-            boardClone[firstEmptyRow][i] = player;
-            const firstFilledRow = this.getFirstFilledRow(i, boardClone);
-            if (firstFilledRow !== -1) {
-                let count = 0;
-                count = this.countUp(i, firstFilledRow, player, boardClone);
-                if (count > returnObject.highestCount) {
-                    returnObject.highestCount = count;
-                    returnObject.columnIndex = i;
-                }
-                count = this.countRight(i, firstFilledRow, player, boardClone);
-                if (count > returnObject.highestCount) {
-                    returnObject.highestCount = count;
-                    returnObject.columnIndex = i;
-                }
-                count = this.countUpRight(i, firstFilledRow, player, boardClone);
-                if (count > returnObject.highestCount) {
-                    returnObject.highestCount = count;
-                    returnObject.columnIndex = i;
-                }
-                count = this.countDownRight(i, firstFilledRow, player, boardClone);
-                if (count > returnObject.highestCount) {
-                    returnObject.highestCount = count;
-                    returnObject.columnIndex = i;
-                }
-            }
-        }
-    }
-    return returnObject;
-}
-
-function getRandomColumn(board) {
-    while (true) {
-        const boardClone = JSON.parse(JSON.stringify(board));
-        const randomColumnIndex = this.getRandomNumberBetween(0, COLUMNS - 1);
-        const firstEmptyRow = this.getFirstEmptyRow(randomColumnIndex, boardClone);
-        if (firstEmptyRow !== -1) {
-            return randomColumnIndex;
-        }
-    }
-}
-
-function getCentralColumn(board) {
-    const boardClone = JSON.parse(JSON.stringify(board));
-    const centralColumn = parseInt((COLUMNS - 1) / 2);
-    if (this.getFirstEmptyRow(centralColumn, boardClone) !== -1) {
-
-        return centralColumn;
-    }
-    return -1;
-}
-
-async function makeCpuMove() {
-    if (!this.isCpuPlaying || this.currentPlayer !== PLAYER_CPU) {
-        return;
-    }
-    const bestColumn = this.getBestColumnForCpu();
-    const firstEmptyRow = this.getFirstEmptyRow(bestColumn, this.board);
-    console.log({ firstEmptyRow });
-    Vue.set(this.board[firstEmptyRow], bestColumn, this.currentPlayer);
-    const status = await this.checkGameStatus();
-    if (!status) {
-        this.togglePlayer();
-    } else {
-        this.askUserForAnotherMatch();
-    }
-}
 
 function isTie(board) {
     for (let y = 0; y < ROWS; y++) {
