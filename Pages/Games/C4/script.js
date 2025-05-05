@@ -213,7 +213,7 @@ new Vue({
             }
         },
         // Returns true if there's a winner or a tie. False otherwise
-        async checkGameStatus() {S
+        async checkGameStatus() {
             if (this.isWinner(this.currentPlayer, this.board)) {
                 await this.showWinner();
                 return true;
@@ -256,7 +256,6 @@ new Vue({
                 this.askUserForAnotherMatch();
             }
         },
-        ///////////////////////2 of getbestcolumn
         getBestColumnForCpu() {
             const winnerColumn = this.getWinnerColumn(this.board, this.currentPlayer);
             if (winnerColumn !== -1) {
@@ -265,9 +264,6 @@ new Vue({
             }
             // Check if adversary wins in the next move, if so, we take it
             const adversary = this.getAdversary(this.currentPlayer);
-
-
-
             const winnerColumnForAdversary = this.getWinnerColumn(this.board, adversary);
             if (winnerColumnForAdversary !== -1) {
                 console.log("Cpu chooses take adversary's victory");
