@@ -62,6 +62,8 @@ session_start();
 
         }
 
+        
+
         $sql3 = "SELECT petname, species, color, expression, planet, birthday FROM pets WHERE username='" . $_SESSION['username'] . "'";
 
         $result = mysqli_query($link, $sql3);
