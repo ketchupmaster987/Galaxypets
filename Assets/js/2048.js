@@ -4,6 +4,7 @@ var rows = 4;
 var columns = 4;
 
 window.onload = function() {
+    sessionStorage.setItem("score", score);
     setGame();
 }
 
@@ -97,7 +98,7 @@ document.addEventListener('keyup', (e) => {
 })
 
 function getscore(score){
-    encode(score);
+    encodeURI(score);
 }
 
 function filterZero(row){
