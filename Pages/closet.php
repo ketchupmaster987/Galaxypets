@@ -195,131 +195,152 @@
         <div id="items-container"></div>
     </div>
 
-    <script>
-        const items = [
-            // { id: "hat-1", name: "Alien Antenna", price: 20, image: "sillyband-yellow.PNG", type: "hat", color: "yellow", fun_factor: "super-fun" },
+    <?php 
+    
+    while ($row = $result->fetch_assoc()) {
+
+
+        $sql1 = "SELECT latestDate FROM latestLogin WHERE username = '" .$row['username']. "'";
+
+        $result_date = mysqli_query($link, $sql1);
+
+        if ($result_date->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+
+
+            echo "
+                 <script>
+                    const items = [
+                        { id: "hat-1", name: "Alien Antenna", price: 20, image: "sillyband-yellow.PNG", type: "hat", color: "yellow", fun_factor: "super-fun" },
+                        { id: "hat-2", name: "Alien Antenna", price: 20, image: "sillyband-blue.PNG", type: "hat", color: "blue", fun_factor: "super-fun" },
+                        { id: "hat-3", name: "Alien Antenna", price: 20, image: "sillyband-green.PNG", type: "hat", color: "green", fun_factor: "super-fun" },
+                        { id: "hat-4", name: "Alien Antenna", price: 20, image: "sillyband-lilac.PNG", type: "hat", color: "lilac", fun_factor: "super-fun" },
+                        { id: "hat-5", name: "Alien Antenna", price: 20, image: "sillyband-purple.PNG", type: "hat", color: "purple", fun_factor: "super-fun" },
+                        { id: "hat-6", name: "Alien Antenna", price: 20, image: "sillyband-pink.PNG", type: "hat", color: "pink", fun_factor: "super-fun" },
+                        { id: "hat-7", name: "Nebula Noggin", price: 10, image: "helmet-green.PNG", type: "hat", color: "green", fun_factor: "boring" },
+                        { id: "hat-8", name: "Nebula Noggin", price: 10, image: "helmet-pink.PNG", type: "hat", color: "pink", fun_factor: "boring" },
+                        { id: "hat-9", name: "Nebula Noggin", price: 10, image: "helmet-blue.PNG", type: "hat", color: "blue", fun_factor: "boring" },
+                        { id: "hat-10", name: "Nebula Noggin", price: 10, image: "helmet-purple.PNG", type: "hat", color: "purple", fun_factor: "boring" },
+                        { id: "hat-11", name: "Nebula Noggin", price: 10, image: "helmet-lilac.PNG", type: "hat", color: "lilac", fun_factor: "boring" },
+                        { id: "hat-5", name: "Lunar Lid", price: 15, image: "tophat-blue.PNG", type: "hat", color: "blue", fun_factor: "kind-of-fun" },
+                        { id: "hat-5", name: "Lunar Lid", price: 15, image: "tophat-pink.PNG", type: "hat", color: "pink", fun_factor: "kind-of-fun" },
+                        { id: "hat-5", name: "Lunar Lid", price: 15, image: "tophat-lilac.PNG", type: "hat", color: "lilac", fun_factor: "kind-of-fun" },
+                        { id: "hat-5", name: "Lunar Lid", price: 15, image: "tophat-green.PNG", type: "hat", color: "green", fun_factor: "kind-of-fun" },
+                        { id: "hat-5", name: "Lunar Lid", price: 15, image: "tophat-purple.PNG", type: "hat", color: "purple", fun_factor: "kind-of-fun" },
+                        { id: "hat-6", name: "Cosmic Crown", price: 20, image: "crown-purple.PNG", type: "hat", color: "purple", fun_factor: "super-fun" },
+                        { id: "hat-6", name: "Cosmic Crown", price: 15, image: "crown-pink.PNG", type: "hat", color: "pink", fun_factor: "kind-of-fun" },
+                        { id: "hat-6", name: "Cosmic Crown", price: 15, image: "crown-green.PNG", type: "hat", color: "green", fun_factor: "kind-of-fun" },
+                        { id: "hat-6", name: "Cosmic Crown", price: 15, image: "crown-lilac.PNG", type: "hat", color: "lilac", fun_factor: "kind-of-fun" },
+                        { id: "hat-6", name: "Cosmic Crown", price: 15, image: "crown-blue.PNG", type: "hat", color: "blue", fun_factor: "kind-of-fun" },
+
+                    ];
+
+                    function shuffleArray(array) {
+                        for (let i = array.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [array[i], array[j]] = [array[j], array[i]];
+                        }
+                    }
+
+                    function changeView(viewType) {
+                        const container = document.getElementById('items-container');
+                        container.innerHTML = '';
+
+                        let itemsToDisplay = [...items]; // Create a copy to shuffle
+                        shuffleArray(itemsToDisplay); // Shuffle the copied array
+
+                        if (viewType === 'table') {
+                            const table = document.createElement('table');
+                            table.innerHTML = `
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Color</th>
+                                    <th>Fun Factor</th>
+                                </tr>
+                            `;
+                            itemsToDisplay.forEach(item => {
+                                table.innerHTML += `
+                                    <tr>
+                                        <td><img src="../Assets/img/hats/${item.image}" alt="${item.name}" style="width: 50px;"></td>
+                                        <td>${item.name}</td>
+                                        <td>$${item.price.toFixed(2)}</td>
+                                        <td>${item.color}</td>
+                                        <td>${item.fun_factor}</td>
+                                    </tr>
+                                `;
+                            });
+                            container.appendChild(table);
+                        } else {
+                            const grid = document.createElement('div');
+                            grid.className = `grid ${viewType}`;
+                            itemsToDisplay.forEach(item => {
+                                grid.innerHTML += `
+                                    <div class="item">
+                                        <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
+                                        <h3>${item.name}</h3>
+                                        <p>$${item.price.toFixed(2)}</p>
+                                        <p>Color: ${item.color}</p>
+                                    </div>
+                                `;
+                            });
+                            container.appendChild(grid);
+                        }
+                    }
+
+                    function filterItems() {
+                        const typeFilter = document.getElementById('product-type').value;
+                        const colorFilter = document.getElementById('color').value;
+                        const funFactorFilter = document.getElementById('fun-factor').value;
+
+                        const filteredItems = items.filter(item =>
+                            (typeFilter === '' || item.type === typeFilter) &&
+                            (colorFilter === '' || item.color === colorFilter) &&
+                            (funFactorFilter === '' || item.fun_factor === funFactorFilter)
+                        );
+
+                        displayFilteredItems(filteredItems);
+                    }
+
+                    function displayFilteredItems(filteredItems) {
+                        const container = document.getElementById('items-container');
+                        container.innerHTML = '';
+
+                        let itemsToDisplay = [...filteredItems]; // Create a copy to shuffle
+                        shuffleArray(itemsToDisplay); // Shuffle the copied array
+
+                        const grid = document.createElement('div');
+                        grid.className = 'grid grid-3';
+                        itemsToDisplay.forEach(item => {
+                            grid.innerHTML += `
+                                <div class="item">
+                                    <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
+                                    <h3>${item.name}</h3>
+                                    <p>$${item.price.toFixed(2)}</p>
+                                    <p>Color: ${item.color}</p>
+                                </div>
+                            `;
+                        });
+                        container.appendChild(grid);
+                    }
+
+                    // Initialize with grid-3 view
+                    changeView('grid-3');
+
+                    // Add event listeners to filters
+                    document.getElementById('product-type').addEventListener('change', filterItems);
+                    document.getElementById('color').addEventListener('change', filterItems);
+                    document.getElementById('fun-factor').addEventListener('change', filterItems);
+                </script>
+            "
+            }
             
-            //loop through all SELECT where username is found in closets, print it out here ::
-            // do the if case the break statment things for matching the image urls. 
-            switch{
-                case: "sillyband-yellow.PNG"
-                    itemname = "Alien Antenna"
-                    break;
-                case: "sillyband-lilac.PNG"
-                    itemname = "Alien Antenna"
-                    break;
-                case: "sillyband-purple.PNG"
-                    itemname = "Alien Antenna"
-                    break;
-                case: "sillyband-green.PNG"
-                    itemname = "Alien Antenna"
-                    break;
-                case: "sillyband-blue.PNG"
-                    itemname = "Alien Antenna"
-                    break;
-                case: "sillyband-pink.PNG"
-                    itemname = "Alien Antenna"
-                    break;
-            }
-        ];
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
         }
 
-        function changeView(viewType) {
-            const container = document.getElementById('items-container');
-            container.innerHTML = '';
 
-            let itemsToDisplay = [...items]; // Create a copy to shuffle
-            shuffleArray(itemsToDisplay); // Shuffle the copied array
+    
+    ?>
 
-            if (viewType === 'table') {
-                const table = document.createElement('table');
-                table.innerHTML = `
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Color</th>
-                        <th>Fun Factor</th>
-                    </tr>
-                `;
-                itemsToDisplay.forEach(item => {
-                    table.innerHTML += `
-                        <tr>
-                            <td><img src="../Assets/img/hats/${item.image}" alt="${item.name}" style="width: 50px;"></td>
-                            <td>${item.name}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td>${item.color}</td>
-                            <td>${item.fun_factor}</td>
-                        </tr>
-                    `;
-                });
-                container.appendChild(table);
-            } else {
-                const grid = document.createElement('div');
-                grid.className = `grid ${viewType}`;
-                itemsToDisplay.forEach(item => {
-                    grid.innerHTML += `
-                        <div class="item">
-                            <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
-                            <h3>${item.name}</h3>
-                            <p>$${item.price.toFixed(2)}</p>
-                            <p>Color: ${item.color}</p>
-                        </div>
-                    `;
-                });
-                container.appendChild(grid);
-            }
-        }
-
-        function filterItems() {
-            const typeFilter = document.getElementById('product-type').value;
-            const colorFilter = document.getElementById('color').value;
-            const funFactorFilter = document.getElementById('fun-factor').value;
-
-            const filteredItems = items.filter(item =>
-                (typeFilter === '' || item.type === typeFilter) &&
-                (colorFilter === '' || item.color === colorFilter) &&
-                (funFactorFilter === '' || item.fun_factor === funFactorFilter)
-            );
-
-            displayFilteredItems(filteredItems);
-        }
-
-        function displayFilteredItems(filteredItems) {
-            const container = document.getElementById('items-container');
-            container.innerHTML = '';
-
-            let itemsToDisplay = [...filteredItems]; // Create a copy to shuffle
-            shuffleArray(itemsToDisplay); // Shuffle the copied array
-
-            const grid = document.createElement('div');
-            grid.className = 'grid grid-3';
-            itemsToDisplay.forEach(item => {
-                grid.innerHTML += `
-                    <div class="item">
-                        <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
-                        <h3>${item.name}</h3>
-                        <p>$${item.price.toFixed(2)}</p>
-                        <p>Color: ${item.color}</p>
-                    </div>
-                `;
-            });
-            container.appendChild(grid);
-        }
-
-        // Initialize with grid-3 view
-        changeView('grid-3');
-
-        // Add event listeners to filters
-        document.getElementById('product-type').addEventListener('change', filterItems);
-        document.getElementById('color').addEventListener('change', filterItems);
-        document.getElementById('fun-factor').addEventListener('change', filterItems);
-    </script>
 </body>
 </html>
