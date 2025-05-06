@@ -13,7 +13,7 @@
     
 ____________________________________
 / Si necesitas ayuda, contáctame en \
-\ https://parzibyte.me               /
+\            /
  ------------------------------------
         \   ^__^
          \  (oo)\_______
@@ -48,9 +48,7 @@ new Vue({
     async mounted() {
         console.log("testy thingy")
         await Swal.fire(
-            'Connect 4 game',
-            'Brought to you by parzibyte - https://parzibyte.me',
-            'info'
+            'Connect 4 Game',
         );
         this.resetGame();
     },
@@ -65,13 +63,13 @@ new Vue({
             this.canPlay = false;
             const result = await Swal.fire({
                 title: 'Choose game mode',
-                text: "Do you want to play against another player or against CPU?",
+                text: "Do you want to play against a friend you have with you or your pet?",
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#fdbf9c',
                 cancelButtonColor: '#4A42F3',
-                cancelButtonText: 'Me Vs another player',
-                confirmButtonText: 'Me Vs CPU'
+                cancelButtonText: 'Me Vs a friend',
+                confirmButtonText: 'Me Vs pet'
             });
             this.canPlay = true;
             this.isCpuPlaying = !!result.value;
@@ -192,7 +190,7 @@ new Vue({
             if (cell === this.PLAYER_1) {
                 return "img/red-circle.png";
             } else if (cell === this.PLAYER_2) {
-                return "img/yellow-circle.jpg";
+                return "img/yellow-circle-png.png";
             } else {
                 return "img/grey-circle.png"
             }
@@ -369,9 +367,9 @@ new Vue({
         },
         async showWinner() {
             if (this.currentPlayer === PLAYER_1) {
-                await Swal.fire('Winner is player 1');
+                await Swal.fire('You won! Points for you :3');
             } else {
-                await Swal.fire('Winner is player 2');
+                await Swal.fire('Player 2 won. L :b');
             }
         },
         async showTie() {
