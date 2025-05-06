@@ -129,6 +129,7 @@ new Vue({
             }
             return counter;
         },
+        ////
         isWinner(player, board) {
             for (let y = 0; y < ROWS; y++) {
                 for (let x = 0; x < COLUMNS; x++) {
@@ -145,6 +146,7 @@ new Vue({
             }
             return false;
         },
+        ////
         isTie(board) {
             for (let y = 0; y < ROWS; y++) {
                 for (let x = 0; x < COLUMNS; x++) {
@@ -392,7 +394,7 @@ new Vue({
         }
     }
 });
-
+/*
 function isTie(board) {
     for (let y = 0; y < ROWS; y++) {
         for (let x = 0; x < COLUMNS; x++) {
@@ -404,7 +406,8 @@ function isTie(board) {
     }
     return true;
 }
-
+    
+///
 isWinner(player, board); {
     for (let y = 0; y < ROWS; y++) {
         for (let x = 0; x < COLUMNS; x++) {
@@ -435,6 +438,7 @@ function countUp (x, y, player, board)
     }
     return counter;
 }
+*/
 
 function countRight(x, y, player, board)
  {
