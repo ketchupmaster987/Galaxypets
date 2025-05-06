@@ -33,7 +33,7 @@ function loop() {
     requestAnimationFrame(loop); // loop continuously using the browser's animation frame
 
     // Only update game state every 10 frames to slow down the game
-    if (++count < 10) {
+    if (++count < 30) {
         return;
     }
 

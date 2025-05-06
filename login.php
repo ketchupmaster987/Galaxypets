@@ -50,8 +50,16 @@
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 
-<footer class="text-center mt-4">
-    <p>&copy; 2025 Galaxy Pets</p>
+<footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer fixed-bottom">
+    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2025 GalaxyPets</p>
+    <ul class="d-flex align-items-center list-unstyled m-0 ml-auto">
+        <li>
+            <a class="text-body-secondary"
+               href="README.md">About Us</a></li>
+        <li>
+            <a class="text-body-secondary"
+               href="#">Official Site</a></li>
+    </ul>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
