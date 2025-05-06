@@ -11,12 +11,12 @@ if (isset($_SESSION['username'])) {
     exit;
 }
 
-if (!file_exists('../../config.php')) {
+if (!file_exists('/config.php')) {
     die('Config file not found!');
 }
 
 // Include config file
-require_once '../../config.php';
+require_once '/config.php';
 
 // Define variables and initialize with empty values
 $username = $password = "";
