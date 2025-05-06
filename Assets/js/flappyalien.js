@@ -195,3 +195,12 @@ function accelerate(n) {
 }
 
 window.onload = startGame;
+
+
+window.onbeforeunload = function returnScore(){
+    sessionStorage.setItem("points", myScore);
+    //launch seperate php
+    //have the phpfile load on close
+    window.location("scoreADDer.php");
+
+}

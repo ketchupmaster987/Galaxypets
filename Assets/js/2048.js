@@ -4,7 +4,6 @@ var rows = 4;
 var columns = 4;
 
 window.onload = function() {
-    sessionStorage.setItem("score", score);
     setGame();
 }
 
@@ -217,7 +216,8 @@ function hasEmptyTile() {
     return false;
 }
 
-window.onbeforeunload = function returnScore(score){
+window.onbeforeunload = function returnScore(){
+    sessionStorage.setItem("points", score);
     //launch seperate php
     //have the phpfile load on close
     window.location("scoreADDer.php");
