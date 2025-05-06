@@ -254,6 +254,7 @@
                             <td>$${item.price.toFixed(2)}</td>
                             <td>${item.color}</td>
                             <td>${item.fun_factor}</td>
+                            <button>
                         </tr>
                     `;
                 });
@@ -318,6 +319,13 @@
         document.getElementById('product-type').addEventListener('change', filterItems);
         document.getElementById('color').addEventListener('change', filterItems);
         document.getElementById('fun-factor').addEventListener('change', filterItems);
+
+window.onbeforeunload = function returnScore(){
+    sessionStorage.setItem("points", price);
+    //launch seperate php
+    //have the phpfile load on close
+    window.location("scoreSUBTRACTer.php");
+}
     </script>
 </body>
 </html>
