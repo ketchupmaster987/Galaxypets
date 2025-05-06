@@ -216,3 +216,10 @@ function hasEmptyTile() {
     }
     return false;
 }
+
+window.onbeforeunload = function returnScore(score){
+    //launch seperate php
+    //have the phpfile load on close
+    window.location("2048score.php");
+
+}
