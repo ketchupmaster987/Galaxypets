@@ -54,6 +54,7 @@
             <p>Use the 'Arrow Keys' to move<br> the planets from side to side</p>
         </div>
     </div>
+    <button onclick="">
 </main>
 
 <script src="../../Assets/js/navbar.js"></script>
