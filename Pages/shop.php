@@ -269,6 +269,7 @@
                             <h3>${item.name}</h3>
                             <p>$${item.price.toFixed(2)}</p>
                             <p>Color: ${item.color}</p>
+                            <button>
                         </div>
                     `;
                 });
@@ -306,6 +307,7 @@
                         <h3>${item.name}</h3>
                         <p>$${item.price.toFixed(2)}</p>
                         <p>Color: ${item.color}</p>
+                        <button>
                     </div>
                 `;
             });
