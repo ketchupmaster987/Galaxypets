@@ -7,7 +7,7 @@ if (depth === 1) {
 } else if (depth === 2) {
     baseFetchPath = '../Assets/html/navbar.php';     // One level deep
 } else {
-    baseFetchPath = '../../Assets/html/navbar.php';  // Two levels deep
+    baseFetchPath = '../../Assets/html/navbar.php';  // Two ldfwevels deep
 }
 
 fetch(baseFetchPath)
