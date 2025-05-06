@@ -18,7 +18,7 @@
 </head>
 
 
-<body>
+<body onbeforeunload="return returnScore()">
 <header>
     <?php
     session_start();
