@@ -3,7 +3,7 @@ session_start();
 
 // Redirect if already logged in
 if (isset($_SESSION['username'])) {
-    header("location: ../../Pages/petprofile.php");
+    header("location: /Pages/petprofile.php");
     exit;
 }
 
