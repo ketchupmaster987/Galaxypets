@@ -133,9 +133,6 @@
         <li>
             <a class="text-body-secondary"
                href="README.md">About Us</a></li>
-        <li>
-            <a class="text-body-secondary"
-               href="#">Official Site</a></li>
     </ul>
 </footer>
 
