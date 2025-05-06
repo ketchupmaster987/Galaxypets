@@ -98,3 +98,12 @@ function gameOver() {
     go.classList.add('gameover')
     document.body.appendChild(go)
 }
+
+
+window.onbeforeunload = function returnScore(){
+    sessionStorage.setItem("points", score);
+    //launch seperate php
+    //have the phpfile load on close
+    window.location("scoreADDer.php");
+
+}

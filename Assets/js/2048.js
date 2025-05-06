@@ -97,7 +97,7 @@ document.addEventListener('keyup', (e) => {
 })
 
 function getscore(score){
-    encode(score);
+    encodeURI(score);
 }
 
 function filterZero(row){
@@ -214,4 +214,12 @@ function hasEmptyTile() {
         }
     }
     return false;
+}
+
+window.onbeforeunload = function returnScore(){
+    sessionStorage.setItem("points", score);
+    //launch seperate php
+    //have the phpfile load on close
+    window.location("scoreADDer.php");
+
 }

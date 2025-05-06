@@ -27,8 +27,7 @@
         //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
         header("location: /../login.php");
     }
-
-    "UPDATE points SET points = $pointval WHERE username='" . $_SESSION['username'] . "'"
+    
     ?>
     
     <div id="navbar-container"></div>
@@ -48,6 +47,7 @@
             <p>Use the 'Arrow Keys' to move<br> the planets from side to side</p>
         </div>
     </div>
+    <button onclick="">
 </main>
 
 <script src="../../Assets/js/navbar.js"></script>

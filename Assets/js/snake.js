@@ -124,3 +124,11 @@ document.addEventListener('keydown', function (e) {
 
 // Start the game loop
 requestAnimationFrame(loop);
+
+window.onbeforeunload = function returnScore(){
+    sessionStorage.setItem("points", snake.cells.length);
+    //launch seperate php
+    //have the phpfile load on close
+    window.location("scoreADDer.php");
+
+}
