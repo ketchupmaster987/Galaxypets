@@ -30,7 +30,7 @@ const COLUMNS = 7,
     PLAYER_2 = "x",
     PLAYER_CPU = PLAYER_2,
     CONNECT = 4; // <-- Change this and you can play connect 5, connect 3, connect 100 and so on!
-
+///idk where to make the like. intro?? theres no intro :,) huh.
 new Vue({
     el: "#app",
     data: () => ({
