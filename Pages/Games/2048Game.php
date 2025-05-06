@@ -27,9 +27,6 @@
         //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
         header("location: /../login.php");
     }
-
-    require_once './config.php';
-
     
     ?>
     
