@@ -220,6 +220,6 @@ function hasEmptyTile() {
 window.onbeforeunload = function returnScore(score){
     //launch seperate php
     //have the phpfile load on close
-    window.location("2048score.php");
+    window.location("scoreADDer.php");
 
 }
