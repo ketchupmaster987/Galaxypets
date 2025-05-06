@@ -14,7 +14,8 @@ body {
 }
 
 canvas {
-    border: 1px solid white;
+    border: 30px dashed purple;
+    border-image: url("/Assets/img/boarders/Image.png") 300;
 }
 
 .game-info {
