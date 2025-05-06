@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>Connect 4</title>
+	
+	<link rel="stylesheet" href="css/style.css">	
+	
+</head>
+
+<script>
+const COLUMNS = 7,
+ROWS = 6,
+EMPTY_SPACE = " ",
+PLAYER_1 = "o",
+PLAYER_2 = "x",
+PLAYER_CPU = PLAYER_2,
+CONNECT = 4; // <-- Change this and you can play connect 5, connect 3, connect 100 and so on!
+function CellImage(cell)  {
+    if (cell === this.PLAYER_1) {
+        return "img/red-circle.png";
+    } else if (cell === this.PLAYER_2) {
+        return "img/yellow-circle.png";
+    } else {
+        return "img/grey-circle.png";
+    }
+}
+function resetGame() {
+   // await this.askUserGameMode();
+    this.fillBoard();
+    this.selectPlayer();
+    this.makeCpuMove();
+}
+
+</script>
+<body>
+
+  <div id="container">
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th v-for="i in COLUMNS">
+					<button :disabled="!canPlay" @click="makeMove(i)" class="btn btn-warning">Make move
+						here&nbsp;<i class="fa fa-arrow-down"></i></button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-for="row in board">
+				<td v-for="cell in row">
+					<img class="img-fluid img-player" :src="cellImage(cell)" alt="">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<script src="script.js"></script>
+
+
+  </div><!-- close "container" -->
+  
+
+</body>
+	
+</html> 
