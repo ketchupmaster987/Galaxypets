@@ -96,6 +96,10 @@ document.addEventListener('keyup', (e) => {
     document.getElementById("score").innerText = score;
 })
 
+function getscore(score){
+    encode(score);
+}
+
 function filterZero(row){
     return row.filter(num => num != 0); 
 }

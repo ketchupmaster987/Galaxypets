@@ -22,11 +22,13 @@
 <header>
     <?php
     session_start();
-
+    
     if (!isset($_SESSION['username'])){
         //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
         header("location: /../login.php");
     }
+
+    "UPDATE points SET points = $pointval WHERE username='" . $_SESSION['username'] . "'"
     ?>
     
     <div id="navbar-container"></div>
