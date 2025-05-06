@@ -12,4 +12,6 @@ $points = $_SESSION['points'];
     $stmt->bind_param("iis", $points, $username); // iis = int, int, string
     $stmt->execute(); // Execute the query
 
+header("location: /../../Pages/games.php");
+
 ?>
