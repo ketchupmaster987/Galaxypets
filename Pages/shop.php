@@ -133,8 +133,7 @@
                     <a href="petprofile.php">Your Pet/Profile</a>
                     <div class="dropdown-content">
                         <a href="petprofile.php">My GalaxyPet</a>
-                        <a href="#">Closet</a>
-                        <a href="#">Settings</a>
+                        <a href="closet.php">Closet</a>
                     </div>
                 </li>
                 <li class="dropdown">
