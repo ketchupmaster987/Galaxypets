@@ -46,6 +46,7 @@ new Vue({
         canPlay: false,
     }),
     async mounted() {
+        console.log("testy thingy")
         await Swal.fire(
             'Connect 4 game',
             'Brought to you by parzibyte - https://parzibyte.me',
@@ -189,11 +190,11 @@ new Vue({
         },
         cellImage(cell) {
             if (cell === this.PLAYER_1) {
-                return "img/player1.png";
+                return "img/red-circle.png";
             } else if (cell === this.PLAYER_2) {
-                return "img/player2.png";
+                return "img/yellow-circle.jpg";
             } else {
-                return "img/empty.png"
+                return "img/grey-circle.png"
             }
         },
         async makeMove(columnNumber) {
