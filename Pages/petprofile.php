@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyGalaxyPet Profile - GalaxyPets</title>
+
     <link rel="stylesheet" href="../Assets/css/profilestyle.css">
 </head>
 <body>
@@ -12,8 +13,6 @@ session_start();
 ?>
 <header>
     <?php
-
-
     if (!isset($_SESSION['username'])) {
         //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
         header("location: /../login.php");
@@ -39,7 +38,7 @@ session_start();
             //echo $row_date['prevDate'];
 
             $time_away = (strtotime($row_date['latestDate']) - strtotime($row_date['prevDate']))/86400;
-            
+
             //echo $time_away;
 
             $sql2 = "UPDATE pets SET expression='regular' WHERE username='" . $_SESSION['username'] . "'";
@@ -116,7 +115,7 @@ session_start();
     </section>
 </main>
 
-<a href="/../logout.php">Logout</a>
+<a href="./../logout.php">Logout</a>
 <script src="../Assets/js/navbar.js"></script>
 </body>
 </html>

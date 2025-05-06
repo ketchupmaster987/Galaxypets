@@ -1,0 +1,57 @@
+canvas {
+    border: 30px dashed purple;
+    border-image: url("/Assets/img/boarders/Image.png") 300;
+    background-color: #000000;
+    display: block;
+    margin: 0 auto;
+}
+
+body {
+    color: white;
+    background: black;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#gameOver {
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #222;
+    padding: 20px;
+    border: 2px solid #800080;
+    border-radius: 10px;
+    color: white;
+    z-index: 100;
+}
+
+button {
+    background: #800080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.game-info {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border: var(--light-purple) 1px solid;
+    border-radius: 10px;
+    text-align: center;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px;
+}
+
+.game-area {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 10px;
+}

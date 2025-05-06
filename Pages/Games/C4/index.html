@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>Connect 4</title>
+	
+	<link rel="stylesheet" href="css/style.css">	
+	
+</head>
+
+
+<body>
+	
+
+  <div id="container">
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th v-for="i in COLUMNS">
+					<button :disabled="!canPlay" @click="makeMove(i)" class="btn btn-warning">Make move
+						here&nbsp;<i class="fa fa-arrow-down"></i></button>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-for="row in board">
+				<td v-for="cell in row">
+					<img class="img-fluid img-player" :src="cellImage(cell)" alt="">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+	<script src="script.js"></script>
+
+
+  </div><!-- close "container" -->
+  
+
+</body>
+	
+</html> 

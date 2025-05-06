@@ -1,163 +1,68 @@
+<?php include 'Assets/php/login_handler.php'; ?>
+
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	
-	<title>galaxy pets</title>
-	
-	<link rel="stylesheet" href="../Assets/css/style.css">	
-	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Pets - Sign In</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="Assets/css/loginstyle.css">
 </head>
 
-
-<?php 
-session_start();
-?>
-
 <body>
+<header class="border-bottom sticky-top">
+    <div id="navbar-container"></div>
+</header>
 
-		<?php
+<marquee behavior="scroll" direction="right" scrollamount="5" class="marquee-text">
+    •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
+</marquee>
 
-    
-    if (isset($_SESSION['username'])){
-        
-        header("location: Pages/petprofile.php");
-    }
-                
-// Include config file
-require_once 'config.php';
- 
-// Define variables and initialize with empty values
-$username = $password = "";
-$username_err = $password_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Check if username is empty
-    if(empty(trim($_POST["username"]))){
-        $username_err = 'Please enter username.';
-    } else{
-        $username = trim($_POST["username"]);
-    }
-    
-    // Check if password is empty
-    if(empty(trim($_POST['password']))){
-        $password_err = 'Please enter your password.';
-    } else{
-        $password = trim($_POST['password']);
-    }
-    
-    // Validate credentials
-    if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
-        $sql = "SELECT username, password FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = $username;
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Store result
-                mysqli_stmt_store_result($stmt);
-                
-                // Check if username exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $username, $hashed_password);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
-                            /* Password is correct, so start a new session and
-                            save the username to the session */
-                            session_start();
-
-                            $_SESSION['username'] = $username;
-
-                            $sql2 = "INSERT INTO latestLogin (username) VALUES ('".$username."') ON DUPLICATE KEY UPDATE prevDate = latestDate, latestDate = CURRENT_TIMESTAMP";
-
-							if ($link->query($sql2) === TRUE) {
-								header("location: Pages/petprofile.php");
-							} else {
-							  echo "Error: " . $sql . "<br>" . $link->error;
-							}
-
-                            $_SESSION['id'] = $id;
-                        } else{
-                            // Display an error message if password is not valid
-                            $password_err = 'The password you entered was not valid.';
-                        }
-                    }
-                } else{
-                    // Display an error message if username doesn't exist
-                    $username_err = 'No account found with that username.';
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-        }
-        
-        // Close statement
-        mysqli_stmt_close($stmt);
-    }
-    
-    // Close connection
-    mysqli_close($link);
-	}
-	?>
-
-	<marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ</marquee>
-	  <header>
-		<h2>Sign In</h2>
-	  </header>
-	  <marquee behavior=scroll direction="right" scrollamount="5" style="color: #17ffee;">•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ</marquee>
-	  
-
-	  <div id="nav2">
-		<ul>
-		  <li><a href="index.php">Home</a></li>
-		  <li><a href="login.php">Sign In</a></li>
-		  <li><a href="about.html">About us</a></li>
-		</ul>
-	</div>
-	  <main>
-		<div class="login-form">
-        <h2>Login</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username:</label><br>
-                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <br>
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password:</label><br>
-                <input type="password" name="password" class="form-control">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div><br>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+<main class="d-flex justify-content-center align-items-center min-vh-50">
+    <div class="login-form w-100" style="max-width: 400px;">
+        <h2 class="text-center mb-4">Login</h2>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" name="username" id="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo htmlspecialchars($username); ?>">
+                <div class="invalid-feedback"><?php echo $username_err; ?></div>
             </div>
-            <p>Don't have an account? <a href="register.php">Sign up now</a></p>
-            <p><a href="ForgotMyPassword.php">I forgot my password</a></p>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="password" id="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                <div class="invalid-feedback"><?php echo $password_err; ?></div>
+            </div>
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <div class="text-center">
+                <p>Don't have an account? <a href="register.php" class="text-info">Sign up now</a></p>
+                <p><a href="ForgotMyPassword.php" class="text-info">I forgot my password</a></p>
+            </div>
         </form>
     </div>
-	  </main>
+</main>
 
-	  <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ</marquee>
-	  <footer>
-		<p>Footer</p>
-	  </footer>
-  
+<marquee behavior="scroll" direction="left" scrollamount="5" class="marquee-text mt-4">
+    •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
+</marquee>
 
+<footer class="d-flex flex-wrap justify-content-between align-items-center border-top footer fixed-bottom">
+    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2025 GalaxyPets</p>
+    <ul class="d-flex align-items-center list-unstyled m-0 ml-auto">
+        <li>
+            <a class="text-body-secondary"
+               href="README.md">About Us</a></li>
+        <li>
+            <a class="text-body-secondary"
+               href="#">Official Site</a></li>
+    </ul>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./Assets/js/navbar.js"></script>
 </body>
-	
 </html>

@@ -1,3 +1,26 @@
+<?php
+session_start();
+
+// Include your database connection and your chatroom functions
+require '../../config.php';         // Update the path to your db connection
+require '../../functions.php';  // Update the path to your functions
+
+if (!isset($_SESSION['username'])) {
+    //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+    header("location: /../login.php");
+}
+
+// Load JSON
+$jsonData = file_get_contents('../../Assets/json/planets.json');
+$chatrooms = json_decode($jsonData, true);
+
+// Get the room ID from URL
+$roomId = isset($_GET['room']) ? (int)$_GET['room'] : 0;
+$messages = getMessages($link, $roomId);
+
+$selectedChatroom = $chatrooms[$roomId - 1];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +37,6 @@
 <body>
 
 <header class="border-bottom sticky-top">
-    <?php
-    session_start();
-
-    // Include your database connection and your chatroom functions
-    require '../../config.php';         // Update the path to your db connection
-    require '../../functions.php';  // Update the path to your functions
-
-    if (!isset($_SESSION['username'])) {
-        //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
-        header("location: /../login.php");
-    }
-
-    $chatroomId = 1; // Hardcoding for now, or could be from GET param
-    $messages = getMessages($link, $chatroomId);
-    ?>
-
     <div id="navbar-container"></div>
 </header>
 
@@ -40,24 +47,28 @@
 <main role="main" class="container-md">
     <section class="club-chatroom-grid">
         <section class="left-column">
-            <figure>
-                <figcaption>
-                    <h2>Atoms Halo</h2>
-                </figcaption>
-                <img src="../../Assets/img/planets/lavenderplanet.png" alt="Atoms Halo">
-            </figure>
-            <section class="club-chatroom-info">
-                <div><p>Message about Atoms Halo :)</p></div>
-                <div><p>Population: 5</p></div>
-                <div><p>Online: 4</p></div>
-            </section>
+            <?php if (true): ?>
+                <figure>
+                    <figcaption>
+                        <h2><?= htmlspecialchars($selectedChatroom['name']) ?></h2>
+                    </figcaption>
+                    <img src="../<?= htmlspecialchars($selectedChatroom['imgSrc']) ?>" alt="<?= htmlspecialchars($selectedChatroom['altText']) ?>">
+                </figure>
+                <section class="club-chatroom-info">
+                    <div><p><?= htmlspecialchars($selectedChatroom['name']) ?> Description</p></div>
+                    <div><p>Population: <?= htmlspecialchars($selectedChatroom['population']) ?></p></div>
+                    <div><p>Online: <?= htmlspecialchars($selectedChatroom['online']) ?></p></div>
+                </section>
+            <?php else: ?>
+                <p>Chatroom not found.</p>
+            <?php endif; ?>
         </section>
 
         <section class="chat-area">
             <section class="message-area container">
                 <?php foreach ($messages as $message): ?>
                     <?php
-                    $isCurrentUser = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $message['user_id'];
+                    $isCurrentUser = isset($_SESSION['id']) && $_SESSION['id'] == $message['user_id'];
                     $chatClass = $isCurrentUser ? 'chat-right' : 'chat-left';
                     ?>
                     <div class="message <?= $chatClass ?>">
@@ -75,7 +86,7 @@
             <section class="input-area input-group container">
                 <form method="post" action="../../send_message.php" class="input-group w-100">
                     <input class="form-control" name="message" type="text" placeholder="Type your message here..." required>
-                    <input type="hidden" name="chatroom_id" value="<?= $chatroomId ?>">
+                    <input type="hidden" name="chatroom_id" value="<?= $chatroomId + 1?>">
                     <button class="btn btn-dark" type="submit">Send</button>
                 </form>
             </section>

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+    header("location: /../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,32 +22,8 @@
 </head>
 
 <body>
-    <?php
-        session_start();
-    ?>
 <header class="border-bottom sticky-top">
-    <nav class="navbar navbar-expand-lg d-flex align-items-center">
-        <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
-        <ul class="d-flex align-items-center list-unstyled m-0 ml-auto" style="margin-left: auto;">
-            <li class="dropdown nav-item">
-                <a href="petprofile.php">Your Pet/Profile</a>
-                <div class="dropdown-content">
-                    <a href="petprofile.php">My GalaxyPet</a>
-                    <a href="#">Closet</a>
-                    <a href="#">Settings</a>
-                </div>
-            </li>
-            <li class="dropdown nav-item">
-                <a href="clubs.php">Community</a>
-                <div class="dropdown-content">
-                    <a href="clubs.php">Clubs</a>
-                    <a href="#">Users</a>
-                </div>
-            </li>
-            <li class="nav-item"><a href="games.php">Games</a></li>
-            <li class="nav-item"><a href="#">Shop</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-container"></div>
 </header>
 
 <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">
@@ -51,7 +36,7 @@
     </section>
 </main>
 
-<marquee  behavior=scroll direction="right" scrollamount="5" style="color: #17ffee;">
+<marquee behavior=scroll direction="right" scrollamount="5" style="color: #17ffee;">
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 
@@ -69,14 +54,5 @@
 </body>
 
 <script src="../Assets/js/clubpage.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+<script src="../Assets/js/navbar.js"></script>
 </html>

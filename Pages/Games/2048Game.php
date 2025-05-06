@@ -5,12 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="../../../Assets/js/2048.js"></script>
+    <script src="./../../Assets/js/2048.js"></script>
 
     <title>2048</title>
 
-    <link rel="stylesheet" href="../../../Assets/css/2048Style.css">
-    <script src="../Assets/js/navbar.js"></script>
+    <link rel="stylesheet" href="../../Assets/css/2048Style.css">
+    <link rel="stylesheet" href="../../Assets/css/style.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 
@@ -19,8 +23,6 @@
     <?php
     session_start();
     
-    $pointval = $_COOKIE["score"];
-
     if (!isset($_SESSION['username'])){
         //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
         header("location: /../login.php");
@@ -29,17 +31,25 @@
     "UPDATE points SET points = $pointval WHERE username='" . $_SESSION['username'] . "'"
     ?>
     
-        <div id="navbar-container"></div>
-
+    <div id="navbar-container"></div>
 </header>
-<div id="container">
 
-    <h1>2048</h1>
-    <hr>
-    <h2>Score: <span id="score">0</span></h2>
-    <div id="board">
+<main>
+    <div class="main">
+        <div class="game-info">
+            <h1>2048</h1>
+            <br>
+            <h2>Score: <span id="score">0</span></h2>
+        </div>
+
+        <div id="board" class="container"></div>
+
+        <div class="game-controls">
+            <p>Use the 'Arrow Keys' to move<br> the planets from side to side</p>
+        </div>
     </div>
-</div>
+</main>
 
+<script src="../../Assets/js/navbar.js"></script>
 </body>
 </html> 

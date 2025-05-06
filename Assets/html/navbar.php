@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg d-flex align-items-center">
+<nav class="navbar d-flex align-items-center">
     <div class="logo"><a href="index.php" style="text-decoration: none;">GalaxyPets</a></div>
     <ul class="d-flex align-items-center list-unstyled m-0 ml-auto" style="margin-left: auto;">
         <li class="dropdown nav-item">
