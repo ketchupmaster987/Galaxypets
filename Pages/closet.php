@@ -122,7 +122,9 @@
     </style>
 </head>
 <body>
-
+<?php
+session_start();
+?>
 <header>
     <nav>
         <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
@@ -197,8 +199,6 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-session_start();
 
 // Redirect if already logged in
 if (isset($_SESSION['username'])) {
