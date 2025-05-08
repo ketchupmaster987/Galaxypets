@@ -12,7 +12,6 @@ if (isset($_SESSION['username'])) {
 }
 
 // Include config and function files
-require_once './config.php';
 require './functions.php';
 
 if (!isset($_SESSION['username'])) {
