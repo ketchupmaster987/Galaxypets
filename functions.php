@@ -93,3 +93,11 @@ function getAccessories($link, $username)
     $stmt->execute();
     return $stmt->get_result(); // Return the result set for further processing
 }
+
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}

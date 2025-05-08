@@ -17,7 +17,7 @@ require './functions.php';
 
 $accessories = getAccessories($link, $_SESSION['username']);
 
-var_dump($accessories);
+debug_to_console($accessories);
 
 if ($accessories->num_rows > 0) {
     while($row = $accessories->fetch_assoc()) {
