@@ -26,4 +26,5 @@ if ($accessories->num_rows > 0) {
 }
 
 // We return the Accessories as Json
+header('Content-Type: application/json');
 echo json_encode($myData);
