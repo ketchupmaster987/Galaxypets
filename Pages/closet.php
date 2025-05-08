@@ -149,7 +149,7 @@
             </ul>
         </nav>
     </header>
-    
+
     <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">
         •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
     </marquee>
@@ -195,8 +195,10 @@
         <div id="items-container"></div>
     </div>
 
-    <?php 
-    
+    <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
     while ($row = $result->fetch_assoc()) {
 
 
@@ -319,11 +321,11 @@
                 </script>
             "
             }
-            
+
         }
 
 
-    
+
     ?>
 
 </body>

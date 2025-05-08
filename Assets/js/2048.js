@@ -218,8 +218,7 @@ function hasEmptyTile() {
 
 window.onbeforeunload = function returnScore(){
     sessionStorage.setItem("points", score);
-    //launch seperate php
+    //launch separate php
     //have the phpfile load on close
     window.location("scoreADDer.php");
-
 }

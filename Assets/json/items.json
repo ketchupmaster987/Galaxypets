@@ -1,0 +1,191 @@
+[
+  {
+    "id": "hat-1",
+    "name": "Alien Antenna",
+    "price": 20,
+    "image": "sillyband-yellow.PNG",
+    "type": "hat",
+    "color": "yellow",
+    "fun_factor": "super-fun"
+  },
+  {
+    "id": "hat-2",
+    "name": "Alien Antenna",
+    "price": 20,
+    "image": "sillyband-blue.PNG",
+    "type": "hat",
+    "color": "blue",
+    "fun_factor": "super-fun"
+  },
+  {
+    "id": "hat-3",
+    "name": "Alien Antenna",
+    "price": 20,
+    "image": "sillyband-green.PNG",
+    "type": "hat",
+    "color": "green",
+    "fun_factor": "super-fun"
+  },
+  {
+    "id": "hat-4",
+    "name": "Alien Antenna",
+    "price": 20,
+    "image": "sillyband-lilac.PNG",
+    "type": "hat",
+    "color": "lilac",
+    "fun_factor": "super-fun"
+  },
+  {
+    "id": "hat-5",
+    "name": "Alien Antenna",
+    "price": 20,
+    "image": "sillyband-purple.PNG",
+    "type": "hat",
+    "color": "purple",
+    "fun_factor": "super-fun"
+  },
+  {
+    "id": "hat-6",
+    "name": "Alien Antenna",
+    "price": 20,
+    "image": "sillyband-pink.PNG",
+    "type": "hat",
+    "color": "pink",
+    "fun_factor": "super-fun"
+  },
+  {
+    "id": "hat-7",
+    "name": "Nebula Noggin",
+    "price": 10,
+    "image": "helmet-green.PNG",
+    "type": "hat",
+    "color": "green",
+    "fun_factor": "boring"
+  },
+  {
+    "id": "hat-8",
+    "name": "Nebula Noggin",
+    "price": 10,
+    "image": "helmet-pink.PNG",
+    "type": "hat",
+    "color": "pink",
+    "fun_factor": "boring"
+  },
+  {
+    "id": "hat-9",
+    "name": "Nebula Noggin",
+    "price": 10,
+    "image": "helmet-blue.PNG",
+    "type": "hat",
+    "color": "blue",
+    "fun_factor": "boring"
+  },
+  {
+    "id": "hat-10",
+    "name": "Nebula Noggin",
+    "price": 10,
+    "image": "helmet-purple.PNG",
+    "type": "hat",
+    "color": "purple",
+    "fun_factor": "boring"
+  },
+  {
+    "id": "hat-11",
+    "name": "Nebula Noggin",
+    "price": 10,
+    "image": "helmet-lilac.PNG",
+    "type": "hat",
+    "color": "lilac",
+    "fun_factor": "boring"
+  },
+  {
+    "id": "hat-5",
+    "name": "Lunar Lid",
+    "price": 15,
+    "image": "tophat-blue.PNG",
+    "type": "hat",
+    "color": "blue",
+    "fun_factor": "kind-of-fun"
+  },
+  {
+    "id": "hat-5",
+    "name": "Lunar Lid",
+    "price": 15,
+    "image": "tophat-pink.PNG",
+    "type": "hat",
+    "color": "pink",
+    "fun_factor": "kind-of-fun"
+  },
+  {
+    "id": "hat-5",
+    "name": "Lunar Lid",
+    "price": 15,
+    "image": "tophat-lilac.PNG",
+    "type": "hat",
+    "color": "lilac",
+    "fun_factor": "kind-of-fun"
+  },
+  {
+    "id": "hat-5",
+    "name": "Lunar Lid",
+    "price": 15,
+    "image": "tophat-green.PNG",
+    "type": "hat",
+    "color": "green",
+    "fun_factor": "kind-of-fun"
+  },
+  {
+    "id": "hat-5",
+    "name": "Lunar Lid",
+    "price": 15,
+    "image": "tophat-purple.PNG",
+    "type": "hat",
+    "color": "purple",
+    "fun_factor": "kind-of-fun"
+  },
+  {
+    "id": "hat-6",
+    "name": "Cosmic Crown",
+    "price": 20,
+    "image": "crown-purple.PNG",
+    "type": "hat",
+    "color": "purple",
+    "fun_factor": "super-fun"
+  },
+  {
+    "id": "hat-6",
+    "name": "Cosmic Crown",
+    "price": 15,
+    "image": "crown-pink.PNG",
+    "type": "hat",
+    "color": "pink",
+    "fun_factor": "kind-of-fun"
+  },
+  {
+    "id": "hat-6",
+    "name": "Cosmic Crown",
+    "price": 15,
+    "image": "crown-green.PNG",
+    "type": "hat",
+    "color": "green",
+    "fun_factor": "kind-of-fun"
+  },
+  {
+    "id": "hat-6",
+    "name": "Cosmic Crown",
+    "price": 15,
+    "image": "crown-lilac.PNG",
+    "type": "hat",
+    "color": "lilac",
+    "fun_factor": "kind-of-fun"
+  },
+  {
+    "id": "hat-6",
+    "name": "Cosmic Crown",
+    "price": 15,
+    "image": "crown-blue.PNG",
+    "type": "hat",
+    "color": "blue",
+    "fun_factor": "kind-of-fun"
+  }
+]
