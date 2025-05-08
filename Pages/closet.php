@@ -124,11 +124,6 @@
 <?php
 session_start();
 
-// Redirect if already logged in
-if (isset($_SESSION['username'])) {
-    header("location: ../../Pages/petprofile.php");
-    exit;
-}
 ?>
 <header>
     <nav>
