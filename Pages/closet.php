@@ -202,6 +202,7 @@ error_reporting(E_ALL);
 ?>
 
 <script>
+    let itemNames = [];
     let items = [];
 
     fetch("../Assets/php/closet_handler.php")

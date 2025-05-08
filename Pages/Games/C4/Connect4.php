@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <title>Memory game</title>
 
-    <link rel="stylesheet" href="../../Assets/css/matching.css">
-    <link rel="stylesheet" href="../../Assets/css/style.css">
+    <link rel="stylesheet" href="../../../Assets/css/matching.css">
+    <link rel="stylesheet" href="../../../Assets/css/style.css">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -28,3 +28,6 @@
 
     <div id="navbar-container"></div>
 </header>
+</body>
+<script src="../../../Assets/js/navbar.js"></script>
+</HTML>
