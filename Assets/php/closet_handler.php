@@ -19,16 +19,18 @@ if (!isset($_SESSION['username'])) {
     die("User not logged in");
 }
 
+header('Content-Type: application/json');
+
 $accessories = getAccessories($link, $_SESSION['username']);
 
 $myData = [];
-if ($accessories->num_rows > 0) {
-    while($row = $accessories->fetch_assoc()) {
+
+if ($accessories && $accessories->num_rows > 0) {
+    while ($row = $accessories->fetch_assoc()) {
         unset($row['accessory']);
-        array_push($myData, $row); // push rows to array $myData
+        $myData[] = $row;
     }
 }
 
 // We return the Accessories as Json
-header('Content-Type: application/json');
 echo json_encode($myData);
