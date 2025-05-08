@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /**
  * Adds a user to a chatroom if they're not already in it.
@@ -88,6 +89,10 @@ function sendMessage($link, $userId, $chatroomId, $content)
  */
 function getAccessories($link, $username)
 {
+    if (!isset($_SESSION['username'])) {
+        die("User not logged in");
+    }
+
     $stmt = $link->prepare("SELECT accessory FROM closets WHERE user = ?");
     $stmt->bind_param("s", $username); // Bind one string
     $stmt->execute();
