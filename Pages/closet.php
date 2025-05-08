@@ -232,30 +232,30 @@ error_reporting(E_ALL);
         const container = document.getElementById('items-container');
         container.innerHTML = '';
 
-        let itemsToDisplay = [...items]; // Create a copy to shuffle
-        shuffleArray(itemsToDisplay); // Shuffle the copied array
+        let itemsToDisplay = [...items];
+        shuffleArray(itemsToDisplay);
 
         if (viewType === 'table') {
             const table = document.createElement('table');
             table.innerHTML = `
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Color</th>
-                                    <th>Fun Factor</th>
-                                </tr>
-                            `;
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Fun Factor</th>
+            </tr>
+        `;
             itemsToDisplay.forEach(item => {
                 table.innerHTML += `
-                                    <tr>
-                                        <td><img src="../Assets/img/hats/${item.image}" alt="${item.name}" style="width: 50px;"></td>
-                                        <td>${item.name}</td>
-                                        <td>$${item.price.toFixed(2)}</td>
-                                        <td>${item.color}</td>
-                                        <td>${item.fun_factor}</td>
-                                    </tr>
-                                `;
+                <tr>
+                    <td><img src="../Assets/img/hats/${item.image}" alt="${item.name}" style="width: 50px;"></td>
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.color}</td>
+                    <td>${item.fun_factor}</td>
+                </tr>
+            `;
             });
             container.appendChild(table);
         } else {
@@ -263,13 +263,13 @@ error_reporting(E_ALL);
             grid.className = `grid ${viewType}`;
             itemsToDisplay.forEach(item => {
                 grid.innerHTML += `
-                                    <div class="item">
-                                        <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
-                                        <h3>${item.name}</h3>
-                                        <p>$${item.price.toFixed(2)}</p>
-                                        <p>Color: ${item.color}</p>
-                                    </div>
-                                `;
+                <div class="item">
+                    <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>$${item.price.toFixed(2)}</p>
+                    <p>Color: ${item.color}</p>
+                </div>
+            `;
             });
             container.appendChild(grid);
         }
@@ -293,28 +293,34 @@ error_reporting(E_ALL);
         const container = document.getElementById('items-container');
         container.innerHTML = '';
 
-        let itemsToDisplay = [...filteredItems]; // Create a copy to shuffle
-        shuffleArray(itemsToDisplay); // Shuffle the copied array
+        let itemsToDisplay = [...filteredItems];
+        shuffleArray(itemsToDisplay);
 
         const grid = document.createElement('div');
         grid.className = 'grid grid-3';
         itemsToDisplay.forEach(item => {
             grid.innerHTML += `
-                                <div class="item">
-                                    <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
-                                    <h3>${item.name}</h3>
-                                    <p>$${item.price.toFixed(2)}</p>
-                                    <p>Color: ${item.color}</p>
-                                </div>
-                            `;
+            <div class="item">
+                <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
+                <h3>${item.name}</h3>
+                <p>$${item.price.toFixed(2)}</p>
+                <p>Color: ${item.color}</p>
+            </div>
+        `;
         });
         container.appendChild(grid);
     }
 
-    // Initialize with grid-3 view
-    changeView('grid-3');
+    // Load JSON from your PHP script
+    fetch('getAccessories.php')
+        .then(response => response.json())
+        .then(data => {
+            items = data; // now `items` is ready
+            changeView('grid-3'); // initial display
+        })
+        .catch(error => console.error('Failed to load items:', error));
 
-    // Add event listeners to filters
+    // Event listeners
     document.getElementById('product-type').addEventListener('change', filterItems);
     document.getElementById('color').addEventListener('change', filterItems);
     document.getElementById('fun-factor').addEventListener('change', filterItems);
