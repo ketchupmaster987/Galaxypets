@@ -17,6 +17,8 @@ require './functions.php';
 
 $accessories = getAccessories($link, $_SESSION['username']);
 
+var_dump($accessories);
+
 if ($accessories->num_rows > 0) {
     while($row = $accessories->fetch_assoc()) {
         unset($row['accessory']);
