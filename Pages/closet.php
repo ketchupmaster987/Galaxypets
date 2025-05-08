@@ -212,19 +212,18 @@ error_reporting(E_ALL);
 
     fetch("../Assets/php/closet_handler.php")
         .then((response) => {
-            if(!response.ok){ // Before parsing (i.e. decoding) the JSON data,
-                // check for any errors.
-                // In case of an error, throw.
-                throw new Error("Something went wrong!");
+            if (!response.ok) {
+                throw new Error("Network error");
             }
-            return response.json(); // Parse the JSON data.
+            return response.text(); // first, get raw text
         })
-        .then((data) => {
-            // This is where you handle what to do with the response.
-            alert(data);
+        .then((text) => {
+            console.log("Raw response:", text); // debug
+            const data = JSON.parse(text); // now try to parse
+            console.log("Parsed JSON:", data);
         })
         .catch((error) => {
-            throw new Error(error);
+            console.error("Error parsing JSON:", error);
         });
 
     //for each acessory in closet
