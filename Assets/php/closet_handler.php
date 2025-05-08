@@ -5,12 +5,6 @@ error_reporting(E_ALL);
 
 session_start();
 
-// Redirect if already logged in
-if (isset($_SESSION['username'])) {
-    header("location: ../../Pages/petprofile.php");
-    exit;
-}
-
 // Include config and function files
 require '../../functions.php';
 
