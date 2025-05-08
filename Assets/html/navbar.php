@@ -5,8 +5,7 @@
             <a href="Pages/petprofile.php" class="nav-link">Your Pet/Profile</a>
             <div class="dropdown-content">
                 <a href="Pages/petprofile.php" class="nav-link">My GalaxyPet</a>
-                <a href="#" class="nav-link">Closet</a>
-                <a href="#" class="nav-link">Settings</a>
+                <a href="Pages/closet.php" class="nav-link">Closet</a>
             </div>
         </li>
         <li class="dropdown nav-item">

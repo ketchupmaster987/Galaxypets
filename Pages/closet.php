@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Club Shop</title>
+    <title>CLOSETTT</title>
     <link rel="stylesheet" href="../Assets/css/style.css">
     <link rel="preload" href="../Assets/img/aquagalaxy_small.gif" as="image">
     <style>
@@ -133,7 +133,8 @@ session_start();
                 <a href="petprofile.php">Your Pet/Profile</a>
                 <div class="dropdown-content">
                     <a href="petprofile.php">My GalaxyPet</a>
-                    <a href="closet.php">Closet</a>
+                    <a href="#">Closet</a>
+                    <a href="#">Settings</a>
                 </div>
             </li>
             <li class="dropdown">
@@ -153,7 +154,7 @@ session_start();
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 <div class="container">
-    <h1>Welcome to the Shop!</h1>
+    <h1>Welcome to MY CLOSETT!</h1>
 
     <div class="filters">
         <div class="filter-group">
@@ -194,17 +195,42 @@ session_start();
     <div id="items-container"></div>
 </div>
 
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Redirect if already logged in
+if (isset($_SESSION['username'])) {
+    header("location: ../../Pages/petprofile.php");
+    exit;
+}
+
+?>
+
 <script>
-    let items;
-    fetch('../Assets/json/items.json')
-        .then(response => response.json())
-        .then(data => {
-            // Access your data here
-            items = data;
+    let items = [];
+
+    fetch("../Assets/php/closet_handler.php")
+        .then((response) => {
+            if(!response.ok){ // Before parsing (i.e. decoding) the JSON data,
+                // check for any errors.
+                // In case of an error, throw.
+                throw new Error("Something went wrong!");
+            }
+            return response.json(); // Parse the JSON data.
         })
-        .catch(error => {
-            console.error('Error fetching JSON:', error);
+        .then((data) => {
+            // This is where you handle what to do with the response.
+            alert(data);
+        })
+        .catch((error) => {
+            throw new Error(error);
         });
+
+    //for each acessory in closet
+    //add png name to items[]
+    //reformat the below code to match with the revised items
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -223,25 +249,24 @@ session_start();
         if (viewType === 'table') {
             const table = document.createElement('table');
             table.innerHTML = `
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Color</th>
-                        <th>Fun Factor</th>
-                    </tr>
-                `;
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Color</th>
+                                    <th>Fun Factor</th>
+                                </tr>
+                            `;
             itemsToDisplay.forEach(item => {
                 table.innerHTML += `
-                        <tr>
-                            <td><img src="../Assets/img/hats/${item.image}" alt="${item.name}" style="width: 50px;"></td>
-                            <td>${item.name}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td>${item.color}</td>
-                            <td>${item.fun_factor}</td>
-                            <button>
-                        </tr>
-                    `;
+                                    <tr>
+                                        <td><img src="../Assets/img/hats/${item.image}" alt="${item.name}" style="width: 50px;"></td>
+                                        <td>${item.name}</td>
+                                        <td>$${item.price.toFixed(2)}</td>
+                                        <td>${item.color}</td>
+                                        <td>${item.fun_factor}</td>
+                                    </tr>
+                                `;
             });
             container.appendChild(table);
         } else {
@@ -249,14 +274,13 @@ session_start();
             grid.className = `grid ${viewType}`;
             itemsToDisplay.forEach(item => {
                 grid.innerHTML += `
-                        <div class="item">
-                            <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
-                            <h3>${item.name}</h3>
-                            <p>$${item.price.toFixed(2)}</p>
-                            <p>Color: ${item.color}</p>
-                            <button>
-                        </div>
-                    `;
+                                    <div class="item">
+                                        <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
+                                        <h3>${item.name}</h3>
+                                        <p>$${item.price.toFixed(2)}</p>
+                                        <p>Color: ${item.color}</p>
+                                    </div>
+                                `;
             });
             container.appendChild(grid);
         }
@@ -287,14 +311,13 @@ session_start();
         grid.className = 'grid grid-3';
         itemsToDisplay.forEach(item => {
             grid.innerHTML += `
-                    <div class="item">
-                        <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
-                        <h3>${item.name}</h3>
-                        <p>$${item.price.toFixed(2)}</p>
-                        <p>Color: ${item.color}</p>
-                        <button>
-                    </div>
-                `;
+                                <div class="item">
+                                    <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
+                                    <h3>${item.name}</h3>
+                                    <p>$${item.price.toFixed(2)}</p>
+                                    <p>Color: ${item.color}</p>
+                                </div>
+                            `;
         });
         container.appendChild(grid);
     }
@@ -306,13 +329,7 @@ session_start();
     document.getElementById('product-type').addEventListener('change', filterItems);
     document.getElementById('color').addEventListener('change', filterItems);
     document.getElementById('fun-factor').addEventListener('change', filterItems);
-
-    window.onbeforeunload = function returnScore() {
-        sessionStorage.setItem("points", price);
-        //launch seperate php
-        //have the phpfile load on close
-        window.location("scoreSUBTRACTer.php");
-    }
 </script>
+
 </body>
 </html>

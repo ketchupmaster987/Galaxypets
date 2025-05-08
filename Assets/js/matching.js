@@ -3,12 +3,12 @@ const canvas = document.createElement('canvas');
 const scoreSpan = document.getElementById('score')
 const MAX_SCORE = 6
 const cardsArr = [
-    '../../../Assets/img/glorbus/blue.PNG',
-    '../../../Assets/img/glorbus/darkpurple.PNG',
-    '../../../Assets/img/glorbus/lightpurple.PNG',
-    '../../../Assets/img/glorbus/pink.PNG',
-    '../../../Assets/img/glorbus/green.PNG',
-    '../../../Assets/img/planets/blueplanet.PNG',
+    '../../../Assets/img/glorbus/blue.png',
+    '../../../Assets/img/glorbus/darkpurple.png',
+    '../../../Assets/img/glorbus/lightpurple.png',
+    '../../../Assets/img/glorbus/pink.png',
+    '../../../Assets/img/glorbus/green.png',
+    '../../../Assets/img/planets/blueplanet.png',
 ]
 
 let indices = [0, 1, 2, 3, 4, 5]
