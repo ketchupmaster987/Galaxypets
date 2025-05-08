@@ -51,19 +51,38 @@ session_start();
             </div>
             <script type="text/javascript">
 
-                setInterval (function showPreview() {
+                /* setInterval (function showPreview() {
 
                     var species = document.getElementById('species').value;
                     
                     var color = document.getElementById('color').value;
                     
                     document.getElementById('pet').innerHTML = '<img src="../Assets/img/' + species + '/regular/' + color + '.png" width="300px" height="300px">';
-                    
-                    
-                }, 0.01 * 1000 );
+                }, 0.01 * 1000 );*/
+                setInterval(function showPreview() {
+                var species = document.getElementById('species').value;
+                var color = document.getElementById('color').value;
+
+                // Set pet image
+            document.getElementById('pet').innerHTML = '<img src="../Assets/img/' + species + '/regular/' + color + '.png" width="300px" height="300px">';
+
+                // Set description
+                var descriptionText = "";
+                if (species === "glorbus") {
+                    descriptionText = "Glorbus: A cheerful space blob that feeds on cosmic dust.";
+                } else if (species === "jelly") {
+                    descriptionText = "Jelly: A translucent jellyfish-like creature that floats through galaxies.";
+                }
+
+    document.getElementById('description').innerText = descriptionText;
+
+}, 100); // Still updates every 0.1 second
+//says i need to make a html? w this info on it >:///
             </script>
-            <div id="pet">
-            </div>
+            <div id="pet"></div>
+            <div id="description" style="margin-top: 1em; font-style: italic;"></div>
+
+
             <form action="adoption.php" method="GET">
                 <fieldset>
                     <legend>Create Your Pet</legend>
@@ -79,7 +98,9 @@ session_start();
                             <option value="jelly">Jelly</option>
                         </select>
                         <br>
-                        <br>
+
+                        
+
                     Color:<br>
                         <select name="color" id="color">
                             
