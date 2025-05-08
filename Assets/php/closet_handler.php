@@ -15,6 +15,10 @@ if (isset($_SESSION['username'])) {
 require_once './config.php';
 require './functions.php';
 
+if (!isset($_SESSION['username'])) {
+    die("User not logged in");
+}
+
 $accessories = getAccessories($link, $_SESSION['username']);
 
 $myData = [];
