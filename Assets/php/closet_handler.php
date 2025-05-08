@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 session_start();
 
 // Include config and function files
+require '../../config.php';
 require '../../functions.php';
 
 if (!isset($_SESSION['username'])) {
