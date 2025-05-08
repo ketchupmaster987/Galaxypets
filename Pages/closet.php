@@ -206,11 +206,6 @@ if (isset($_SESSION['username'])) {
     exit;
 }
 
-// Include config and function files
-require_once './config.php';
-require './functions.php';
-
-
 ?>
 
 <script>
