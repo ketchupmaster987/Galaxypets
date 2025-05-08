@@ -1,29 +1,47 @@
 <?php
 
-// Adds a user to a chatroom if they're not already in it
+/**
+ * Adds a user to a chatroom if they're not already in it.
+ *
+ * @param mysqli $link          The MySQLi connection object.
+ * @param int    $userId        The ID of the user to add.
+ * @param int    $chatroomId    The ID of the chatroom to join.
+ * @return void
+ */
 function joinChatroom($link, $userId, $chatroomId)
 {
-    // Prepare an SQL statement to insert a user and chatroom ID
-    // 'INSERT IGNORE' prevents error if the entry already exists
+    // 'INSERT IGNORE' prevents duplicate entries if user is already in the chatroom
     $stmt = $link->prepare("INSERT IGNORE INTO chatroom_members (user_id, chatroom_id) VALUES (?, ?)");
-    $stmt->bind_param("ii", $userId, $chatroomId); // 'ii' means two integers
-    $stmt->execute(); // Run the query
+    $stmt->bind_param("ii", $userId, $chatroomId); // Bind two integers
+    $stmt->execute(); // Execute the statement
 }
 
-// Gets a user's ID based on their username
+/**
+ * Gets a user's ID based on their username.
+ *
+ * @param mysqli $link        The MySQLi connection object.
+ * @param string $username    The username to search for.
+ * @return int|null           Returns the user ID if found, or null otherwise.
+ */
 function getUserByUsername($link, $username)
 {
     $stmt = $link->prepare("SELECT id FROM users WHERE username = ?");
-    $stmt->bind_param("s", $username);
+    $stmt->bind_param("s", $username); // Bind one string
     $stmt->execute();
-    $stmt->bind_result($userId);
+    $stmt->bind_result($userId); // Store result in $userId
     if ($stmt->fetch()) {
         return $userId;
     }
-    return null;
+    return null; // No user found
 }
 
-// Retrieves all messages from a specific chatroom, ordered by the time they were sent
+/**
+ * Retrieves all messages from a specific chatroom, ordered by sent time.
+ *
+ * @param mysqli $link          The MySQLi connection object.
+ * @param int    $chatroomId    The ID of the chatroom.
+ * @return array                An array of associative arrays representing messages.
+ */
 function getMessages($link, $chatroomId)
 {
     $stmt = $link->prepare("
@@ -33,24 +51,45 @@ function getMessages($link, $chatroomId)
         WHERE m.chatroom_id = ?
         ORDER BY m.sent_at ASC
     ");
-    $stmt->bind_param("i", $chatroomId);
+    $stmt->bind_param("i", $chatroomId); // Bind one integer
     $stmt->execute();
-    $result = $stmt->get_result();
+    $result = $stmt->get_result(); // Get result set
 
     $messages = [];
     while ($row = $result->fetch_assoc()) {
-        $messages[] = $row;
+        $messages[] = $row; // Append each message as an associative array
     }
 
     return $messages;
 }
 
-
-// Sends (inserts) a new message into the database
+/**
+ * Inserts a new message into the database.
+ *
+ * @param mysqli $link          The MySQLi connection object.
+ * @param int    $userId        The ID of the user sending the message.
+ * @param int    $chatroomId    The ID of the chatroom.
+ * @param string $content       The content of the message.
+ * @return void
+ */
 function sendMessage($link, $userId, $chatroomId, $content)
 {
-    // Prepare an SQL query to insert a new message
     $stmt = $link->prepare("INSERT INTO messages (chatroom_id, user_id, content) VALUES (?, ?, ?)");
-    $stmt->bind_param("iis", $chatroomId, $userId, $content); // iis = int, int, string
-    $stmt->execute(); // Execute the query
+    $stmt->bind_param("iis", $chatroomId, $userId, $content); // Bind two ints and one string
+    $stmt->execute();
+}
+
+/**
+ * Gets the accessories associated with a specific username.
+ *
+ * @param mysqli $link        The MySQLi connection object.
+ * @param string $username    The username to look up.
+ * @return mysqli_result      A result set containing the accessories.
+ */
+function getAccessories($link, $username)
+{
+    $stmt = $link->prepare("SELECT accessory FROM closets WHERE user = ?");
+    $stmt->bind_param("s", $username); // Bind one string
+    $stmt->execute();
+    return $stmt->get_result(); // Return the result set for further processing
 }
