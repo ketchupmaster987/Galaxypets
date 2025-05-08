@@ -135,7 +135,7 @@ session_start();
             </form>
         </div>
 			<br>
-            <!--Or, if you want to order for someone else <br> but don't know how they want their dragon, <br>why not get a <a href="orderGiftCard.php">gift card</a>?-->
+            <!--Or, if zcdscdscszccdyou want to order for someone else <br> but don't know how they want their dragon, <br>why not get a <a href="orderGiftCard.php">gift card</a>?-->
 	</div>
 </main>
 </div>
