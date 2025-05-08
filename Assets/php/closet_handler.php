@@ -17,5 +17,12 @@ require './functions.php';
 
 $accessories = getAccessories($link, $_SESSION['username']);
 
+if ($accessories->num_rows > 0) {
+    while($row = $accessories->fetch_assoc()) {
+        unset($row['accessory']);
+        array_push($myData,$row); // push rows to array $myData
+    }
+}
+
 // We return the Accessories as Json
-echo json_encode($accessories);
+echo json_encode($myData);
