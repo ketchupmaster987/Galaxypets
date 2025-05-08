@@ -12,7 +12,7 @@ if (isset($_SESSION['username'])) {
 }
 
 // Include config and function files
-require './functions.php';
+require '../../functions.php';
 
 if (!isset($_SESSION['username'])) {
     die("User not logged in");

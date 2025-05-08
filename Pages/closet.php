@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLOSETTT</title>
     <link rel="stylesheet" href="../Assets/css/style.css">
-    <link rel="preload" href="../Assets/img/aquagalaxy_small.gif" as="image">
     <style>
         :root {
             --dark-purple: #6917d0;
