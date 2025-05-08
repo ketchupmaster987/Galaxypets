@@ -202,7 +202,6 @@ error_reporting(E_ALL);
 ?>
 
 <script>
-    let itemNames = [];
     let items = [];
 
     fetch("../Assets/php/closet_handler.php")
@@ -213,17 +212,14 @@ error_reporting(E_ALL);
             return response.text(); // first, get raw text
         })
         .then((text) => {
-            console.log("Raw response:", text); // debug
             const data = JSON.parse(text); // now try to parse
             console.log("Parsed JSON:", data);
+            items = data;
         })
         .catch((error) => {
             console.error("Error parsing JSON:", error);
         });
 
-    //for each acessory in closet
-    //add png name to items[]
-    //reformat the below code to match with the revised items
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
