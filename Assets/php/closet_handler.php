@@ -21,10 +21,10 @@ if ($accessories && $accessories->num_rows > 0) {
 }
 
 // Filter items to only those that match accessories
-$matchedItems = array_filter($allItems, function ($item) use ($accessoryNames) {
-    return in_array($item['name'], $accessoryNames);
-});
+//$matchedItems = array_filter($allItems, function ($item) use ($accessoryNames) {
+//    return in_array($item['name'], $accessoryNames);
+//});
 
 // We return the Accessories as Json
 header('Content-Type: application/json');
-echo json_encode($matchedItems);
+echo json_encode($accessoryNames);
