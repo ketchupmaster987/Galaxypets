@@ -17,12 +17,11 @@ require './functions.php';
 
 $accessories = getAccessories($link, $_SESSION['username']);
 
-debug_to_console($accessories);
-
+$myData = [];
 if ($accessories->num_rows > 0) {
     while($row = $accessories->fetch_assoc()) {
         unset($row['accessory']);
-        array_push($myData,$row); // push rows to array $myData
+        array_push($myData, $row); // push rows to array $myData
     }
 }
 
