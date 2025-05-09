@@ -86,7 +86,7 @@ $selectedChatroom = $chatrooms[$roomId - 1];
             <section class="input-area input-group container">
                 <form method="post" action="../../send_message.php" class="input-group w-100">
                     <input class="form-control" name="message" type="text" placeholder="Type your message here..." required>
-                    <input type="hidden" name="chatroom_id" value="<?= $roomId + 1?>">
+                    <input type="hidden" name="chatroom_id" value="<?= $roomId?>">
                     <button class="btn btn-dark" type="submit">Send</button>
                 </form>
             </section>
