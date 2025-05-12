@@ -19,7 +19,7 @@ if (!isset($_SESSION['username'])) {
 //    "color": "blue",
 //    "fun_factor": "super-fun"
 //  }
-function buyItem($link, $item)
+function buyItem($item)
 {
     $success = buy_item($link, $_SESSION['username'], $item['id'], $item['price']);
 
