@@ -10,7 +10,6 @@ if (!isset($_SESSION['username'])) {
 }
 
 $allItems = json_decode(file_get_contents("../json/items.json"), true);
-
 $accessories = getAccessories($link, $_SESSION['username']);
 $accessoryIDs = [];
 
@@ -20,11 +19,11 @@ if ($accessories && $accessories->num_rows > 0) {
     }
 }
 
-// Filter items to only those that match accessories
-$matchedItems = array_filter($allItems, function ($item) use ($accessoryIDs) {
-    return in_array($item['id'], $accessoryIDs);
+// Filter items to only those that do NOT match accessories
+$nonAccessoryItems = array_filter($allItems, function ($item) use ($accessoryIDs) {
+    return !in_array($item['id'], $accessoryIDs);
 });
 
 // We return the Accessories as Json
 header('Content-Type: application/json');
-echo json_encode($matchedItems);
+echo json_encode($nonAccessoryItems);
