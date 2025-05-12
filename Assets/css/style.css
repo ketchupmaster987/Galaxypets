@@ -30,7 +30,13 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+ 
+
 }
+body {
+  cursor: url('../img/oth756.png'), auto;
+}
+
 
 html {
     /* Standard text-settings below */
