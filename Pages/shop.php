@@ -240,7 +240,7 @@ if (!isset($_SESSION['username'])){
             grid.className = `grid ${viewType}`;
             itemsToDisplay.forEach(item => {
                 grid.innerHTML += `
-                        <div class="item" onclick="../Assets/php/buy_handler.php?item=${item}">
+                        <div class="item" onclick="buy_item(item)">
                             <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
                             <h3>${item.name}</h3>
                             <p>$${item.price.toFixed(2)}</p>
