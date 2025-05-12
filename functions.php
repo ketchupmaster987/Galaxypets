@@ -94,10 +94,53 @@ function getAccessories($link, $username)
     return $stmt->get_result(); // Return the result set for further processing
 }
 
-function debug_to_console($data) {
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
+function get_points($link, $username)
+{
+    $stmt = $link->prepare("SELECT points FROM points WHERE user = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    return $stmt->bind_result($points);
+}
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+function buy_item($link, $username, $itemCost, $itemName)
+{
+    // Assume $link is your mysqli connection
+    $link->begin_transaction();
+
+    try {
+        // 1. Subtract points IF the user has enough
+        $stmt = $link->prepare("
+        UPDATE points 
+        SET points = points - ? 
+        WHERE user = ? AND points >= ?
+    ");
+        $stmt->bind_param("isi", $itemCost, $username, $itemCost);
+        $stmt->execute();
+
+        // Check if a row was updated (i.e., user had enough points)
+        if ($stmt->affected_rows === 0) {
+            // Not enough points — rollback and exit
+            $link->rollback();
+            echo json_encode(["success" => false, "message" => "Not enough points."]);
+            exit;
+        }
+
+        // 2. Add the accessory to the closet
+        $stmt = $link->prepare("
+        INSERT INTO closets (user, accessory) 
+        VALUES (?, ?)
+    ");
+        $stmt->bind_param("ss", $username, $itemName);
+        $stmt->execute();
+
+        // 3. Everything succeeded — commit the transaction
+        $link->commit();
+
+        echo json_encode(["success" => true, "message" => "Accessory added successfully."]);
+
+    } catch (Exception $e) {
+        // On error, roll back
+        $link->rollback();
+        echo json_encode(["success" => false, "message" => "Database error: " . $e->getMessage()]);
+    }
 }

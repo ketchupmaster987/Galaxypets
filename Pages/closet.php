@@ -123,31 +123,13 @@
 <body>
 <?php
 session_start();
-
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../index.php");
+    exit;
+}
 ?>
 <header>
-    <nav>
-        <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
-        <ul>
-            <li class="dropdown">
-                <a href="petprofile.php">Your Pet/Profile</a>
-                <div class="dropdown-content">
-                    <a href="petprofile.php">My GalaxyPet</a>
-                    <a href="#">Closet</a>
-                    <a href="#">Settings</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                Community
-                <div class="dropdown-content">
-                    <a href="clubs.php">Clubs</a>
-                    <a href="activeusers.php">Users</a>
-                </div>
-            </li>
-            <li><a href="../index.php">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-container"></div>
 </header>
 
 <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">
