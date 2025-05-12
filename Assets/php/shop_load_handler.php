@@ -26,4 +26,4 @@ $nonAccessoryItems = array_filter($allItems, function ($item) use ($accessoryIDs
 
 // We return the Accessories as Json
 header('Content-Type: application/json');
-echo json_encode($nonAccessoryItems);
+echo json_encode(array_values($nonAccessoryItems));

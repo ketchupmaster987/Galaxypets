@@ -27,4 +27,4 @@ $matchedItems = array_filter($allItems, function ($item) use ($accessoryIDs) {
 
 // We return the Accessories as Json
 header('Content-Type: application/json');
-echo json_encode($matchedItems);
+echo json_encode(array_values($matchedItems));
