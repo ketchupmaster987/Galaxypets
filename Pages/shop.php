@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Club Shop</title>
     <link rel="stylesheet" href="../Assets/css/style.css">
-    <link rel="preload" href="../Assets/img/aquagalaxy_small.gif" as="image">
     <style>
         :root {
             --dark-purple: #6917d0;
@@ -124,29 +123,14 @@
 <body>
 <?php
 session_start();
+if (!isset($_SESSION['username'])){
+    //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+    header("location: /../login.php");
+}
 ?>
+
 <header>
-    <nav>
-        <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
-        <ul>
-            <li class="dropdown">
-                <a href="petprofile.php">Your Pet/Profile</a>
-                <div class="dropdown-content">
-                    <a href="petprofile.php">My GalaxyPet</a>
-                    <a href="closet.php">Closet</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                Community
-                <div class="dropdown-content">
-                    <a href="clubs.php">Clubs</a>
-                    <a href="activeusers.php">Users</a>
-                </div>
-            </li>
-            <li><a href="../index.php">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-container"></div>
 </header>
 
 <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">
@@ -196,14 +180,22 @@ session_start();
 
 <script>
     let items;
-    fetch('../Assets/json/items.json')
-        .then(response => response.json())
-        .then(data => {
-            // Access your data here
-            items = data;
+    fetch("../Assets/php/shop_load_handler.php")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network error");
+            }
+            return response.text(); // first, get raw text
         })
-        .catch(error => {
-            console.error('Error fetching JSON:', error);
+        .then((text) => {
+            const data = JSON.parse(text); // now try to parse
+            console.log("Parsed JSON:", data);
+            items = data;
+            // Initialize with grid-3 view
+            changeView('grid-3');
+        })
+        .catch((error) => {
+            console.error("Error parsing JSON:", error);
         });
 
     function shuffleArray(array) {
@@ -239,7 +231,6 @@ session_start();
                             <td>$${item.price.toFixed(2)}</td>
                             <td>${item.color}</td>
                             <td>${item.fun_factor}</td>
-                            <button>
                         </tr>
                     `;
             });
@@ -254,7 +245,7 @@ session_start();
                             <h3>${item.name}</h3>
                             <p>$${item.price.toFixed(2)}</p>
                             <p>Color: ${item.color}</p>
-                            <button>
+                            <td>${item.fun_factor}</td>
                         </div>
                     `;
             });
@@ -292,27 +283,17 @@ session_start();
                         <h3>${item.name}</h3>
                         <p>$${item.price.toFixed(2)}</p>
                         <p>Color: ${item.color}</p>
-                        <button>
+                        <td>${item.fun_factor}</td>
                     </div>
                 `;
         });
         container.appendChild(grid);
     }
 
-    // Initialize with grid-3 view
-    changeView('grid-3');
-
     // Add event listeners to filters
     document.getElementById('product-type').addEventListener('change', filterItems);
     document.getElementById('color').addEventListener('change', filterItems);
     document.getElementById('fun-factor').addEventListener('change', filterItems);
-
-    window.onbeforeunload = function returnScore() {
-        sessionStorage.setItem("points", price);
-        //launch seperate php
-        //have the phpfile load on close
-        window.location("scoreSUBTRACTer.php");
-    }
 </script>
 </body>
 </html>

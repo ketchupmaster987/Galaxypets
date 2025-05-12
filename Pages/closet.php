@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLOSETTT</title>
     <link rel="stylesheet" href="../Assets/css/style.css">
-    <link rel="preload" href="../Assets/img/aquagalaxy_small.gif" as="image">
     <style>
         :root {
             --dark-purple: #6917d0;
@@ -124,30 +123,13 @@
 <body>
 <?php
 session_start();
+if (!isset($_SESSION['username'])){
+    //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
+    header("location: /../login.php");
+}
 ?>
 <header>
-    <nav>
-        <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
-        <ul>
-            <li class="dropdown">
-                <a href="petprofile.php">Your Pet/Profile</a>
-                <div class="dropdown-content">
-                    <a href="petprofile.php">My GalaxyPet</a>
-                    <a href="#">Closet</a>
-                    <a href="#">Settings</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                Community
-                <div class="dropdown-content">
-                    <a href="clubs.php">Clubs</a>
-                    <a href="activeusers.php">Users</a>
-                </div>
-            </li>
-            <li><a href="../index.php">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-container"></div>
 </header>
 
 <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">
@@ -195,42 +177,27 @@ session_start();
     <div id="items-container"></div>
 </div>
 
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Redirect if already logged in
-if (isset($_SESSION['username'])) {
-    header("location: ../../Pages/petprofile.php");
-    exit;
-}
-
-?>
-
 <script>
     let items = [];
 
     fetch("../Assets/php/closet_handler.php")
         .then((response) => {
-            if(!response.ok){ // Before parsing (i.e. decoding) the JSON data,
-                // check for any errors.
-                // In case of an error, throw.
-                throw new Error("Something went wrong!");
+            if (!response.ok) {
+                throw new Error("Network error");
             }
-            return response.json(); // Parse the JSON data.
+            return response.text(); // first, get raw text
         })
-        .then((data) => {
-            // This is where you handle what to do with the response.
-            alert(data);
+        .then((text) => {
+            const data = JSON.parse(text); // now try to parse
+            console.log("Parsed JSON:", data);
+            items = data;
+            // Initialize with grid-3 view
+            changeView('grid-3');
         })
         .catch((error) => {
-            throw new Error(error);
+            console.error("Error parsing JSON:", error);
         });
 
-    //for each acessory in closet
-    //add png name to items[]
-    //reformat the below code to match with the revised items
 
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -321,9 +288,6 @@ if (isset($_SESSION['username'])) {
         });
         container.appendChild(grid);
     }
-
-    // Initialize with grid-3 view
-    changeView('grid-3');
 
     // Add event listeners to filters
     document.getElementById('product-type').addEventListener('change', filterItems);
