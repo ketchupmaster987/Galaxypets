@@ -294,6 +294,6 @@ if (!isset($_SESSION['username'])){
     document.getElementById('color').addEventListener('change', filterItems);
     document.getElementById('fun-factor').addEventListener('change', filterItems);
 </script>
-
+<script src="../Assets/js/navbar.js"></script>
 </body>
 </html>

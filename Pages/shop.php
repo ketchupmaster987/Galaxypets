@@ -215,43 +215,52 @@ if (!isset($_SESSION['username'])){
         if (viewType === 'table') {
             const table = document.createElement('table');
             table.innerHTML = `
-                    <tr>
-                        <th>Image</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Color</th>
-                        <th>Fun Factor</th>
-                    </tr>
-                `;
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Fun Factor</th>
+            </tr>
+        `;
             itemsToDisplay.forEach(item => {
                 table.innerHTML += `
-                        <tr>
-                            <td><img src="../Assets/img/hats/${item.image}" alt="${item.name}" style="width: 50px;"></td>
-                            <td>${item.name}</td>
-                            <td>$${item.price.toFixed(2)}</td>
-                            <td>${item.color}</td>
-                            <td>${item.fun_factor}</td>
-                        </tr>
-                    `;
+                <tr>
+                    <td><img src="../Assets/img/hats/${item.image}" alt="${item.name}" style="width: 50px;"></td>
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.color}</td>
+                    <td>${item.fun_factor}</td>
+                </tr>
+            `;
             });
             container.appendChild(table);
         } else {
             const grid = document.createElement('div');
             grid.className = `grid ${viewType}`;
+
             itemsToDisplay.forEach(item => {
-                grid.innerHTML += `
-                        <div class="item" onclick="buyItem(${item})">
-                            <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
-                            <h3>${item.name}</h3>
-                            <p>$${item.price.toFixed(2)}</p>
-                            <p>Color: ${item.color}</p>
-                            <td>${item.fun_factor}</td>
-                        </div>
-                    `;
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item';
+
+                itemDiv.innerHTML = `
+                <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
+                <h3>${item.name}</h3>
+                <p>$${item.price.toFixed(2)}</p>
+                <p>Color: ${item.color}</p>
+                <td>${item.fun_factor}</td>
+            `;
+
+                // ✅ Add click event listener here
+                itemDiv.addEventListener('click', () => buyItem(item));
+
+                grid.appendChild(itemDiv);
             });
+
             container.appendChild(grid);
         }
     }
+
 
     function filterItems() {
         const typeFilter = document.getElementById('product-type').value;
@@ -271,29 +280,37 @@ if (!isset($_SESSION['username'])){
         const container = document.getElementById('items-container');
         container.innerHTML = '';
 
-        let itemsToDisplay = [...filteredItems]; // Create a copy to shuffle
-        shuffleArray(itemsToDisplay); // Shuffle the copied array
+        let itemsToDisplay = [...filteredItems];
+        shuffleArray(itemsToDisplay);
 
         const grid = document.createElement('div');
         grid.className = 'grid grid-3';
+
         itemsToDisplay.forEach(item => {
-            grid.innerHTML += `
-                    <div class="item">
-                        <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
-                        <h3>${item.name}</h3>
-                        <p>$${item.price.toFixed(2)}</p>
-                        <p>Color: ${item.color}</p>
-                        <td>${item.fun_factor}</td>
-                    </div>
-                `;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
+
+            itemDiv.innerHTML = `
+            <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p>$${item.price.toFixed(2)}</p>
+            <p>Color: ${item.color}</p>
+            <td>${item.fun_factor}</td>
+        `;
+
+            // ✅ Add event listener instead of inline onclick
+            itemDiv.addEventListener('click', () => buyItem(item));
+
+            grid.appendChild(itemDiv);
         });
+
         container.appendChild(grid);
     }
 
     function buyItem(item) {
         // Create the AJAX request
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "path/to/your/buy_item_script.php", true);
+        xhr.open("POST", "./../Assets/php/buy_item.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         // Prepare the data to send (you may need to adjust this according to your server-side needs)
@@ -319,5 +336,6 @@ if (!isset($_SESSION['username'])){
     document.getElementById('color').addEventListener('change', filterItems);
     document.getElementById('fun-factor').addEventListener('change', filterItems);
 </script>
+<script src="../Assets/js/navbar.js"></script>
 </body>
 </html>

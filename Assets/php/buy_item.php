@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 
 require '../../config.php';
@@ -13,15 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $item = json_decode($_POST['item'], true);  // Decode the JSON data
 
     if (isset($item['id'], $item['price'])) {
-        buyItem($item);
+        buyItem($link, $item);
     } else {
         echo "Invalid item data.";
     }
 }
 
-function buyItem($item)
+function buyItem($link, $item)
 {
-    $success = buy_item($link, $_SESSION['username'], $item['id'], $item['price']);
+    $success = buy_item($link, $_SESSION['username'], $item['price'], $item['id']);
 
     if ($success) {
         echo "<script type='text/javascript'>
