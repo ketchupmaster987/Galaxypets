@@ -275,4 +275,22 @@ You can adjust the min-width numbers below, and add as many new media queries as
 /* closes 1024px+ */
 
 /* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/others/oth-8/oth756.cur), auto !important;} /* End https://www.cursors-4u.com */
+.mission-statement {
+    border: 2px solid var(--pink);
+    color: var(--pink);
+    padding: 1.5rem;
+    margin: 1rem auto;
+    max-width: 700px;
+    background-color: rgba(255, 23, 145, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    font-family: var(--main-font), sans-serif;
+    box-shadow: 0 0 15px rgba(255, 23, 145, 0.4);
+}
+.mission-statement h2 {
+    font-family: var(--header-font), sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--pink);
+}
 
