@@ -16,22 +16,43 @@ if (!isset($_SESSION['username'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['score'])) {
     $username = $_SESSION['username'];
-    $points = intval($_POST['score']); // Get score from JS
+    $points = intval($_POST['score']);
 
-    $stmt = $link->prepare("UPDATE points SET points = points + ? WHERE user = ?");
-    if (!$stmt) {
+    // Check if the user already has points
+    $checkStmt = $link->prepare("SELECT 1 FROM points WHERE user = ?");
+    if (!$checkStmt) {
         http_response_code(500);
-        exit("SQL prepare failed.");
+        exit("SQL prepare failed (check).");
     }
-    $stmt->bind_param("is", $points, $username);
+    $checkStmt->bind_param("s", $username);
+    $checkStmt->execute();
+    $checkStmt->store_result();
+
+    if ($checkStmt->num_rows > 0) {
+        // Update existing score
+        $stmt = $link->prepare("UPDATE points SET points = points + ? WHERE user = ?");
+        if (!$stmt) {
+            http_response_code(500);
+            exit("SQL prepare failed (update).");
+        }
+        $stmt->bind_param("is", $points, $username);
+    } else {
+        // Insert new score row
+        $stmt = $link->prepare("INSERT INTO points (user, points) VALUES (?, ?)");
+        if (!$stmt) {
+            http_response_code(500);
+            exit("SQL prepare failed (insert).");
+        }
+        $stmt->bind_param("si", $username, $points);
+    }
 
     if (!$stmt->execute()) {
         http_response_code(500);
-        echo "Failed to update score.";
+        exit("Failed to save score.");
     }
-    // Optionally return a response, though Beacon doesn't wait for one
-    exit("Score updated successfully.");
+
+    exit("Score saved successfully.");
 } else {
-    http_response_code(400); // Bad request
+    http_response_code(400);
     exit("Invalid score data.");
 }
