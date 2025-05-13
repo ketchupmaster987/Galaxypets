@@ -30,7 +30,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    cursor: url('Assets/img/cursor/oth756.png'); /*auto;*/
+    cursor: url('/Assets/img/cursor/oth756.png'); /*auto;*/
  
 body {
     font-family: var(--main-font), sans-serif;
@@ -39,7 +39,7 @@ body {
     background-color: black;
     background-image: url(/Assets/img/aquagalaxy_small.gif);
     color: #ffffff;
-    cursor: url('Assets/img/cursor/oth756.png'); /*auto;*/
+    cursor: url('/Assets/img/cursor/oth756.png'); /*auto;*/
 }
 
 }
@@ -82,7 +82,7 @@ body {
     background-color: black;
     background-image: url(/Assets/img/aquagalaxy_small.gif);
     color: #ffffff;
-    cursor: url('Assets/img/cursor/oth756.png'); /* auto; */
+    cursor: url('/Assets/img/cursor/oth756.png'); /* auto; */
 }
 
 header {
