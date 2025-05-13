@@ -36,9 +36,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
-    background-image: url(/Assets/img/aquagalaxy_small.gif);
+    background-image: url(../img/aquagalaxy_small.gif);
     color: #ffffff;
-    /*cursor: url(/Assets/img/cursor/cursor2.gif); /*auto;*/
+    cursor: url(../img/cursor/oth756.png), auto;
 }
 
 /*}*/
