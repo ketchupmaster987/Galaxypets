@@ -310,7 +310,7 @@ if (!isset($_SESSION['username'])){
     function buyItem(item) {
         // Create the AJAX request
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "path/to/your/buy_item_script.php", true);
+        xhr.open("POST", "./../Assets/php/buy_item.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         // Prepare the data to send (you may need to adjust this according to your server-side needs)
