@@ -216,9 +216,18 @@ function hasEmptyTile() {
     return false;
 }
 
-window.onbeforeunload = function returnScore(){
-    sessionStorage.setItem("points", score);
-    //launch separate php
-    //have the phpfile load on close
-    window.location("scoreADDer.php");
+function sendPointsUpdate() {
+    navigator.sendBeacon('/Assets/php/add_points.php');  // Use Beacon for reliability on unload
 }
+
+// On tab switch (loss of visibility)
+document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') {
+        sendPointsUpdate();
+    }
+});
+
+// On window/tab close
+window.addEventListener('beforeunload', function () {
+    sendPointsUpdate();
+});

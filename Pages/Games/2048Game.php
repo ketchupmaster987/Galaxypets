@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="./../../Assets/js/2048.js"></script>
 
     <title>2048</title>
 
@@ -47,9 +46,9 @@
             <p>Use the 'Arrow Keys' to move<br> the planets from side to side</p>
         </div>
     </div>
-    <button onclick="">
 </main>
 
+<script src="./../../Assets/js/2048.js"></script>
 <script src="../../Assets/js/navbar.js"></script>
 </body>
 </html> 
