@@ -127,9 +127,20 @@ if (!isset($_SESSION['username'])){
     //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
     header("location: /../login.php");
 }
+    $username = $_SESSION['username'];
+
+        // Fetch the user's points
+        $stmt = $link->prepare("SELECT points FROM points WHERE user = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->bind_result($user_points);
+        $stmt->fetch();
+        $stmt->close();
 ?>
 <header>
     <div id="navbar-container"></div>
+    <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
+    <p>Your current points: <strong><?php echo $user_points; ?></strong></p>
 </header>
 
 <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">

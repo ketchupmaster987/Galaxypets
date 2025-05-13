@@ -127,6 +127,15 @@ if (!isset($_SESSION['username'])){
     //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
     header("location: /../login.php");
 }
+    $username = $_SESSION['username'];
+
+        // Fetch the user's points
+        $stmt = $link->prepare("SELECT points FROM points WHERE user = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->bind_result($user_points);
+        $stmt->fetch();
+        $stmt->close();
 ?>
 
 <header>
@@ -138,6 +147,8 @@ if (!isset($_SESSION['username'])){
 </marquee>
 <div class="container">
     <h1>Welcome to the Shop!</h1>
+    <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
+    <p>Your current points: <strong><?php echo $user_points; ?></strong></p>
 
     <div class="filters">
         <div class="filter-group">
