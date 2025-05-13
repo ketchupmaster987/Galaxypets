@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <header class="border-bottom sticky-top">
     <div id="navbar-container"></div>
 </header>
