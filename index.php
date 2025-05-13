@@ -17,7 +17,7 @@
     <div id="navbar-container"></div>
 </header>
 
-<marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">
+<marquee behavior=scroll direction="left" scrollamount="5" style="color:rgb(255, 23, 205);">
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 

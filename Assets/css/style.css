@@ -287,10 +287,12 @@ You can adjust the min-width numbers below, and add as many new media queries as
     font-family: var(--main-font), sans-serif;
     box-shadow: 0 0 15px rgba(255, 23, 145, 0.4);
 }
+
 .mission-statement h2 {
     font-family: var(--header-font), sans-serif;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     color: var(--pink);
 }
+
 
