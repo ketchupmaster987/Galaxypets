@@ -216,17 +216,19 @@ function hasEmptyTile() {
     return false;
 }
 
-function sendPointsUpdate() {
-    if (score <= 0) return; // so we dont send 0
-    const data = new FormData();
-    data.append('score', score);
-
-    navigator.sendBeacon('/Assets/php/scoreADDer.php', data);  // Use Beacon for reliability on unload
-}
-
 // On tab switch (loss of visibility)
-document.addEventListener('visibilitychange', function () {
-    if (document.visibilityState === 'hidden') {
-        sendPointsUpdate();
+window.addEventListener("beforeunload", () => {
+    if (score > 0) {
+        localStorage.setItem("pendingScore", score);
+    }
+});
+
+window.addEventListener("load", () => {
+    const pending = localStorage.getItem("pendingScore");
+    if (pending && parseInt(pending) > 0) {
+        const data = new FormData();
+        data.append("score", pending);
+        navigator.sendBeacon("/Assets/php/scoreADDer.php", data);
+        localStorage.removeItem("pendingScore");
     }
 });
