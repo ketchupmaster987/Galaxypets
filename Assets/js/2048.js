@@ -226,6 +226,7 @@ function sendPointsUpdate() {
 
 // On tab switch (loss of visibility)
 document.addEventListener('visibilitychange', function () {
+    console.log("visibilitychange");
     if (document.visibilityState === 'hidden') {
         sendPointsUpdate();
     }
@@ -233,5 +234,6 @@ document.addEventListener('visibilitychange', function () {
 
 // On window/tab close
 window.addEventListener('beforeunload', function () {
+    console.log("beforeunload");
     sendPointsUpdate();
 });

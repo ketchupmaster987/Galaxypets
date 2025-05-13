@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['score'])) {
     $username = $_SESSION['username'];
     $points = intval($_POST['score']); // Get score from JS
 
-    $stmt = $link->prepare("UPDATE points SET points = points + ? WHERE username = ?");
+    $stmt = $link->prepare("UPDATE points SET points = points + ? WHERE user = ?");
     $stmt->bind_param("is", $points, $username);
 
     if (!$stmt->execute()) {
