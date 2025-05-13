@@ -138,8 +138,8 @@ if (!isset($_SESSION['username'])) {
 </marquee>
 <div class="container">
     <h1>Welcome to the Shop!</h1>
-    <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
-    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
+    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+    <p>Your current points: <strong><?php echo  htmlspecialchars($_SESSION['points'] ?? '0'); ?></strong></p>
 
     <div class="filters">
         <div class="filter-group">
