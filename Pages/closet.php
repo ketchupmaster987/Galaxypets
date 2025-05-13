@@ -131,8 +131,8 @@ if (!isset($_SESSION['username'])){
 ?>
 <header>
     <div id="navbar-container"></div>
-    <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
-    <p>Your current points: <strong><?php echo $user_points; ?></strong></p>
+    <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
+    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
 </header>
 
 <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">

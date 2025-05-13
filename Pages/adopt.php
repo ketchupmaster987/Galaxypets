@@ -41,8 +41,8 @@ session_start();
             <li><a href="/../logout.php">Log Out</a></li>
         </ul>
     </nav>
-    <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
-    <p>Your current points: <strong><?php echo $user_points; ?></strong></p>
+     <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
+    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
 </header>
 <main>
 	<br>
