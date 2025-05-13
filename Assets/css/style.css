@@ -25,8 +25,7 @@
     src: url(planet.TTF) format('truetype');
     font-display: swap;
 }
-
-html, body {
+/* html, body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -42,7 +41,7 @@ body {
     /*cursor: url(/Assets/img/cursor/cursor2.gif); /*auto;*/
 }
 
-}
+/*}*/
 
 
 
