@@ -33,9 +33,7 @@ html, body {
  
 
 }
-body {
-  cursor: url('../img/oth756.png'), auto;
-}
+
 
 
 html {
@@ -74,6 +72,7 @@ body {
     background-color: black;
     background-image: url(/Assets/img/aquagalaxy_small.gif);
     color: #ffffff;
+    cursor: url('../img/oth756.png'), auto;
 }
 
 header {
