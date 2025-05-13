@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Include config and function files
 require '../../config.php';
 require '../../functions.php';
 
@@ -9,16 +8,17 @@ if (!isset($_SESSION['username'])) {
     die("User not logged in");
 }
 
-// $item should be the json of the item
-// {
-//    "id": "hat-2",
-//    "name": "Alien Antenna",
-//    "price": 20,
-//    "image": "sillyband-blue.PNG",
-//    "type": "hat",
-//    "color": "blue",
-//    "fun_factor": "super-fun"
-//  }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get the item data from the AJAX request
+    $item = json_decode($_POST['item'], true);  // Decode the JSON data
+
+    if (isset($item['id'], $item['price'])) {
+        buyItem($item);
+    } else {
+        echo "Invalid item data.";
+    }
+}
+
 function buyItem($item)
 {
     $success = buy_item($link, $_SESSION['username'], $item['id'], $item['price']);

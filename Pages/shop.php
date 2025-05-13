@@ -240,7 +240,7 @@ if (!isset($_SESSION['username'])){
             grid.className = `grid ${viewType}`;
             itemsToDisplay.forEach(item => {
                 grid.innerHTML += `
-                        <div class="item" onclick="buy_item(item)">
+                        <div class="item" onclick="buyItem(${item})">
                             <img src="../Assets/img/hats/${item.image}" alt="${item.name}">
                             <h3>${item.name}</h3>
                             <p>$${item.price.toFixed(2)}</p>
@@ -288,6 +288,30 @@ if (!isset($_SESSION['username'])){
                 `;
         });
         container.appendChild(grid);
+    }
+
+    function buyItem(item) {
+        // Create the AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "path/to/your/buy_item_script.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // Prepare the data to send (you may need to adjust this according to your server-side needs)
+        const data = `item=${encodeURIComponent(JSON.stringify(item))}`;
+
+        // Send the request
+        xhr.send(data);
+
+        // Handle the response
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                const response = xhr.responseText;
+                alert(response);  // Display the response from the PHP script (success or failure)
+                location.reload();  // Reload the page after purchase
+            } else {
+                alert("An error occurred during the purchase process.");
+            }
+        };
     }
 
     // Add event listeners to filters
