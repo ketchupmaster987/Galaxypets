@@ -30,6 +30,8 @@
     ?>
     
     <div id="navbar-container"></div>
+    <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
+    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
 </header>
 
 <main>

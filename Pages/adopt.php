@@ -23,6 +23,7 @@ session_start();
         //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
         header("location: /../login.php");
     }
+    
     ?>
     <nav>
         <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
@@ -32,7 +33,7 @@ session_start();
                 Community
                 <div class="dropdown-content">
                     <a href="clubs.php">Clubs</a>
-                    <a href="#">Users</a>
+                    <a href="petprofile.php">Users</a>
                 </div>
             </li>
             <li><a href="games.php">Games</a></li>
@@ -40,6 +41,8 @@ session_start();
             <li><a href="/../logout.php">Log Out</a></li>
         </ul>
     </nav>
+     <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
+    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
 </header>
 <main>
 	<br>

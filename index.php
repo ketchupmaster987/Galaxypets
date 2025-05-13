@@ -17,11 +17,20 @@
     <div id="navbar-container"></div>
 </header>
 
-<marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">
+<marquee behavior=scroll direction="left" scrollamount="5" style="color:rgb(255, 23, 205);">
     •°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ.•°*”˜˜”*°•.ƸӜƷ•°*”˜˜”*°•.ƸӜƷ
 </marquee>
 
 <main>
+    <section class="mission-statement">
+  <h2>🍼👾Save the aliebies!👾🍼</h2>
+  <p>
+    The Galaxypets are critically endangered! Their homeworld has been destroyed, 
+    and the future of their kind depends on you, a veterinarian astronaut. Your mission is to adopt and take care of a baby alien to help keep their species alive, 
+    and give them a new home among the 🩷💫stars💫🩷 
+  </p>
+</section>
+
     <section class="container article-container">
     <section class="article">
             <h2>GalaxyPets Daily News // Stardate 2025.04.14</h2>

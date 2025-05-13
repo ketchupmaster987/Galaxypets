@@ -15,8 +15,11 @@ session_start();
     if (!isset($_SESSION['username'])) {
         header("location: /../login.php");
     }
+    
     ?>
     <div id="navbar-container"></div>
+     <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
+    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
 </header>
 
 <main>
@@ -99,5 +102,7 @@ session_start();
 
 <a href="/../logout.php">Logout</a>
 <script src="../Assets/js/navbar.js"></script>
+
+
 </body>
 </html>

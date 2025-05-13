@@ -127,9 +127,12 @@ if (!isset($_SESSION['username'])){
     //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
     header("location: /../login.php");
 }
+
 ?>
 <header>
     <div id="navbar-container"></div>
+    <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
+    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
 </header>
 
 <marquee behavior=scroll direction="left" scrollamount="5" style="color: #17ffee;">

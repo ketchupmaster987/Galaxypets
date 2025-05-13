@@ -25,23 +25,23 @@
     src: url(planet.TTF) format('truetype');
     font-display: swap;
 }
-/* html, body {
+ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    /*cursor: url(/Assets/img/cursor/cursor2.gif); auto;*/
+   
  
 body {
     font-family: var(--main-font), sans-serif;
     margin: 0;
     padding: 0;
     background-color: black;
-    background-image: url(/Assets/img/aquagalaxy_small.gif);
+    background-image: url(../img/aquagalaxy_small.gif);
     color: #ffffff;
-    /*cursor: url(/Assets/img/cursor/cursor2.gif); /*auto;*/
+    cursor: url(../img/cursor/oth756.png), auto;
 }
 
-/*}*/
+}
 
 
 
@@ -81,7 +81,7 @@ body {
     background-color: black;
     background-image: url(/Assets/img/aquagalaxy_small.gif);
     color: #ffffff;
-    cursor: url(/Assets/img/cursor/cursor2.gif); /* auto; */
+
 }
 
 header {
@@ -273,6 +273,48 @@ You can adjust the min-width numbers below, and add as many new media queries as
 }
 
 /* closes 1024px+ */
+
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/others/oth-8/oth756.cur), auto !important;} /* End https://www.cursors-4u.com */
+.mission-statement {
+    border: 2px solid var(--pink);
+    color: var(--pink);
+    animation: flashPinkText 2s infinite ease-in-out;
+    background-color: rgba(255, 23, 145, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+@keyframes flashPinkText {
+    0%, 100% {
+        color: #ff1791;
+        text-shadow: 0 0 10px #ff1791;
+    }
+    50% {
+        color: #ff79c6;
+        text-shadow: 0 0 20px #ff79c6;
+    }
+}
+
+.right-tab {
+    color: rgb(188, 24, 213) !important;
+}
+
+
+.right-tab {
+    color: purple !important;
+    border-top: 2px solid purple;
+    border-bottom: 2px solid purple;
+    padding: 5px 0;
+    box-shadow: 0 0 5px limegreen; /* subtle glow */
+    transition: box-shadow 0.3s ease;
+}
+
+.right-tab:hover {
+    box-shadow: 0 0 10px 2px limegreen; /* stronger glow on hover */
+}
 
 
 
