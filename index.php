@@ -22,6 +22,15 @@
 </marquee>
 
 <main>
+    <section class="your-mission-statement">
+  <h2>🛸 Save the Galaxypets!</h2>
+  <p>
+    The Galaxypets species is critically endangered. Their homeworld has been destroyed, 
+    and the future of their kind depends on you. Adopt a baby alien to help keep their species alive 
+    and give them a new home among the stars.
+  </p>
+</section>
+
     <section class="container article-container">
     <section class="article">
             <h2>GalaxyPets Daily News // Stardate 2025.04.14</h2>
