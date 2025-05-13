@@ -4,6 +4,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+file_put_contents("beacon_log.txt", "=== REQUEST ===\n", FILE_APPEND);
+file_put_contents("beacon_log.txt", "POST: " . print_r($_POST, true), FILE_APPEND);
+file_put_contents("beacon_log.txt", "SESSION: " . print_r($_SESSION, true), FILE_APPEND);
+
 session_start();
 require_once './config.php';
 
@@ -17,6 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['score'])) {
     $points = intval($_POST['score']); // Get score from JS
 
     $stmt = $link->prepare("UPDATE points SET points = points + ? WHERE user = ?");
+    if (!$stmt) {
+        file_put_contents("beacon_log.txt", "Prepare failed: " . $link->error . "\n", FILE_APPEND);
+        http_response_code(500);
+        exit("SQL prepare failed.");
+    }
     $stmt->bind_param("is", $points, $username);
 
     if (!$stmt->execute()) {
