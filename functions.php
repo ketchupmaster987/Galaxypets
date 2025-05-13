@@ -121,7 +121,7 @@ function buy_item($link, $username, $itemCost, $itemName)
         if ($stmt->affected_rows === 0) {
             // Not enough points — rollback and exit
             $link->rollback();
-            echo json_encode(["success" => false, "message" => "Not enough points."]);
+            echo json_encode(["success" => false, "message" => "Not enough points. {$itemCost} points required. {$username} "]);
             exit;
         }
 
