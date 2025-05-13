@@ -230,8 +230,3 @@ document.addEventListener('visibilitychange', function () {
         sendPointsUpdate();
     }
 });
-
-// On window/tab close
-window.addEventListener('beforeunload', function () {
-    sendPointsUpdate();
-});
