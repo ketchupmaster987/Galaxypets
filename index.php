@@ -22,7 +22,7 @@
 </marquee>
 
 <main>
-    <section class="your-mission-statement">
+    <section class="mission-statement">
   <h2>🛸 Save the Galaxypets!</h2>
   <p>
     The Galaxypets species is critically endangered. Their homeworld has been destroyed, 
