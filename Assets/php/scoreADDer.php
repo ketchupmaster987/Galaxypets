@@ -12,19 +12,20 @@ if (!isset($_SESSION['username'])) {
     exit("User not logged in");
 }
 
-$username = $_SESSION['username'];
-$points = isset($_POST['score']) ? (int)$_POST['score'] : 0;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['score'])) {
+    $username = $_SESSION['username'];
+    $points = intval($_POST['score']); // Get score from JS
 
-if ($points > 0) {
     $stmt = $link->prepare("UPDATE points SET points = points + ? WHERE username = ?");
     $stmt->bind_param("is", $points, $username);
-    $stmt->execute();
 
-    if ($stmt->affected_rows > 0) {
-        echo "success";
-    } else {
-        echo "failed";
+    if (!$stmt->execute()) {
+        http_response_code(500);
+        echo "Failed to update score.";
     }
+    // Optionally return a response, though Beacon doesn't wait for one
+    exit("Score updated successfully.");
 } else {
-    echo "No points to add";
+    http_response_code(400); // Bad request
+    exit("Invalid score data.");
 }
