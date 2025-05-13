@@ -126,7 +126,7 @@ session_start();
 if (!isset($_SESSION['username'])){
     //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
     header("location: /../login.php");
-}
+
 ?>
 
 <header>
@@ -138,6 +138,8 @@ if (!isset($_SESSION['username'])){
 </marquee>
 <div class="container">
     <h1>Welcome to the Shop!</h1>
+    <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
+    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
 
     <div class="filters">
         <div class="filter-group">

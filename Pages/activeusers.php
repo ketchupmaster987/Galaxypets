@@ -15,8 +15,11 @@ session_start();
     if (!isset($_SESSION['username'])) {
         header("location: /../login.php");
     }
+    
     ?>
     <div id="navbar-container"></div>
+     <h1>Welcome, <?php echo htmlspecialchars('username'); ?>!</h1>
+    <p>Your current points: <strong><?php echo htmlspecialchars('points'); ?></strong></p>
 </header>
 
 <main>
