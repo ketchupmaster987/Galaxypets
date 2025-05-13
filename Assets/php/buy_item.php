@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function buyItem($link, $item)
 {
-    $success = buy_item($link, $_SESSION['username'], $item['id'], $item['price']);
+    $success = buy_item($link, $_SESSION['username'], $item['price'], $item['id']);
 
     if ($success) {
         echo "<script type='text/javascript'>

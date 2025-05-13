@@ -111,7 +111,7 @@ function buy_item($link, $username, $itemCost, $itemName)
         // 1. Subtract points IF the user has enough
         $stmt = $link->prepare("
         UPDATE points 
-        SET points = points + ? 
+        SET points = points - ? 
         WHERE user = ? AND points >= ?
     ");
         $stmt->bind_param("isi", $itemCost, $username, $itemCost);
