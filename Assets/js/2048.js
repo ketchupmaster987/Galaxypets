@@ -216,7 +216,6 @@ function hasEmptyTile() {
     return false;
 }
 
-// On tab switch (loss of visibility)
 window.addEventListener("beforeunload", () => {
     if (score > 0) {
         localStorage.setItem("pendingScore", score);

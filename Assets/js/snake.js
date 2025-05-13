@@ -125,10 +125,18 @@ document.addEventListener('keydown', function (e) {
 // Start the game loop
 requestAnimationFrame(loop);
 
-window.onbeforeunload = function returnScore(){
-    sessionStorage.setItem("points", snake.cells.length);
-    //launch seperate php
-    //have the phpfile load on close
-    window.location("scoreADDer.php");
+window.addEventListener("beforeunload", () => {
+    if (score > 0) {
+        localStorage.setItem("pendingScore", snake.cells.length);
+    }
+});
 
-}
+window.addEventListener("load", () => {
+    const pending = localStorage.getItem("pendingScore");
+    if (pending && parseInt(pending) > 0) {
+        const data = new FormData();
+        data.append("score", pending);
+        navigator.sendBeacon("/Assets/php/scoreADDer.php", data);
+        localStorage.removeItem("pendingScore");
+    }
+});
