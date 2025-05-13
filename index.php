@@ -23,11 +23,11 @@
 
 <main>
     <section class="mission-statement">
-  <h2>🛸 Save the Galaxypets!</h2>
+  <h2>👽🍼Save the Galaxypets!👽🍼</h2>
   <p>
-    The Galaxypets species is critically endangered. Their homeworld has been destroyed, 
-    and the future of their kind depends on you. Adopt a baby alien to help keep their species alive 
-    and give them a new home among the stars.
+    The Galaxypets species is critically endangered! Their homeworld has been destroyed, 
+    and the future of their kind depends on you, a veterinarian astronaut. Your mission is to adopt and take care of a baby alien to help keep their species alive, 
+    and give them a new home among the 🩷💫stars💫🩷 
   </p>
 </section>
 
