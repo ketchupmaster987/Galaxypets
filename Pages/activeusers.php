@@ -99,7 +99,7 @@ session_start();
 
 <a href="/../logout.php">Logout</a>
 <script src="../Assets/js/navbar.js"></script>
-cursor: url(../img/cursor/oth756.png), auto;
+
 
 </body>
 </html>
