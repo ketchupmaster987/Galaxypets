@@ -22,15 +22,7 @@
         header("location: /../login.php");
     }
 
-    $username = $_SESSION['username'];
-
-        // Fetch the user's points
-        $stmt = $link->prepare("SELECT points FROM points WHERE user = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->bind_result($user_points);
-        $stmt->fetch();
-        $stmt->close();
+    
     ?>
 
     <div id="navbar-container"></div>

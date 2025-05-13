@@ -23,15 +23,7 @@ session_start();
         //echo "<script>alert('current user: ".$_SESSION['username']."')</script>";
         header("location: /../login.php");
     }
-        $username = $_SESSION['username'];
-
-        // Fetch the user's points
-        $stmt = $link->prepare("SELECT points FROM points WHERE user = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->bind_result($user_points);
-        $stmt->fetch();
-        $stmt->close();
+    
     ?>
     <nav>
         <div class="logo"><a href="../index.php" style="text-decoration: none;">GalaxyPets</a></div>
