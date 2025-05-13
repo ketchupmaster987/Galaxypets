@@ -17,13 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $item = json_decode($_POST['item'], true);  // Decode the JSON data
 
     if (isset($item['id'], $item['price'])) {
-        buyItem($item);
+        buyItem($link, $item);
     } else {
         echo "Invalid item data.";
     }
 }
 
-function buyItem($item)
+function buyItem($link, $item)
 {
     $success = buy_item($link, $_SESSION['username'], $item['id'], $item['price']);
 
