@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['score'])) {
 
     $stmt = $link->prepare("UPDATE points SET points = points + ? WHERE user = ?");
     if (!$stmt) {
-        file_put_contents("beacon_log.txt", "Prepare failed: " . $link->error . "\n", FILE_APPEND);
         http_response_code(500);
         exit("SQL prepare failed.");
     }
