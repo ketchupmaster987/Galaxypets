@@ -278,21 +278,25 @@ You can adjust the min-width numbers below, and add as many new media queries as
 .mission-statement {
     border: 2px solid var(--pink);
     color: var(--pink);
-    padding: 1.5rem;
-    margin: 1rem auto;
-    max-width: 700px;
+    animation: flashPinkText 2s infinite ease-in-out;
     background-color: rgba(255, 23, 145, 0.1);
+    padding: 1.5rem;
     border-radius: 10px;
+    max-width: 700px;
+    margin: 1rem auto;
     text-align: center;
-    font-family: var(--main-font), sans-serif;
-    box-shadow: 0 0 15px rgba(255, 23, 145, 0.4);
 }
 
-.mission-statement h2 {
-    font-family: var(--header-font), sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    color: var(--pink);
+@keyframes flashPinkText {
+    0%, 100% {
+        color: #ff1791;
+        text-shadow: 0 0 10px #ff1791;
+    }
+    50% {
+        color: #ff79c6;
+        text-shadow: 0 0 20px #ff79c6;
+    }
 }
+
 
 
