@@ -4,10 +4,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-file_put_contents("beacon_log.txt", "=== REQUEST ===\n", FILE_APPEND);
-file_put_contents("beacon_log.txt", "POST: " . print_r($_POST, true), FILE_APPEND);
-file_put_contents("beacon_log.txt", "SESSION: " . print_r($_SESSION, true), FILE_APPEND);
-
 session_start();
 require_once './config.php';
 
