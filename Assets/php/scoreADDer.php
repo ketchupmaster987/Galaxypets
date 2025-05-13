@@ -5,7 +5,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-require_once './config.php';
+
+require '../../config.php';
+require '../../functions.php';
 
 if (!isset($_SESSION['username'])) {
     http_response_code(403);
