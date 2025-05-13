@@ -100,10 +100,18 @@ function gameOver() {
 }
 
 
-window.onbeforeunload = function returnScore(){
-    sessionStorage.setItem("points", score);
-    //launch seperate php
-    //have the phpfile load on close
-    window.location("scoreADDer.php");
+window.addEventListener("beforeunload", () => {
+    if (score > 0) {
+        localStorage.setItem("pendingScore", score);
+    }
+});
 
-}
+window.addEventListener("load", () => {
+    const pending = localStorage.getItem("pendingScore");
+    if (pending && parseInt(pending) > 0) {
+        const data = new FormData();
+        data.append("score", pending);
+        navigator.sendBeacon("/Assets/php/scoreADDer.php", data);
+        localStorage.removeItem("pendingScore");
+    }
+});
