@@ -12,17 +12,19 @@ if (!isset($_SESSION['username'])) {
     exit("User not logged in");
 }
 
-$points = isset($_SESSION['points']) ? (int)$_SESSION['points'] : 1;
 $username = $_SESSION['username'];
+$points = isset($_POST['score']) ? (int)$_POST['score'] : 0;
 
-$stmt = $link->prepare("UPDATE points SET points = points + ? WHERE username = ?");
-$stmt->bind_param("is", $points, $username);
-$stmt->execute();
+if ($points > 0) {
+    $stmt = $link->prepare("UPDATE points SET points = points + ? WHERE username = ?");
+    $stmt->bind_param("is", $points, $username);
+    $stmt->execute();
 
-if ($stmt->affected_rows > 0) {
-    echo "success";
+    if ($stmt->affected_rows > 0) {
+        echo "success";
+    } else {
+        echo "failed";
+    }
 } else {
-    echo "failed";
+    echo "No points to add";
 }
-
-?>

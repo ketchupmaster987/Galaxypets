@@ -217,7 +217,11 @@ function hasEmptyTile() {
 }
 
 function sendPointsUpdate() {
-    navigator.sendBeacon('/Assets/php/add_points.php');  // Use Beacon for reliability on unload
+    if (score <= 0) return; // so we dont send 0
+    const data = new FormData();
+    data.append('score', score);
+
+    navigator.sendBeacon('/Assets/php/scoreADDer.php', data);  // Use Beacon for reliability on unload
 }
 
 // On tab switch (loss of visibility)
