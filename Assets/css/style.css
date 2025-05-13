@@ -30,6 +30,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    cursor: url('Assets/img/cursor/oth756.png'); /*auto;*/
  
 body {
     font-family: var(--main-font), sans-serif;
