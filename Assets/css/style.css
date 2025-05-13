@@ -29,7 +29,7 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    cursor: url(../img/cursor/cursor2.gif), auto;
+    /* cursor: url(../img/cursor/cursor2.gif), auto;*/
  
 body {
     font-family: var(--main-font), sans-serif;
@@ -81,7 +81,7 @@ body {
     background-color: black;
     background-image: url(/Assets/img/aquagalaxy_small.gif);
     color: #ffffff;
-    cursor: url(/Assets/img/cursor/cursor2.gif); /* auto; */
+    /* cursor: url(/Assets/img/cursor/cursor2.gif); /* auto; */
 }
 
 header {
